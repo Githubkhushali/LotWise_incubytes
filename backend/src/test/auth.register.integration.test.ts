@@ -9,6 +9,13 @@ import request from 'supertest';
 import app from '../app';
 import { truncateTables } from './helpers';
 
+// beforeAll: clean any stale rows left by a previous run that was killed
+// by --forceExit before its afterAll could run.
+beforeAll(async () => {
+  await truncateTables();
+});
+
+// beforeEach: clean between tests within this run.
 beforeEach(async () => {
   await truncateTables();
 });

@@ -16,6 +16,13 @@ const REGISTERED_USER = {
   password: 'secret12',
 };
 
+// beforeAll: clean any stale rows left by a previous run that was killed
+// by --forceExit before its afterAll could run.
+beforeAll(async () => {
+  await truncateTables();
+});
+
+// beforeEach: truncate + re-seed a known user for every test.
 beforeEach(async () => {
   await truncateTables();
   // Seed a known user for every test that needs valid credentials
