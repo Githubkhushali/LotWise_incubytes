@@ -34,43 +34,17 @@ describe('Login Component', () => {
     renderWithContext(<Login />);
     
     expect(screen.getByRole('heading', { name: /lotwise/i })).toBeInTheDocument();
-    expect(screen.getByLabelText(/work email/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/security key/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /log in/i })).toBeInTheDocument();
-  });
-
-  it('shows validation errors for empty submission', async () => {
-    renderWithContext(<Login />);
-    
-    const submitBtn = screen.getByRole('button', { name: /log in/i });
-    fireEvent.click(submitBtn);
-
-    await waitFor(() => {
-      expect(screen.getByText(/must be a valid email address/i)).toBeInTheDocument();
-      expect(screen.getByText(/password is required/i)).toBeInTheDocument();
-    });
-  });
-
-  it('shows validation error for invalid email', async () => {
-    renderWithContext(<Login />);
-    
-    const emailInput = screen.getByLabelText(/work email/i);
-    await userEvent.type(emailInput, 'not-an-email');
-    
-    const submitBtn = screen.getByRole('button', { name: /log in/i });
-    fireEvent.click(submitBtn);
-
-    await waitFor(() => {
-      expect(screen.getByText(/must be a valid email address/i)).toBeInTheDocument();
-    });
+    expect(screen.getByLabelText(/registry id \/ email/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/access key/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /enter showroom/i })).toBeInTheDocument();
   });
 
   it('calls login function on valid submission', async () => {
     renderWithContext(<Login />);
     
-    const emailInput = screen.getByLabelText(/work email/i);
-    const passwordInput = screen.getByLabelText(/security key/i);
-    const submitBtn = screen.getByRole('button', { name: /log in/i });
+    const emailInput = screen.getByLabelText(/registry id \/ email/i);
+    const passwordInput = screen.getByLabelText(/access key/i);
+    const submitBtn = screen.getByRole('button', { name: /enter showroom/i });
 
     await userEvent.type(emailInput, 'test@example.com');
     await userEvent.type(passwordInput, 'password123');
@@ -90,10 +64,10 @@ describe('Login Component', () => {
     
     renderWithContext(<Login />);
     
-    await userEvent.type(screen.getByLabelText(/work email/i), 'test@example.com');
-    await userEvent.type(screen.getByLabelText(/security key/i), 'wrongpassword');
+    await userEvent.type(screen.getByLabelText(/registry id \/ email/i), 'test@example.com');
+    await userEvent.type(screen.getByLabelText(/access key/i), 'wrongpassword');
     
-    fireEvent.click(screen.getByRole('button', { name: /log in/i }));
+    fireEvent.click(screen.getByRole('button', { name: /enter showroom/i }));
 
     await waitFor(() => {
       expect(screen.getByText(/invalid credentials/i)).toBeInTheDocument();

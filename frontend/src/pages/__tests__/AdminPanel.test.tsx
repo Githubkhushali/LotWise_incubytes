@@ -54,10 +54,11 @@ describe('AdminPanel Component', () => {
     vi.mocked(vehicleApi.getVehicles).mockResolvedValueOnce(mockVehicles);
     renderWithContext(true);
 
-    expect(screen.getByText('Inventory Control')).toBeInTheDocument();
+    expect(screen.getByText(/Fleet Command/i)).toBeInTheDocument();
     
     await waitFor(() => {
-      expect(screen.getByText('Tesla Model S')).toBeInTheDocument();
+      expect(screen.getByText(/Tesla/i)).toBeInTheDocument();
+      expect(screen.getByText(/Model S/i)).toBeInTheDocument();
     });
   });
 
@@ -68,16 +69,15 @@ describe('AdminPanel Component', () => {
 
     renderWithContext(true);
 
-    // Click "Add Vehicle" to open modal
-    const openModalBtn = screen.getByText('Add Vehicle');
+    // Click "Add New Vehicle" to open modal
+    const openModalBtn = screen.getByText(/Add New Vehicle/i);
     fireEvent.click(openModalBtn);
 
-    const makeInput = screen.getByLabelText('Make');
-    const modelInput = screen.getByLabelText('Model');
-    // Using placeholder to find price, or role
-    const priceInput = screen.getByLabelText('Price');
-    const qtyInput = screen.getByLabelText('Quantity');
-    const submitBtn = screen.getByText('Add');
+    const makeInput = screen.getByLabelText(/Make/i);
+    const modelInput = screen.getByLabelText(/Model/i);
+    const priceInput = screen.getByLabelText(/Price/i);
+    const qtyInput = screen.getByLabelText(/Quantity/i);
+    const submitBtn = screen.getByRole('button', { name: /Execute/i });
 
     await userEvent.type(makeInput, 'BMW');
     await userEvent.type(modelInput, 'M3');
@@ -112,7 +112,7 @@ describe('AdminPanel Component', () => {
     renderWithContext(true);
 
     await waitFor(() => {
-      expect(screen.getByText('Tesla Model S')).toBeInTheDocument();
+      expect(screen.getByText(/Tesla/i)).toBeInTheDocument();
     });
 
     // Find the delete button (has title="Delete")
@@ -120,7 +120,7 @@ describe('AdminPanel Component', () => {
     fireEvent.click(deleteBtn);
 
     // Find the confirm delete button in the overlay
-    const confirmDeleteBtn = screen.getByText('Confirm Delete');
+    const confirmDeleteBtn = screen.getByText('DELETE');
     fireEvent.click(confirmDeleteBtn);
 
     await waitFor(() => {

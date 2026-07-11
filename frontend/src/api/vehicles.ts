@@ -13,6 +13,8 @@ export interface VehicleSearchParams {
   make?: string;
   model?: string;
   category?: string;
+  priceMin?: number;
+  priceMax?: number;
 }
 
 export const vehicleApi = {

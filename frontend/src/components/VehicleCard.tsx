@@ -24,14 +24,14 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onPurchase })
   const getPlaceholderImage = (category: string) => {
     switch (category.toLowerCase()) {
       case 'suv':
-        return 'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=800';
+        return 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&q=80&w=800';
       case 'sedan':
-        return 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=800';
+        return 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=800';
       case 'performance':
       case 'coupe':
-        return 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800';
+        return 'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&q=80&w=800';
       default:
-        return 'https://images.unsplash.com/photo-1502877338535-34cb0c55d974?auto=format&fit=crop&q=80&w=800';
+        return 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&q=80&w=800';
     }
   };
 

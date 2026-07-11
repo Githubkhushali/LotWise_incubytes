@@ -4,12 +4,11 @@ import { vehicleApi, Vehicle } from '../api/vehicles';
 import { useNavigate, Link } from 'react-router-dom';
 
 export const AdminPanel: React.FC = () => {
-  const { user, isAdmin, logout } = useAuth();
+  const { isAdmin, logout } = useAuth();
   const navigate = useNavigate();
   
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   // Form State
   const [formMake, setFormMake] = useState('');
@@ -31,11 +30,10 @@ export const AdminPanel: React.FC = () => {
   const fetchVehicles = useCallback(async () => {
     try {
       setLoading(true);
-      setError(null);
       const data = await vehicleApi.getVehicles();
       setVehicles(data);
     } catch (err) {
-      setError('Failed to load vehicles');
+      console.error('Failed to load vehicles');
     } finally {
       setLoading(false);
     }
@@ -86,7 +84,7 @@ export const AdminPanel: React.FC = () => {
 
   const handleRestock = async (id: string) => {
     try {
-      await vehicleApi.restockVehicle(id, { quantity: 5 }); // Fixed amount for simplicity
+      await vehicleApi.restockVehicle(id, { quantity: 5 });
       await fetchVehicles();
     } catch (err) {
       alert('Failed to restock vehicle');
@@ -117,147 +115,173 @@ export const AdminPanel: React.FC = () => {
 
   const totalValue = vehicles.reduce((sum, v) => sum + (v.price * Math.max(v.quantity, 0)), 0);
 
-  // Generate a placeholder image based on category
   const getPlaceholderImage = (category: string) => {
     switch (category.toLowerCase()) {
-      case 'suv':
-        return 'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=800';
-      case 'sedan':
-        return 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=800';
+      case 'suv': return 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&q=80&w=800';
+      case 'sedan': return 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=800';
       case 'performance':
-      case 'coupe':
-        return 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800';
-      default:
-        return 'https://images.unsplash.com/photo-1502877338535-34cb0c55d974?auto=format&fit=crop&q=80&w=800';
+      case 'coupe': return 'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&q=80&w=800';
+      default: return 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&q=80&w=800';
     }
   };
 
   return (
-    <div className="bg-background font-body-md text-on-surface antialiased min-h-screen">
-      <header className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-        <div className="h-16 w-full px-container-margin flex items-center justify-between">
-          <div className="flex items-center gap-stack-md">
-            <span className="material-symbols-outlined text-[32px] text-primary" style={{ fontVariationSettings: "'FILL' 1, 'wght' 200" }}>view_in_ar</span>
-            <span className="font-headline-md text-headline-md text-on-surface tracking-tight">Lotwise</span>
-            <div className="ml-stack-md px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-mono text-label-mono uppercase tracking-widest">Admin</div>
+    <div className="bg-background font-body-md text-on-surface select-none min-h-screen">
+      <header className="fixed top-0 w-full z-50 bg-surface-container-low/90 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)] border-b border-white/5">
+        <div className="h-xl w-full px-margin-desktop flex items-center justify-between">
+          <div className="flex items-center gap-sm">
+            <span className="font-headline-lg text-headline-lg tracking-tight uppercase text-secondary">Lotwise</span>
           </div>
-          <nav className="hidden md:flex items-center gap-stack-lg">
-            <Link to="/" className="text-body-md text-on-surface-variant hover:text-on-surface transition-colors">Inventory</Link>
-            <Link to="/admin" className="transition-colors text-primary font-semibold" aria-current="page">Admin Panel</Link>
+          <nav className="hidden md:flex items-center gap-lg">
+            <Link to="/" className="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-secondary transition-all duration-300">Inventory</Link>
+            <Link to="/admin" className="font-label-caps uppercase transition-all duration-300 text-secondary-fixed shadow-[0_0_15px_rgba(195,244,0,0.3)]" aria-current="page">Admin Panel</Link>
+            <button onClick={logout} className="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-secondary transition-all duration-300">Log out</button>
           </nav>
-          <div className="flex items-center gap-stack-md">
-            <button onClick={logout} className="text-body-md text-on-surface-variant hover:text-on-surface transition-colors">Log out</button>
-            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-              <span className="material-symbols-outlined text-on-primary text-[18px]">person</span>
+          <div className="flex items-center gap-sm">
+            <div className="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center shadow-[0_0_10px_rgba(195,244,0,0.4)]">
+              <span className="material-symbols-outlined text-on-secondary-fixed text-[18px]">person</span>
             </div>
           </div>
         </div>
       </header>
 
-      <main className="w-full pt-24 bg-surface min-h-screen px-container-margin py-stack-lg pb-32">
-        <div className="flex flex-col w-full gap-stack-lg max-w-7xl mx-auto">
-          
-          <section className="flex flex-col md:flex-row md:items-end justify-between gap-stack-md">
-            <div className="flex flex-col">
-              <div className="flex items-center gap-stack-sm mb-unit">
-                <span className="w-2 h-2 rounded-full bg-error animate-pulse"></span>
-                <span className="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-[0.2em]">System Live</span>
+      <main className="w-full pt-xl min-h-screen">
+        <div className="flex flex-col w-full">
+          {/* Header Section */}
+          <div className="px-margin-desktop py-lg flex flex-col md:flex-row justify-between items-end gap-lg mt-8">
+            <div className="flex flex-col gap-xs">
+              <div className="flex items-center gap-sm">
+                <span className="w-3 h-3 bg-secondary-fixed animate-pulse"></span>
+                <span className="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-[0.2em]">System Status: Operational</span>
               </div>
-              <h1 className="font-headline-xl text-headline-xl text-on-surface tracking-tighter">Inventory Control</h1>
-              <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-                High-performance fleet management. Monitor, adjust, and optimize vehicle availability across all regional hubs.
-              </p>
+              <h1 className="font-display-lg text-display-lg text-secondary uppercase leading-none">Fleet Command</h1>
+              <p className="font-body-lg text-on-surface-variant max-w-xl">Real-time telemetry and inventory management for high-performance assets.</p>
             </div>
-            <div className="flex items-center gap-stack-md">
-              <div className="hidden lg:flex flex-col items-end mr-stack-md border-r border-outline-variant pr-stack-md">
-                <span className="font-label-mono text-label-mono text-on-surface-variant">TOTAL VALUE</span>
-                <span className="font-headline-md text-headline-md text-primary">${totalValue.toLocaleString()}</span>
-              </div>
-              <button onClick={() => { resetForm(); setShowForm(true); }} className="group relative flex items-center gap-stack-sm bg-primary text-on-primary px-stack-lg py-3 rounded-full transition-all hover:pr-10 overflow-hidden">
-                <span className="material-symbols-outlined text-[20px]">add_circle</span>
-                <span className="font-headline-md text-body-lg font-bold">Add Vehicle</span>
-                <span className="material-symbols-outlined absolute right-4 opacity-0 group-hover:opacity-100 transition-all text-[20px]">arrow_forward</span>
-              </button>
-            </div>
-          </section>
+            
+            <button onClick={() => { resetForm(); setShowForm(true); }} className="group relative flex items-center gap-md bg-secondary-fixed px-lg py-md shadow-[0_0_30px_rgba(195,244,0,0.2)] hover:shadow-[0_0_50px_rgba(195,244,0,0.4)] transition-all duration-500 overflow-hidden">
+              <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12"></div>
+              <span className="material-symbols-outlined text-on-secondary-fixed text-[24px]">add_circle</span>
+              <span className="font-label-caps text-label-caps text-on-secondary-fixed uppercase tracking-widest">Add New Vehicle</span>
+            </button>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter">
-            <div className="md:col-span-3 bg-surface-container-low p-stack-md flex flex-wrap items-center gap-stack-md rounded-lg">
-              <div className="flex-1 min-w-[240px] relative">
-                <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-                <input type="text" className="w-full bg-surface-container h-11 pl-10 pr-4 text-body-md text-on-surface focus:outline-none focus:ring-1 ring-primary transition-all rounded-lg" placeholder="Search..." />
+          {/* Analytics Grid */}
+          <div className="px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-gutter mb-xl">
+            <div className="bg-secondary p-lg shadow-xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+              <div className="flex justify-between items-start mb-md">
+                <span className="font-label-caps text-label-caps text-surface-container-low uppercase">Total Inventory</span>
+                <span className="material-symbols-outlined text-surface-container-low opacity-30">inventory_2</span>
+              </div>
+              <div className="flex items-baseline gap-sm">
+                <span className="font-stats-xl text-stats-xl text-surface">{vehicles.length}</span>
+              </div>
+              <div className="mt-lg h-12 w-full flex items-end gap-[2px]">
+                <div className="flex-1 bg-surface-container-low/10 h-[40%] group-hover:h-[60%] transition-all duration-500"></div>
+                <div className="flex-1 bg-surface-container-low/10 h-[55%] group-hover:h-[80%] transition-all duration-500"></div>
+                <div className="flex-1 bg-surface-container-low/10 h-[30%] group-hover:h-[50%] transition-all duration-500"></div>
+                <div className="flex-1 bg-surface-container-low/10 h-[70%] group-hover:h-[90%] transition-all duration-500"></div>
+                <div className="flex-1 bg-surface-container-low/10 h-[45%] group-hover:h-[65%] transition-all duration-500"></div>
+                <div className="flex-1 bg-surface-container-low h-[85%]"></div>
               </div>
             </div>
-            <div className="bg-surface-variant p-stack-md flex flex-col justify-center rounded-lg">
-              <span className="font-label-mono text-label-mono text-on-surface-variant uppercase">Active Listings</span>
-              <div className="flex items-baseline gap-stack-sm">
-                <span className="font-headline-lg text-headline-lg text-on-surface">{vehicles.length}</span>
+            
+            <div className="bg-secondary p-lg shadow-xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-1 h-full bg-secondary-fixed"></div>
+              <div className="flex justify-between items-start mb-md">
+                <span className="font-label-caps text-label-caps text-surface-container-low uppercase">Fleet Value</span>
+                <span className="material-symbols-outlined text-surface-container-low opacity-30">payments</span>
+              </div>
+              <div className="flex items-baseline gap-sm">
+                <span className="font-stats-xl text-stats-xl text-surface">${(totalValue / 1000000).toFixed(1)}M</span>
+              </div>
+              <div className="mt-lg h-12 flex items-center overflow-hidden">
+                <svg className="w-full h-full text-surface-container-low opacity-20" preserveAspectRatio="none" viewBox="0 0 200 40">
+                  <path className="animate-[dash_2s_ease-in-out_infinite]" d="M0 40 L20 30 L40 35 L60 10 L80 25 L100 5 L120 15 L140 30 L160 10 L180 20 L200 0" fill="none" stroke="currentColor" strokeWidth="2"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <div className="bg-secondary p-lg shadow-xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
+              <div className="flex justify-between items-start mb-md">
+                <span className="font-label-caps text-label-caps text-surface-container-low uppercase">Avg. Turnaround</span>
+                <span className="material-symbols-outlined text-surface-container-low opacity-30">speed</span>
+              </div>
+              <div className="flex items-baseline gap-sm">
+                <span className="font-stats-xl text-stats-xl text-surface">14.2</span>
+                <span className="font-body-md text-surface-container-low opacity-60">DAYS</span>
+              </div>
+              <div className="mt-lg flex gap-1">
+                <div className="h-2 flex-1 bg-secondary-fixed"></div>
+                <div className="h-2 flex-1 bg-secondary-fixed"></div>
+                <div className="h-2 flex-1 bg-secondary-fixed"></div>
+                <div className="h-2 flex-1 bg-secondary-fixed"></div>
+                <div className="h-2 flex-1 bg-surface-container-low/20"></div>
+                <div className="h-2 flex-1 bg-surface-container-low/20"></div>
+                <div className="h-2 flex-1 bg-surface-container-low/20"></div>
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-            <div className="lg:col-span-12 space-y-gutter">
-              <div className="hidden md:grid grid-cols-12 gap-gutter px-stack-md py-2 border-b border-outline-variant">
-                <div className="col-span-5 font-label-mono text-label-mono text-on-surface-variant uppercase">Vehicle Details</div>
-                <div className="col-span-2 font-label-mono text-label-mono text-on-surface-variant uppercase">Status</div>
-                <div className="col-span-2 font-label-mono text-label-mono text-on-surface-variant uppercase">Pricing</div>
-                <div className="col-span-3 font-label-mono text-label-mono text-on-surface-variant uppercase text-right">Admin Actions</div>
+          {/* Inventory Technical Table */}
+          <div className="px-margin-desktop mb-xl">
+            <div className="bg-surface-container-low/50 backdrop-blur-md overflow-hidden">
+              <div className="grid grid-cols-12 gap-gutter px-lg py-md border-b border-white/10 bg-surface-container">
+                <div className="col-span-4 font-label-caps text-label-caps text-secondary-fixed-dim uppercase">Vehicle Asset / VIN</div>
+                <div className="col-span-2 font-label-caps text-label-caps text-secondary-fixed-dim uppercase text-center">Status</div>
+                <div className="col-span-2 font-label-caps text-label-caps text-secondary-fixed-dim uppercase text-right">Market Value</div>
+                <div className="col-span-2 font-label-caps text-label-caps text-secondary-fixed-dim uppercase text-right">Qty</div>
+                <div className="col-span-2 font-label-caps text-label-caps text-secondary-fixed-dim uppercase text-right">Action</div>
               </div>
 
               {loading ? (
-                <div className="flex justify-center p-10"><span className="animate-spin text-primary material-symbols-outlined">sync</span></div>
+                <div className="flex justify-center p-10"><span className="animate-spin text-secondary-fixed material-symbols-outlined">sync</span></div>
+              ) : vehicles.length === 0 ? (
+                <div className="p-10 text-center text-on-surface-variant font-label-caps">NO INVENTORY FOUND</div>
               ) : (
                 vehicles.map(v => (
-                  <div key={v.id} className="group relative bg-surface-container hover:bg-surface-container-high transition-all duration-300 rounded-lg">
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter p-stack-md items-center">
-                      <div className="col-span-5 flex items-center gap-stack-md">
-                        <div className="w-24 h-16 bg-surface-variant overflow-hidden rounded">
-                          <img src={getPlaceholderImage(v.category)} alt={`${v.make} ${v.model}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="font-headline-md text-headline-md text-on-surface">{v.make} {v.model}</span>
-                          <span className="font-label-mono text-label-mono text-on-surface-variant">{v.category.toUpperCase()}</span>
-                        </div>
+                  <div key={v.id} className="grid grid-cols-12 gap-gutter px-lg py-lg border-b border-white/5 hover:bg-white/5 transition-colors items-center group">
+                    <div className="col-span-4 flex items-center gap-md">
+                      <div className="w-16 h-12 bg-surface-container overflow-hidden">
+                        <img src={getPlaceholderImage(v.category)} alt={v.make} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                       </div>
-                      
-                      <div className="col-span-2">
-                        {v.quantity > 0 ? (
-                          <span className="inline-flex items-center gap-unit px-2 py-0.5 rounded bg-primary/10 text-primary font-label-mono text-label-mono uppercase">Available ({v.quantity})</span>
-                        ) : (
-                          <span className="inline-flex items-center gap-unit px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-mono text-label-mono uppercase">Out of Stock</span>
-                        )}
-                      </div>
-                      
-                      <div className="col-span-2">
-                        <div className="flex flex-col">
-                          <span className="font-headline-md text-headline-md text-on-surface">${v.price.toLocaleString()}</span>
-                          <span className="font-label-mono text-label-mono text-on-surface-variant">MSRP</span>
-                        </div>
-                      </div>
-                      
-                      <div className="col-span-3 flex justify-end items-center gap-stack-sm">
-                        <button onClick={() => handleRestock(v.id)} className="p-2 hover:bg-surface-variant rounded-full transition-colors text-on-surface-variant hover:text-on-surface" title="Restock (+5)">
-                          <span className="material-symbols-outlined text-[20px]">package_2</span>
-                        </button>
-                        <button onClick={() => startEdit(v)} className="p-2 hover:bg-surface-variant rounded-full transition-colors text-on-surface-variant hover:text-on-surface" title="Edit">
-                          <span className="material-symbols-outlined text-[20px]">edit</span>
-                        </button>
-                        <button onClick={() => setDeleteConfirmId(v.id)} className="p-2 hover:bg-error/10 rounded-full transition-colors text-on-surface-variant hover:text-error" title="Delete">
-                          <span className="material-symbols-outlined text-[20px]">delete</span>
-                        </button>
+                      <div className="flex flex-col">
+                        <span className="font-headline-sm text-headline-sm text-secondary uppercase">{v.make} {v.model}</span>
+                        <span className="font-label-caps text-[10px] text-on-surface-variant tracking-widest uppercase">{v.category}</span>
                       </div>
                     </div>
-                    
+                    <div className="col-span-2 flex justify-center">
+                      {v.quantity > 0 ? (
+                        <span className="px-sm py-1 bg-secondary-fixed/10 border border-secondary-fixed/30 text-secondary-fixed font-label-caps text-[10px] uppercase">Available</span>
+                      ) : (
+                        <span className="px-sm py-1 bg-error/10 border border-error/30 text-error font-label-caps text-[10px] uppercase">Out of Stock</span>
+                      )}
+                    </div>
+                    <div className="col-span-2 text-right">
+                      <span className="font-body-lg text-secondary">${v.price.toLocaleString()}</span>
+                    </div>
+                    <div className="col-span-2 text-right">
+                      <span className="font-body-lg text-on-surface-variant">{v.quantity}</span>
+                    </div>
+                    <div className="col-span-2 flex justify-end gap-sm">
+                      <button onClick={() => handleRestock(v.id)} className="p-xs text-on-surface-variant hover:text-secondary transition-colors" title="Restock +5">
+                        <span className="material-symbols-outlined text-[20px]">package_2</span>
+                      </button>
+                      <button onClick={() => startEdit(v)} title="Edit" className="p-xs text-on-surface-variant hover:text-secondary transition-colors">
+                        <span className="material-symbols-outlined text-[20px]">edit_note</span>
+                      </button>
+                      <button onClick={() => setDeleteConfirmId(v.id)} title="Delete" className="p-xs text-on-surface-variant hover:text-error transition-colors">
+                        <span className="material-symbols-outlined text-[20px]">delete</span>
+                      </button>
+                    </div>
+
                     {deleteConfirmId === v.id && (
-                      <div className="absolute inset-0 bg-surface-container-highest/95 backdrop-blur-sm flex items-center justify-between px-stack-lg z-10 animate-in fade-in slide-in-from-right-4 duration-300 rounded-lg">
-                        <div className="flex items-center gap-stack-md">
-                          <span className="material-symbols-outlined text-error">warning</span>
-                          <p className="font-body-md text-on-surface">Permanently remove <span className="font-bold">{v.make} {v.model}</span> from inventory?</p>
-                        </div>
-                        <div className="flex items-center gap-stack-md">
-                          <button onClick={() => setDeleteConfirmId(null)} className="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface">Cancel</button>
-                          <button onClick={() => handleDelete(v.id)} className="bg-error text-on-error px-4 py-2 font-label-mono text-label-mono uppercase font-bold hover:brightness-110 rounded">Confirm Delete</button>
+                      <div className="col-span-12 mt-4 bg-error/10 border border-error/30 p-md flex items-center justify-between">
+                        <span className="font-label-caps text-error">CONFIRM DELETION OF ASSET?</span>
+                        <div className="flex gap-md">
+                          <button onClick={() => setDeleteConfirmId(null)} className="font-label-caps text-on-surface-variant hover:text-secondary">CANCEL</button>
+                          <button onClick={() => handleDelete(v.id)} className="font-label-caps text-secondary bg-error px-md py-xs">DELETE</button>
                         </div>
                       </div>
                     )}
@@ -266,83 +290,103 @@ export const AdminPanel: React.FC = () => {
               )}
             </div>
           </div>
+          
+          {/* System Diagnostics Sidebar/Overlay Simulation */}
+          <div className="px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter pb-xl">
+            <div className="md:col-span-3 flex flex-col gap-sm">
+              <div className="flex items-center justify-between bg-surface-container-high px-md py-sm">
+                <span className="font-label-caps text-label-caps text-secondary-fixed uppercase">Active Alerts</span>
+                <span className="text-on-surface-variant font-label-caps text-[10px]">3 SENSORS PENDING</span>
+              </div>
+              <div className="flex flex-col gap-[1px]">
+                <div className="bg-surface-container-low p-md flex items-center justify-between">
+                  <div className="flex gap-md items-center">
+                    <span className="material-symbols-outlined text-error">report_problem</span>
+                    <span className="font-body-md text-on-surface">Asset Price Drift Detected (+4.2%)</span>
+                  </div>
+                  <span className="font-label-caps text-[10px] text-on-surface-variant uppercase">2m ago</span>
+                </div>
+                <div className="bg-surface-container-low p-md flex items-center justify-between">
+                  <div className="flex gap-md items-center">
+                    <span className="material-symbols-outlined text-secondary-fixed">info</span>
+                    <span className="font-body-md text-on-surface">Market sync completed for 48 regional nodes.</span>
+                  </div>
+                  <span className="font-label-caps text-[10px] text-on-surface-variant uppercase">14m ago</span>
+                </div>
+              </div>
+            </div>
+            <div className="bg-primary-container p-lg flex flex-col justify-between">
+              <div>
+                <h3 className="font-headline-sm text-headline-sm text-secondary uppercase mb-xs">Command Queue</h3>
+                <p className="font-body-md text-on-primary-container opacity-80 text-sm">Automated valuation engine is currently scanning global auctions.</p>
+              </div>
+              <div className="mt-lg">
+                <div className="flex justify-between font-label-caps text-[10px] text-on-primary-container uppercase mb-1">
+                  <span>Processing</span>
+                  <span>84%</span>
+                </div>
+                <div className="h-1 w-full bg-white/10">
+                  <div className="h-full bg-secondary-fixed w-[84%] shadow-[0_0_10px_rgba(195,244,0,0.5)]"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
       {/* Slide-over Form Panel */}
       {showForm && (
         <div className="fixed inset-0 z-[100] flex justify-end overflow-hidden">
-          <div className="absolute inset-0 bg-surface-container-lowest/60 backdrop-blur-sm transition-opacity" onClick={resetForm}></div>
-          <div className="relative w-full max-w-xl bg-surface-container-low shadow-xl flex flex-col transform transition-transform duration-500 ease-in-out translate-x-0">
-            <div className="relative h-48 w-full overflow-hidden shrink-0">
-              <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDW3QiovDGicNfVpyvZiod4gGkQIItVCaBE4NPh5AmTyzuB2Iva2mET2GRT-swyGP4ut4Y7-mm6T_lQq2hOtzV7CJW0KnUuRbeYDohdHHNKCXxs-DrbFaYMHhP0q7eGmlvq5ZuQCHdFN1FiSNzCruwc_0zDgPDhBO3lyQe0Hx4RrfOqfnz-bL038BDkxNWpdR660up8nmCork325Z5aPFymyUJ9uAxL_AKpYd5sDqy-ZM08hM4KFne4RA')" }}></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/20 to-transparent"></div>
-              <button onClick={resetForm} className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-surface/40 backdrop-blur-md text-on-surface hover:bg-surface/80 transition-all">
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-md transition-opacity" onClick={resetForm}></div>
+          <div className="relative w-full max-w-xl bg-surface-container-low border-l border-white/10 shadow-2xl flex flex-col">
+            <div className="relative h-32 w-full bg-surface-container-high flex items-end p-lg border-b border-white/5">
+              <button onClick={resetForm} className="absolute top-6 right-6 text-on-surface-variant hover:text-secondary transition-all">
                 <span className="material-symbols-outlined">close</span>
               </button>
-              <div className="absolute bottom-6 left-8">
-                <span className="font-label-mono text-label-mono text-primary uppercase tracking-[0.2em] mb-2 block">Inventory Management</span>
-                <h1 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">{editingId ? 'Edit Vehicle' : 'Add New Vehicle'}</h1>
-              </div>
+              <h2 className="font-display-lg-mobile text-secondary uppercase leading-none">{editingId ? 'Edit Asset' : 'New Asset'}</h2>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-8 py-10 space-y-stack-lg custom-scrollbar">
-              <form id="vehicle-form" onSubmit={handleSave} className="grid grid-cols-2 gap-x-gutter gap-y-stack-lg">
-                <div className="col-span-1 flex flex-col gap-unit">
-                  <label htmlFor="make" className="font-label-mono text-label-mono text-on-surface-variant uppercase ml-1">Make</label>
-                  <div className="relative group">
-                    <input id="make" required value={formMake} onChange={(e) => setFormMake(e.target.value)} className="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-on-surface-variant/30" placeholder="e.g. Porsche" type="text" />
-                  </div>
+            <div className="flex-1 overflow-y-auto p-lg">
+              <form id="vehicle-form" onSubmit={handleSave} className="flex flex-col gap-lg">
+                <div className="flex flex-col gap-xs">
+                  <label htmlFor="make" className="font-label-caps text-secondary-fixed uppercase text-[10px]">Make</label>
+                  <input id="make" required value={formMake} onChange={(e) => setFormMake(e.target.value)} className="w-full bg-surface-container border border-outline-variant py-md px-sm text-secondary font-body-md focus:outline-none focus:border-secondary-fixed transition-colors" placeholder="e.g. Porsche" type="text" />
+                </div>
+                
+                <div className="flex flex-col gap-xs">
+                  <label htmlFor="model" className="font-label-caps text-secondary-fixed uppercase text-[10px]">Model</label>
+                  <input id="model" required value={formModel} onChange={(e) => setFormModel(e.target.value)} className="w-full bg-surface-container border border-outline-variant py-md px-sm text-secondary font-body-md focus:outline-none focus:border-secondary-fixed transition-colors" placeholder="e.g. 911 GT3 RS" type="text" />
                 </div>
 
-                <div className="col-span-1 flex flex-col gap-unit">
-                  <label htmlFor="model" className="font-label-mono text-label-mono text-on-surface-variant uppercase ml-1">Model</label>
-                  <div className="relative group">
-                    <input id="model" required value={formModel} onChange={(e) => setFormModel(e.target.value)} className="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-on-surface-variant/30" placeholder="e.g. Taycan Turbo S" type="text" />
-                  </div>
+                <div className="flex flex-col gap-xs">
+                  <label htmlFor="category" className="font-label-caps text-secondary-fixed uppercase text-[10px]">Category</label>
+                  <select id="category" value={formCategory} onChange={(e) => setFormCategory(e.target.value)} className="w-full bg-surface-container border border-outline-variant py-md px-sm text-secondary font-body-md focus:outline-none focus:border-secondary-fixed transition-colors appearance-none">
+                    <option value="Sedan">Luxury Sedan</option>
+                    <option value="SUV">Sport Utility Vehicle</option>
+                    <option value="Coupe">Grand Tourer / Coupe</option>
+                    <option value="Performance">Performance</option>
+                  </select>
                 </div>
 
-                <div className="col-span-2 flex flex-col gap-unit">
-                  <label htmlFor="category" className="font-label-mono text-label-mono text-on-surface-variant uppercase ml-1">Category</label>
-                  <div className="relative">
-                    <select id="category" value={formCategory} onChange={(e) => setFormCategory(e.target.value)} className="w-full appearance-none bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary/20 outline-none transition-all">
-                      <option value="Sedan">Luxury Sedan</option>
-                      <option value="SUV">Sport Utility Vehicle</option>
-                      <option value="Coupe">Grand Tourer / Coupe</option>
-                      <option value="Performance">Performance</option>
-                      <option value="Electric">Full Electric</option>
-                    </select>
-                    <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
-                  </div>
+                <div className="flex flex-col gap-xs">
+                  <label htmlFor="price" className="font-label-caps text-secondary-fixed uppercase text-[10px]">Price ($)</label>
+                  <input id="price" required min="0" value={formPrice} onChange={(e) => setFormPrice(Number(e.target.value))} className="w-full bg-surface-container border border-outline-variant py-md px-sm text-secondary font-body-md focus:outline-none focus:border-secondary-fixed transition-colors" type="number" />
                 </div>
 
-                <div className="col-span-1 flex flex-col gap-unit">
-                  <label htmlFor="price" className="font-label-mono text-label-mono text-on-surface-variant uppercase ml-1">Price</label>
-                  <div className="relative group">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">$</span>
-                    <input id="price" required min="0" value={formPrice} onChange={(e) => setFormPrice(Number(e.target.value))} className="w-full bg-surface-container-highest border-none rounded-lg pl-8 pr-4 py-3 text-on-surface focus:ring-2 focus:ring-primary/20 outline-none transition-all" type="number" />
-                  </div>
-                </div>
-
-                <div className="col-span-1 flex flex-col gap-unit">
-                  <label htmlFor="quantity" className="font-label-mono text-label-mono text-on-surface-variant uppercase ml-1">Quantity</label>
-                  <div className="flex items-center bg-surface-container-highest rounded-lg overflow-hidden ring-1 ring-transparent focus-within:ring-primary/20">
-                    <input id="quantity" required min="0" value={formQuantity} onChange={(e) => setFormQuantity(Number(e.target.value))} className="flex-1 bg-transparent border-none text-center font-headline-md text-headline-md text-on-surface focus:ring-0 outline-none p-3" type="number" />
-                  </div>
+                <div className="flex flex-col gap-xs">
+                  <label htmlFor="quantity" className="font-label-caps text-secondary-fixed uppercase text-[10px]">Quantity</label>
+                  <input id="quantity" required min="0" value={formQuantity} onChange={(e) => setFormQuantity(Number(e.target.value))} className="w-full bg-surface-container border border-outline-variant py-md px-sm text-secondary font-body-md focus:outline-none focus:border-secondary-fixed transition-colors" type="number" />
                 </div>
               </form>
             </div>
 
-            <div className="p-8 bg-surface-container border-t border-outline-variant/20 flex flex-col gap-stack-md mt-auto">
-              <div className="flex items-center gap-stack-md">
-                <button form="vehicle-form" type="submit" className="flex-1 h-12 bg-primary text-on-primary font-headline-md text-body-md rounded-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
-                  <span>{editingId ? 'Update Vehicle' : 'Add'}</span>
-                  <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-                </button>
-                <button onClick={resetForm} type="button" className="flex-1 h-12 bg-surface-variant text-on-surface-variant font-headline-md text-body-md rounded-lg hover:bg-secondary-container transition-colors">
-                  Cancel
-                </button>
-              </div>
+            <div className="p-lg bg-surface-container-high border-t border-white/5 flex gap-md">
+              <button form="vehicle-form" type="submit" className="flex-1 bg-secondary-fixed text-on-secondary font-label-caps uppercase py-md hover:bg-white transition-all shadow-[0_0_20px_rgba(195,244,0,0.3)]">
+                {editingId ? 'Update' : 'Execute'}
+              </button>
+              <button onClick={resetForm} type="button" className="flex-1 border border-outline-variant text-secondary font-label-caps uppercase py-md hover:bg-white/5 transition-all">
+                Cancel
+              </button>
             </div>
           </div>
         </div>
