@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import authRoutes from './routes/auth.routes';
+import vehicleRoutes from './routes/vehicle.routes';
 import { errorHandler } from './middleware/errorHandler';
 
 const app = express();
@@ -24,6 +25,7 @@ app.get('/health', (_req, res) => {
 
 // API routes
 app.use('/api/auth', authRoutes);
+app.use('/api/vehicles', vehicleRoutes);
 
 // Centralized error handler — MUST be registered after all routes.
 // Express identifies it by the 4-parameter (err, req, res, next) signature.
