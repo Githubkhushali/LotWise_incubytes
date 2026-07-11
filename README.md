@@ -174,11 +174,27 @@ npm run test:coverage      # with coverage report
 
 ## Screenshots
 
-> _The application is running locally. Below are placeholder descriptions of each screen._
+- **Login / Register (Access Terminal):** Dark-themed authentication panel with tab switcher between Login and Register.
+![Login Screen](screenshots/login.png)
+<br>
+![Register Screen](screenshots/register.png)
 
-- **Login / Register (Access Terminal):** Dark-themed authentication panel with tab switcher between Login and Register. Error messages display inline.
 - **Dashboard:** Hero section with full-bleed car photo, multi-field search panel (make/model/category/price range), and a staggered inventory grid showing stock status and purchase buttons.
+![Dashboard Hero](screenshots/dashboard.png)
+<br>
+![Dashboard Filtered](screenshots/dashboard-filtered.png)
+<br>
+![Dashboard Out of Stock](screenshots/sold-out.png)
+
 - **Admin Panel:** Fleet Command view with vehicle table, inline restock, add-vehicle slide-over form, and delete confirmation overlay.
+![Admin Dashboard](screenshots/admin-dashboard.png)
+<br>
+![Admin Vehicle List](screenshots/admin-panel.png)
+<br>
+![Admin Add/Edit Modal](screenshots/add-vehicle-modal.png)
+
+- **Database View:**
+![Database View](screenshots/database.png)
 
 ---
 
