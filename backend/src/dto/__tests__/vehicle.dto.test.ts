@@ -85,7 +85,7 @@ describe('Vehicle DTOs', () => {
   });
 
   describe('vehicleSearchSchema', () => {
-    it('validates valid search params', () => {
+    it('validates valid search params (make + category)', () => {
       const payload = { make: 'Toyota', category: 'Sedan' };
       const result = vehicleSearchSchema.safeParse(payload);
       expect(result.success).toBe(true);
@@ -95,6 +95,51 @@ describe('Vehicle DTOs', () => {
       const payload = {};
       const result = vehicleSearchSchema.safeParse(payload);
       expect(result.success).toBe(true);
+    });
+
+    it('coerces priceMin from string (as query params arrive)', () => {
+      const result = vehicleSearchSchema.safeParse({ priceMin: '25000' });
+      expect(result.success).toBe(true);
+      if (result.success) {
+        expect(result.data.priceMin).toBe(25000);
+      }
+    });
+
+    it('coerces priceMax from string', () => {
+      const result = vehicleSearchSchema.safeParse({ priceMax: '75000' });
+      expect(result.success).toBe(true);
+      if (result.success) {
+        expect(result.data.priceMax).toBe(75000);
+      }
+    });
+
+    it('rejects negative priceMin', () => {
+      const result = vehicleSearchSchema.safeParse({ priceMin: '-100' });
+      expect(result.success).toBe(false);
+    });
+
+    it('rejects negative priceMax', () => {
+      const result = vehicleSearchSchema.safeParse({ priceMax: '-1' });
+      expect(result.success).toBe(false);
+    });
+
+    it('rejects non-numeric priceMin', () => {
+      const result = vehicleSearchSchema.safeParse({ priceMin: 'notanumber' });
+      expect(result.success).toBe(false);
+    });
+
+    it('validates combined make + priceMin + priceMax', () => {
+      const result = vehicleSearchSchema.safeParse({
+        make: 'BMW',
+        priceMin: '50000',
+        priceMax: '100000',
+      });
+      expect(result.success).toBe(true);
+      if (result.success) {
+        expect(result.data.make).toBe('BMW');
+        expect(result.data.priceMin).toBe(50000);
+        expect(result.data.priceMax).toBe(100000);
+      }
     });
   });
 });
