@@ -13,8 +13,9 @@ import { Role } from '@prisma/client';
 
 const router = Router();
 
-// Public / User authenticated routes (we decided authenticated users only for getting vehicles for now)
+// Public / User authenticated routes
 router.get('/', authenticate, getVehicles);
+router.get('/search', authenticate, getVehicles);
 router.get('/:id', authenticate, getVehicleById);
 
 // Purchase route
