@@ -24,6 +24,8 @@ export const vehicleSearchSchema = z.object({
   make: z.string().optional(),
   model: z.string().optional(),
   category: z.string().optional(),
+  priceMin: z.coerce.number().min(0, 'priceMin must be non-negative').optional(),
+  priceMax: z.coerce.number().min(0, 'priceMax must be non-negative').optional(),
 });
 
 export type VehicleSearchDto = z.infer<typeof vehicleSearchSchema>;

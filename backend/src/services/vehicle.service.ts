@@ -25,6 +25,15 @@ export class VehicleService {
     if (searchParams.category) {
       where.category = { contains: searchParams.category, mode: 'insensitive' };
     }
+    if (searchParams.priceMin !== undefined || searchParams.priceMax !== undefined) {
+      where.price = {};
+      if (searchParams.priceMin !== undefined) {
+        where.price.gte = searchParams.priceMin;
+      }
+      if (searchParams.priceMax !== undefined) {
+        where.price.lte = searchParams.priceMax;
+      }
+    }
 
     return await prisma.vehicle.findMany({
       where,

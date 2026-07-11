@@ -129,6 +129,92 @@ describe('Vehicle API Integration', () => {
       const response = await request(app).get('/api/vehicles');
       expect(response.status).toBe(401);
     });
+
+    it('filters vehicles by model', async () => {
+      const response = await request(app)
+        .get('/api/vehicles?model=Civic')
+        .set('Authorization', `Bearer ${userToken}`);
+
+      expect(response.status).toBe(200);
+      expect(response.body.length).toBe(1);
+      expect(response.body[0].model).toBe('Civic');
+    });
+  });
+
+  describe('GET /api/vehicles/search (dedicated search endpoint)', () => {
+    beforeEach(async () => {
+      await testPrisma.vehicle.createMany({
+        data: [
+          { make: 'Toyota', model: 'Corolla', category: 'Sedan', price: 25000, quantity: 5 },
+          { make: 'Honda', model: 'Civic', category: 'Sedan', price: 26000, quantity: 3 },
+          { make: 'Toyota', model: 'RAV4', category: 'SUV', price: 35000, quantity: 2 },
+          { make: 'BMW', model: 'M3', category: 'Coupe', price: 75000, quantity: 1 },
+        ],
+      });
+    });
+
+    it('filters vehicles by priceMin', async () => {
+      const response = await request(app)
+        .get('/api/vehicles/search?priceMin=30000')
+        .set('Authorization', `Bearer ${userToken}`);
+
+      expect(response.status).toBe(200);
+      expect(response.body.length).toBe(2);
+      expect(response.body.every((v: any) => v.price >= 30000)).toBe(true);
+    });
+
+    it('filters vehicles by priceMax', async () => {
+      const response = await request(app)
+        .get('/api/vehicles/search?priceMax=26000')
+        .set('Authorization', `Bearer ${userToken}`);
+
+      expect(response.status).toBe(200);
+      expect(response.body.length).toBe(2);
+      expect(response.body.every((v: any) => v.price <= 26000)).toBe(true);
+    });
+
+    it('filters vehicles by priceMin and priceMax (range)', async () => {
+      const response = await request(app)
+        .get('/api/vehicles/search?priceMin=25000&priceMax=35000')
+        .set('Authorization', `Bearer ${userToken}`);
+
+      expect(response.status).toBe(200);
+      expect(response.body.length).toBe(3);
+      expect(response.body.every((v: any) => v.price >= 25000 && v.price <= 35000)).toBe(true);
+    });
+
+    it('combines price range with make filter', async () => {
+      const response = await request(app)
+        .get('/api/vehicles/search?make=Toyota&priceMax=30000')
+        .set('Authorization', `Bearer ${userToken}`);
+
+      expect(response.status).toBe(200);
+      expect(response.body.length).toBe(1);
+      expect(response.body[0].model).toBe('Corolla');
+    });
+
+    it('filters by make on /search endpoint', async () => {
+      const response = await request(app)
+        .get('/api/vehicles/search?make=BMW')
+        .set('Authorization', `Bearer ${userToken}`);
+
+      expect(response.status).toBe(200);
+      expect(response.body.length).toBe(1);
+      expect(response.body[0].make).toBe('BMW');
+    });
+
+    it('returns 400 if priceMin is not a number', async () => {
+      const response = await request(app)
+        .get('/api/vehicles/search?priceMin=notanumber')
+        .set('Authorization', `Bearer ${userToken}`);
+
+      expect(response.status).toBe(400);
+    });
+
+    it('requires authentication (401)', async () => {
+      const response = await request(app).get('/api/vehicles/search');
+      expect(response.status).toBe(401);
+    });
   });
 
   describe('GET /api/vehicles/:id', () => {
