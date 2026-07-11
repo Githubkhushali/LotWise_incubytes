@@ -22,7 +22,6 @@ export const Login: React.FC = () => {
         await login({ email, password });
       } else {
         await authRegister({ email, password, role: 'user' });
-        // After successful registration, log them in automatically
         await login({ email, password });
       }
       navigate('/');
@@ -33,157 +32,105 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div className="bg-background font-body-md text-on-surface min-h-screen flex items-center justify-center p-margin-mobile">
-      <main className="w-full max-w-md">
-        <div className="flex flex-col w-full min-h-[819px] justify-center items-center relative overflow-hidden">
-          
-          {/* Ambient Racing Line Background */}
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <svg className="w-full h-full opacity-20" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="transparent" />
-                  <stop offset="50%" stopColor="#abd600" />
-                  <stop offset="100%" stopColor="transparent" />
-                </linearGradient>
-              </defs>
-              <path d="M-100,200 Q400,150 1100,300" fill="none" stroke="url(#line-grad)" strokeWidth="2">
-                <animate attributeName="d" dur="10s" repeatCount="indefinite" values="M-100,200 Q400,150 1100,300; M-100,300 Q600,450 1100,200; M-100,200 Q400,150 1100,300" />
-              </path>
-              <path d="M-100,500 Q500,450 1100,550" fill="none" opacity="0.5" stroke="url(#line-grad)" strokeWidth="1">
-                <animate attributeName="d" dur="15s" repeatCount="indefinite" values="M-100,500 Q500,450 1100,550; M-100,450 Q300,550 1100,500; M-100,500 Q500,450 1100,550" />
-              </path>
-            </svg>
+    <div className="min-h-screen bg-gray-950 text-gray-200 font-sans flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute inset-0 z-0 pointer-events-none flex justify-center items-center">
+        <div className="w-[800px] h-[800px] bg-indigo-600/10 rounded-full blur-[120px]"></div>
+      </div>
+
+      <main className="w-full max-w-md relative z-10">
+        <div className="bg-gray-900/80 backdrop-blur-xl border border-gray-800 p-8 rounded-2xl shadow-2xl">
+          <div className="mb-8 text-center">
+            <h1 className="text-4xl font-display font-bold text-white tracking-tight uppercase mb-2">
+              Lotwise
+            </h1>
+            <p className="text-gray-400 text-sm">
+              Premium Dealership Terminal
+            </p>
           </div>
 
-          {/* Terminal Header Metadata */}
-          <div className="absolute top-0 left-0 p-md flex flex-col gap-xs opacity-40 select-none">
-            <div className="flex items-center gap-sm">
-              <span className="w-2 h-2 bg-secondary-fixed rounded-full animate-pulse"></span>
-              <span className="font-label-caps text-on-surface uppercase tracking-widest">System: Secure_Uplink_v4.2</span>
+          {/* Form Switcher */}
+          <div className="flex gap-4 mb-8 border-b border-gray-800">
+            <button 
+              onClick={() => { setIsLoginTab(true); setError(''); }}
+              className={`pb-3 text-sm font-medium transition-all w-1/2 text-center ${isLoginTab ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-gray-500 hover:text-gray-300'}`}
+            >
+              Login
+            </button>
+            <button 
+              onClick={() => { setIsLoginTab(false); setError(''); }}
+              className={`pb-3 text-sm font-medium transition-all w-1/2 text-center ${!isLoginTab ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-gray-500 hover:text-gray-300'}`}
+            >
+              Register
+            </button>
+          </div>
+
+          {error && (
+            <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg flex items-center gap-3">
+              <span className="material-symbols-outlined text-red-400 text-xl">warning</span>
+              <span className="text-sm text-red-400 font-medium">{error}</span>
             </div>
-            <div className="font-label-caps text-on-surface text-[10px] uppercase">LAT: 52.5200° N | LON: 13.4050° E</div>
-          </div>
+          )}
 
-          {/* Main Login Card */}
-          <div className="relative z-10 w-full max-w-md">
-            <div className="bg-surface-container/60 backdrop-blur-xl p-lg rounded-lg shadow-2xl border-l-2 border-secondary-fixed relative overflow-hidden group">
-              
-              <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-on-surface-variant/20"></div>
-              <div className="absolute bottom-0 left-0 w-12 h-12 border-b border-l border-on-surface-variant/20"></div>
-
-              <div className="mb-lg">
-                <div className="flex items-baseline justify-between mb-xs">
-                  <h1 className="font-display-lg-mobile text-secondary uppercase tracking-tighter">Lotwise</h1>
-                  <span className="font-label-caps text-secondary-fixed text-[10px] border border-secondary-fixed/30 px-2 py-0.5">AUTH_REQUIRED</span>
-                </div>
-                <p className="font-body-md text-on-surface-variant opacity-80">Access the private racing inventory terminal.</p>
+          <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="email" className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                Registry ID / Email
+              </label>
+              <div className="relative">
+                <input 
+                  id="email"
+                  required 
+                  type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full bg-gray-950/50 border border-gray-800 rounded-lg py-3 px-4 text-gray-100 placeholder:text-gray-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all" 
+                  placeholder="driver@lotwise.com" 
+                />
+                <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm">alternate_email</span>
               </div>
+            </div>
 
-              {/* Form Switcher */}
-              <div className="flex gap-md mb-lg border-b border-outline-variant/30">
-                <button 
-                  onClick={() => { setIsLoginTab(true); setError(''); }}
-                  className={`pb-sm font-label-caps transition-all ${isLoginTab ? 'text-secondary border-b-2 border-secondary-fixed' : 'text-on-surface-variant hover:text-secondary'}`}
-                >
-                  Login
-                </button>
-                <button 
-                  onClick={() => { setIsLoginTab(false); setError(''); }}
-                  className={`pb-sm font-label-caps transition-all ${!isLoginTab ? 'text-secondary border-b-2 border-secondary-fixed' : 'text-on-surface-variant hover:text-secondary'}`}
-                >
-                  Register
-                </button>
+            <div>
+              <label htmlFor="password" className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                Access Key
+              </label>
+              <div className="relative">
+                <input 
+                  id="password"
+                  required 
+                  type="password" 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full bg-gray-950/50 border border-gray-800 rounded-lg py-3 px-4 text-gray-100 placeholder:text-gray-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all" 
+                  placeholder="••••••••" 
+                />
+                <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm">lock</span>
               </div>
+            </div>
 
-              {error && (
-                <div className="mb-4 p-3 bg-error/10 border border-error/30 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-error text-[18px]">warning</span>
-                  <span className="font-label-caps text-error">{error}</span>
-                </div>
+            <button 
+              disabled={isLoading}
+              className={`mt-6 w-full font-medium py-3 rounded-lg flex items-center justify-center gap-2 transition-all ${
+                isLoading 
+                  ? 'bg-gray-800 text-gray-500 cursor-not-allowed' 
+                  : 'bg-indigo-600 text-white hover:bg-indigo-500 hover:shadow-[0_0_20px_rgba(79,70,229,0.3)] active:scale-[0.98]'
+              }`} 
+              type="submit"
+            >
+              {isLoading ? (
+                <>
+                  <span className="material-symbols-outlined animate-spin text-sm">refresh</span>
+                  <span>Authenticating...</span>
+                </>
+              ) : (
+                <>
+                  <span>{isLoginTab ? 'Enter Showroom' : 'Create Account'}</span>
+                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                </>
               )}
-
-              {/* Inputs */}
-              <form className="flex flex-col gap-md" onSubmit={handleSubmit}>
-                <div className="group/input">
-                  <label htmlFor="email" className="font-label-caps text-on-surface-variant uppercase mb-xs block text-[10px]">Registry ID / Email</label>
-                  <div className="relative">
-                    <input 
-                      id="email"
-                      required 
-                      type="email" 
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-surface-container-lowest/50 border-b border-outline-variant py-sm px-xs font-body-md text-secondary placeholder:text-on-surface-variant/30 focus:outline-none focus:border-secondary-fixed transition-colors" 
-                      placeholder="driver@lotwise.spec" 
-                    />
-                    <span className="material-symbols-outlined absolute right-xs top-1/2 -translate-y-1/2 text-on-surface-variant text-sm opacity-40">alternate_email</span>
-                  </div>
-                </div>
-
-                <div className="group/input">
-                  <label htmlFor="password" className="font-label-caps text-on-surface-variant uppercase mb-xs block text-[10px]">Access Key</label>
-                  <div className="relative">
-                    <input 
-                      id="password"
-                      required 
-                      type="password" 
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="w-full bg-surface-container-lowest/50 border-b border-outline-variant py-sm px-xs font-body-md text-secondary placeholder:text-on-surface-variant/30 focus:outline-none focus:border-secondary-fixed transition-colors" 
-                      placeholder="••••••••" 
-                    />
-                    <span className="material-symbols-outlined absolute right-xs top-1/2 -translate-y-1/2 text-on-surface-variant text-sm opacity-40">lock</span>
-                  </div>
-                </div>
-
-                {/* Security Metric */}
-                <div className="flex items-center gap-sm mt-xs">
-                  <div className="flex-1 h-1 bg-surface-container-high rounded-full overflow-hidden flex gap-1">
-                    <div className="h-full w-1/3 bg-secondary-fixed"></div>
-                    <div className="h-full w-1/3 bg-secondary-fixed"></div>
-                    <div className="h-full w-1/3 bg-secondary-fixed/20"></div>
-                  </div>
-                  <span className="font-label-caps text-[10px] text-secondary-fixed">Encryption: AES-256</span>
-                </div>
-
-                {/* CTA */}
-                <button 
-                  disabled={isLoading}
-                  className={`mt-lg w-full font-headline-sm uppercase py-md flex items-center justify-center gap-sm transition-all group/btn ${isLoading ? 'bg-white text-surface opacity-50 cursor-not-allowed' : 'bg-secondary-fixed text-on-secondary hover:bg-white shadow-[0_0_20px_rgba(195,244,0,0.3)] active:scale-95'}`} 
-                  type="submit"
-                >
-                  {isLoading ? (
-                    <>
-                      <span className="material-symbols-outlined animate-spin">refresh</span>
-                      <span>VALIDATING...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>{isLoginTab ? 'Enter Showroom' : 'Create Account'}</span>
-                      <span className="material-symbols-outlined transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
-                    </>
-                  )}
-                </button>
-              </form>
-
-              {/* Footer Actions */}
-              <div className="mt-xl flex justify-between items-center">
-                <button className="font-label-caps text-[10px] text-on-surface-variant hover:text-secondary-fixed transition-colors">Forgot Credentials?</button>
-                <div className="flex gap-sm">
-                  <div className="w-8 h-[1px] bg-outline-variant self-center"></div>
-                  <span className="font-label-caps text-[10px] text-on-surface-variant">V.2.0.84</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Accent Labels */}
-          <div className="absolute bottom-md right-md [writing-mode:vertical-rl] flex items-center gap-md opacity-20 select-none">
-            <span className="font-label-caps text-on-surface uppercase tracking-widest text-[10px]">Technical Excellence // Precision Engineering</span>
-            <div className="h-12 w-[1px] bg-on-surface"></div>
-          </div>
-
+            </button>
+          </form>
         </div>
       </main>
     </div>
