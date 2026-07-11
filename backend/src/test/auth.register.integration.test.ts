@@ -7,7 +7,7 @@
  */
 import request from 'supertest';
 import app from '../app';
-import { truncateTables, disconnectPrisma } from './helpers';
+import { truncateTables } from './helpers';
 
 beforeEach(async () => {
   await truncateTables();
@@ -15,7 +15,6 @@ beforeEach(async () => {
 
 afterAll(async () => {
   await truncateTables();
-  await disconnectPrisma();
 });
 
 describe('POST /api/auth/register', () => {

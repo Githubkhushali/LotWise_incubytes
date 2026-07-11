@@ -7,9 +7,9 @@
     "dev": "ts-node src/index.ts",
     "build": "tsc",
     "start": "node dist/index.ts",
-    "test": "jest --forceExit",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --forceExit",
+    "test": "jest --runInBand --forceExit",
+    "test:watch": "jest --runInBand --watch",
+    "test:coverage": "jest --runInBand --coverage --forceExit",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio"

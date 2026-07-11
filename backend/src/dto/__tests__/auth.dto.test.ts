@@ -5,7 +5,7 @@
  * We import the schema directly and call .safeParse() to assert
  * that validation rules are enforced at the boundary.
  */
-import { registerSchema } from '../../dto/auth.dto';
+import { registerSchema, loginSchema } from '../../dto/auth.dto';
 
 describe('RegisterDto — Zod schema validation', () => {
   // ─── Happy path ────────────────────────────────────────────────────────────
@@ -114,6 +114,84 @@ describe('RegisterDto — Zod schema validation', () => {
     if (!result.success) {
       const fields = result.error.flatten().fieldErrors;
       expect(fields.role).toBeDefined();
+    }
+  });
+});
+
+/**
+ * TESTS: LoginDto (Zod schema)
+ *
+ * Login validation is intentionally looser than register:
+ * - password only needs min(1) — the actual credential check is the real gate.
+ *   Enforcing min(8) here would block accounts created before the rule existed.
+ * - No role field — login identifies who you are, not what role you want.
+ */
+describe('LoginDto — Zod schema validation', () => {
+  // ─── Happy path ─────────────────────────────────────────────────────────────
+
+  it('accepts a valid email + non-empty password', () => {
+    const result = loginSchema.safeParse({
+      email: 'alice@example.com',
+      password: 'any_password',
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it('strips unknown extra fields silently', () => {
+    const result = loginSchema.safeParse({
+      email: 'alice@example.com',
+      password: 'any_password',
+      role: 'should be stripped',
+    });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data).not.toHaveProperty('role');
+    }
+  });
+
+  // ─── Email validation ────────────────────────────────────────────────────────
+
+  it('rejects a missing email field', () => {
+    const result = loginSchema.safeParse({ password: 'any_password' });
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      const fields = result.error.flatten().fieldErrors;
+      expect(fields.email).toBeDefined();
+    }
+  });
+
+  it('rejects an invalid email format', () => {
+    const result = loginSchema.safeParse({
+      email: 'not-an-email',
+      password: 'any_password',
+    });
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      const fields = result.error.flatten().fieldErrors;
+      expect(fields.email).toBeDefined();
+    }
+  });
+
+  // ─── Password validation ─────────────────────────────────────────────────────
+
+  it('rejects a missing password field', () => {
+    const result = loginSchema.safeParse({ email: 'alice@example.com' });
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      const fields = result.error.flatten().fieldErrors;
+      expect(fields.password).toBeDefined();
+    }
+  });
+
+  it('rejects an empty string password (min-1 boundary)', () => {
+    const result = loginSchema.safeParse({
+      email: 'alice@example.com',
+      password: '',
+    });
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      const fields = result.error.flatten().fieldErrors;
+      expect(fields.password).toBeDefined();
     }
   });
 });
