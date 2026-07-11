@@ -1,0 +1,429 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>
+        @layer base {
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                overscroll-behavior: none;
+                background-color: #f8f9fa;
+            }
+            main > :first-child {
+                margin-top: 0 !important;
+            }
+            main > :last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9fa",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "on-primary-container": "#00375a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#1a1b20",
+                        "primary-container": "#00a3ff",
+                        "on-tertiary-container": "#253549",
+                        "secondary-fixed": "#e3e2e7",
+                        "surface-tint": "#00629d",
+                        "inverse-surface": "#2e3132",
+                        "on-surface-variant": "#3f4852",
+                        "tertiary-fixed": "#d3e4fe",
+                        "surface-container": "#edeeef",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "secondary-fixed-dim": "#c7c6cb",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-container": "#626267",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "on-surface": "#191c1d",
+                        "secondary": "#5e5e63",
+                        "surface-bright": "#f8f9fa",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#004a77",
+                        "secondary-container": "#e0dfe5",
+                        "surface-dim": "#d9dadb",
+                        "primary-fixed-dim": "#98cbff",
+                        "outline": "#6f7883",
+                        "primary": "#00629d",
+                        "surface-container-highest": "#e1e3e4",
+                        "inverse-primary": "#98cbff",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#46464b",
+                        "on-primary-fixed": "#001d33",
+                        "tertiary": "#505f76",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#8e9eb6",
+                        "outline-variant": "#bec7d4",
+                        "primary-fixed": "#cfe5ff",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "surface": "#f8f9fa",
+                        "on-background": "#191c1d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "base": "4px",
+                        "xl": "48px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Archivo Narrow"],
+                        "data-tabular": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Archivo Narrow"],
+                        "headline-md": ["Archivo Narrow"],
+                        "display-lg": ["Archivo Narrow"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "data-tabular": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@400..800&amp;display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-2xl border-b border-outline-variant/30">
+<div class="h-20 max-w-[1440px] mx-auto px-margin-desktop flex items-center justify-between">
+<div class="flex items-center gap-4">
+<img alt="Lotwise Cinematic Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEmbkw8RukVeYW0_uayrM5vXkOqzZAUlWA1u5RnsJsIh36_Y5qPiHg9dZITLhgGNBhaKl3xxuRz9tLMX8DOcFlZ4lUW4KpsZWGhOHyG2pXN6NeK5KV0gNMMvHYXY3jRT5jWVC8eaG_PazPeZr-qdNgcdY3_n24jWxY554qeQK1ziRqXW4SBeKq72NeK4AzKECa6J15Edxl-7r3bwZTlOPurfMuFtB8nR9xGM2vrYXTOiGvDL4SK5d79A"/>
+<span class="font-headline-md text-headline-md tracking-tighter uppercase text-on-surface">Lotwise</span>
+</div>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" data-path="inventory" href="#">Inventory</a>
+<a aria-current="page" class="font-label-caps text-primary border-b-2 border-primary pb-1 transition-all" data-path="showroom" href="#">Showroom</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" data-path="admin-panel" href="#">Admin Panel</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" data-path="contact" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">search</span>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer shadow-lg hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="w-full pt-20">
+<div class="flex flex-col w-full">
+<!-- Admin Header Section -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop w-full py-12 flex flex-col md:flex-row justify-between items-end gap-8">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(0,98,157,0.5)]"></span>
+<span class="font-label-caps text-label-caps text-primary uppercase">System Controller</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface">Fleet Management</h1>
+<p class="font-body-lg text-on-surface-variant max-w-xl">Configure, monitor, and deploy premium inventory across the Lotwise global showroom network with precision overrides.</p>
+</div>
+<button class="group relative flex items-center gap-4 px-8 py-4 bg-primary text-on-primary overflow-hidden rounded-lg transition-all hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-primary/20">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label-caps text-label-caps tracking-widest">Add New Vehicle</span>
+</button>
+</section>
+<!-- Quick Metrics Grid -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop w-full grid grid-cols-1 md:grid-cols-4 gap-gutter mb-16">
+<!-- Metric Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30 shadow-sm relative group hover:shadow-md transition-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-40 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-4">Total Inventory</div>
+<div class="font-headline-lg text-headline-lg text-on-surface tracking-tighter">142</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-primary font-bold text-[12px]">+12%</span>
+<span class="text-on-surface-variant/60 text-[10px] uppercase font-label-caps">vs last month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30 shadow-sm relative group hover:shadow-md transition-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-40 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">visibility</span>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-4">Showroom Heat</div>
+<div class="font-headline-lg text-headline-lg text-on-surface tracking-tighter">8.9k</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="flex gap-1">
+<div class="w-1 h-3 bg-primary/20"></div>
+<div class="w-1 h-3 bg-primary/40"></div>
+<div class="w-1 h-3 bg-primary/60"></div>
+<div class="w-1 h-3 bg-primary"></div>
+</div>
+<span class="text-on-surface-variant/60 text-[10px] uppercase font-label-caps">High Traffic</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30 shadow-sm relative group hover:shadow-md transition-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-40 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-4">Fleet Value</div>
+<div class="font-headline-lg text-headline-lg text-on-surface tracking-tighter">$12.4M</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-on-surface-variant/60 text-[10px] uppercase font-label-caps tracking-widest">Market Adjusted</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30 shadow-sm relative group overflow-hidden hover:shadow-md transition-shadow">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg class="w-full h-full stroke-primary fill-none stroke-2" viewbox="0 0 100 40">
+<path d="M0 35 Q 25 35, 30 25 T 50 15 T 70 25 T 100 5"></path>
+</svg>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-4">Avg. Turnaround</div>
+<div class="font-headline-lg text-headline-lg text-on-surface tracking-tighter">14 <span class="text-[16px] text-on-surface-variant/60 uppercase">Days</span></div>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-error font-bold text-[12px]">-2 Days</span>
+<span class="text-on-surface-variant/60 text-[10px] uppercase font-label-caps">Improving</span>
+</div>
+</div>
+</section>
+<!-- Inventory Management Grid -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop w-full pb-24">
+<div class="flex items-center justify-between mb-8">
+<div class="flex gap-8">
+<button class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-2 uppercase">Active Stock</button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface pb-2 uppercase transition-colors">Pending Arrivals</button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface pb-2 uppercase transition-colors">Sold Archive</button>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-high px-4 py-2 rounded border border-outline-variant/50 cursor-pointer hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">filter_list</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Filters</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Vehicle Admin Card 1 -->
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/40 hover:border-primary transition-all duration-500 shadow-sm hover:shadow-xl">
+<!-- Status Indicator -->
+<div class="absolute top-4 left-4 z-10 flex items-center gap-2 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full border border-outline-variant shadow-lg">
+<span class="w-2 h-2 rounded-full bg-[#00A36C] shadow-[0_0_8px_#00A36C]"></span>
+<span class="font-label-caps text-[10px] text-on-surface uppercase font-bold">In Stock</span>
+</div>
+<!-- Image Container -->
+<div class="relative aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzqpUAsuVbqcAmKl7CsB9i5sQHrLbUBHC4M1V_S6opueWWIIZzGJEkabndI3hdF_AxG0ebk55mrsqq1FLy13NwOUFbBOhySHMgs_d5yR0d0quKA9jtJ_h9hV4pHizlN8gWFOGhtjhaIZC4G2X8jcOKIIt9QjG_X5FwfO8CJwQ0MAK3txQ2FJVH6TefWW3IJxT2tvTZS496mrLnwDyF8y5HbUaKJixTCuli7nDwo-snjC0sOzmk9tsMyg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/20 via-transparent to-transparent"></div>
+<!-- Hover Overlays (Admin Actions) -->
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+<button class="w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-on-surface hover:text-primary transition-all transform translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-on-surface hover:text-primary transition-all transform translate-y-4 group-hover:translate-y-0 delay-75">
+<span class="material-symbols-outlined">analytics</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-on-surface hover:text-error transition-all transform translate-y-4 group-hover:translate-y-0 delay-150">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Content -->
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Apex Spectre E-GT</h3>
+<span class="font-data-tabular text-primary text-[16px] font-bold">$189,500</span>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">VIN: 9XJ...442</span>
+<span class="w-1 h-1 rounded-full bg-on-surface-variant/30"></span>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">2,140 Miles</span>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-outline-variant/30 pt-6">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase">Inquiries</span>
+<span class="font-data-tabular text-on-surface text-[14px]">42</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase">Days on Lot</span>
+<span class="font-data-tabular text-on-surface text-[14px]">4</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vehicle Admin Card 2 -->
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/40 hover:border-primary transition-all duration-500 shadow-sm hover:shadow-xl">
+<div class="absolute top-4 left-4 z-10 flex items-center gap-2 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full border border-outline-variant shadow-lg">
+<span class="w-2 h-2 rounded-full bg-error shadow-[0_0_8px_rgba(186,26,26,0.6)]"></span>
+<span class="font-label-caps text-[10px] text-on-surface uppercase font-bold">Low Stock</span>
+</div>
+<div class="relative aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYWYx5O27YF2D030NMjcTro0bmBN_IPKn_hdlRVrM7Af2dE61xE1A5JQF8Kje7J_eaB9R75cfg7xUOONEsvdDABqTNNhNE_Ef3ViBBvUHP68Z_PAlSK6nCkhvPKs_ReTGu8XJZAEBXByJCRbRwzgg3Mi2xgxiyrvA7WR154X0mWcwIdKauHN1gV3vAJqu2x8Mgo3gEeKcU2LQhucOAKBiQ6KLCIlr3UEnvlDE-hiz8Gu7jDpEo1UuqFw"/>
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+<button class="w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-on-surface hover:text-primary transition-all transform translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-on-surface hover:text-primary transition-all transform translate-y-4 group-hover:translate-y-0 delay-75">
+<span class="material-symbols-outlined">inventory_2</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-on-surface hover:text-error transition-all transform translate-y-4 group-hover:translate-y-0 delay-150">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Vanguard S-Model</h3>
+<span class="font-data-tabular text-primary text-[16px] font-bold">$94,200</span>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">VIN: 2BB...891</span>
+<span class="w-1 h-1 rounded-full bg-on-surface-variant/30"></span>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Brand New</span>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-outline-variant/30 pt-6">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase">Reserved</span>
+<span class="font-data-tabular text-on-surface text-[14px]">3 Units</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-error uppercase">Available</span>
+<span class="font-data-tabular text-error text-[14px] font-bold">1 Unit</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vehicle Admin Card 3 -->
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/40 hover:border-primary transition-all duration-500 shadow-sm hover:shadow-xl">
+<div class="absolute top-4 left-4 z-10 flex items-center gap-2 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full border border-outline-variant shadow-lg">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_rgba(80,95,118,0.4)]"></span>
+<span class="font-label-caps text-[10px] text-on-surface uppercase font-bold">Pending Detail</span>
+</div>
+<div class="relative aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACbyX6sfJzjdtzECrgLKwKJxoOxUDtNwnCUUBh91Eu5ZtVVsxw9aWIOQnMNA3DAlAj5cnomR5r6jgpH1ejEPK5QPRP3-j32PUZ4ogntXW9YwTJM2v0RuYM7e04WQKVbZT64R6KyhpU5ssPtr5rOCQSjyYTMwOzq9yxB6nIFmuLsFWkEv9bh5k7UaVKCcx3A9dMSzIyQhgI2rL46XhUB6cLsBo940qVr3_ksiJZ5ao_0Q9kyjCn1Kozzw"/>
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+<button class="w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-on-surface hover:text-primary transition-all transform translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-on-surface hover:text-primary transition-all transform translate-y-4 group-hover:translate-y-0 delay-75">
+<span class="material-symbols-outlined">photo_camera</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-on-surface hover:text-error transition-all transform translate-y-4 group-hover:translate-y-0 delay-150">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Nebula Prototype</h3>
+<span class="font-data-tabular text-primary text-[16px] font-bold">TBD</span>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">VIN: UNKNOWN</span>
+<span class="w-1 h-1 rounded-full bg-on-surface-variant/30"></span>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">In Transit</span>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-outline-variant/30 pt-6">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase">ETA</span>
+<span class="font-data-tabular text-on-surface text-[14px]">24 Hours</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase">Stage</span>
+<span class="font-data-tabular text-on-surface text-[14px]">Inspection</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Activity Overlay Element (Bottom Right) -->
+<div class="fixed bottom-8 right-8 z-40">
+<div class="bg-surface-container-lowest/90 backdrop-blur-2xl border border-outline-variant p-4 rounded-xl shadow-2xl flex items-center gap-6">
+<div class="flex -space-x-3">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary-container/20 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-primary">person</span>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-secondary-container/20 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">person</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-primary uppercase font-bold">Active Session</span>
+<span class="font-label-caps text-on-surface text-[11px]">2 Admins Editing Fleet</span>
+</div>
+<div class="w-[1px] h-8 bg-outline-variant/50"></div>
+<div class="relative w-8 h-8 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant animate-pulse">notifications</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full border-2 border-white"></span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-16 mt-24">
+<div class="max-w-[1440px] mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+<div class="flex items-center gap-4 opacity-70">
+<img alt="Lotwise" class="h-6 w-auto grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEmbkw8RukVeYW0_uayrM5vXkOqzZAUlWA1u5RnsJsIh36_Y5qPiHg9dZITLhgGNBhaKl3xxuRz9tLMX8DOcFlZ4lUW4KpsZWGhOHyG2pXN6NeK5KV0gNMMvHYXY3jRT5jWVC8eaG_PazPeZr-qdNgcdY3_n24jWxY554qeQK1ziRqXW4SBeKq72NeK4AzKECa6J15Edxl-7r3bwZTlOPurfMuFtB8nR9xGM2vrYXTOiGvDL4SK5d79A"/>
+<span class="font-headline-sm text-headline-sm tracking-widest uppercase">Lotwise</span>
+</div>
+<div class="flex gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary uppercase" href="#">Privacy</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary uppercase" href="#">Terms</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary uppercase" href="#">Press</a>
+</div>
+</div>
+<div class="text-center font-label-caps text-label-caps text-on-surface-variant/60 tracking-widest uppercase">© 2024 Lotwise Automotive Group. Precision Engineering Excellence.</div>
+</div>
+</footer>
+<script>
+        // Subtle parallax effect for metrics cards - keeping interaction logic but adjusting for light theme feel
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.bg-surface-container-lowest');
+            const mouseX = e.clientX / window.innerWidth - 0.5;
+            const mouseY = e.clientY / window.innerHeight - 0.5;
+            
+            cards.forEach(card => {
+                if (card.classList.contains('group')) {
+                    const speed = 5;
+                    card.style.transform = `translate(${mouseX * speed}px, ${mouseY * speed}px)`;
+                }
+            });
+        });
+
+        // Add Vehicle Interaction
+        const addBtn = document.querySelector('button.bg-primary');
+        if (addBtn) {
+            addBtn.addEventListener('mousedown', () => {
+                addBtn.classList.add('scale-95');
+            });
+            addBtn.addEventListener('mouseup', () => {
+                addBtn.classList.remove('scale-95');
+            });
+        }
+    </script>
+</body></html>

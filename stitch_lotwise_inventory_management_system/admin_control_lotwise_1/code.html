@@ -1,0 +1,245 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{"colors":{"inverse-on-surface":"#eaf1ff","inverse-surface":"#213145","on-tertiary-container":"#522900","on-primary-fixed-variant":"#004a77","on-secondary-container":"#656464","inverse-primary":"#98cbff","on-tertiary":"#ffffff","on-secondary":"#ffffff","tertiary-fixed":"#ffdcc3","tertiary":"#904d00","on-primary":"#ffffff","surface-variant":"#d3e4fe","on-secondary-fixed":"#1c1b1b","surface-container":"#e5eeff","secondary":"#5f5e5e","primary-fixed":"#cfe5ff","secondary-fixed":"#e5e2e1","on-error":"#ffffff","on-tertiary-fixed":"#2f1500","surface-container-low":"#eff4ff","primary-container":"#00a3ff","error-container":"#ffdad6","outline":"#6f7883","on-background":"#0b1c30","error":"#ba1a1a","tertiary-fixed-dim":"#ffb77d","surface-container-highest":"#d3e4fe","on-tertiary-fixed-variant":"#6e3900","primary":"#00629d","surface-container-high":"#dce9ff","outline-variant":"#bec7d4","on-error-container":"#93000a","background":"#f8f9ff","surface-tint":"#00629d","surface":"#f8f9ff","secondary-container":"#e5e2e1","tertiary-container":"#eb8104","surface-dim":"#cbdbf5","on-surface-variant":"#3f4852","primary-fixed-dim":"#98cbff","on-primary-fixed":"#001d33","secondary-fixed-dim":"#c8c6c5","on-primary-container":"#00375a","surface-container-lowest":"#ffffff","on-surface":"#0b1c30","on-secondary-fixed-variant":"#474646","surface-bright":"#f8f9ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"xs":"4px","md":"24px","sm":"12px","xl":"80px","gutter":"24px","container-max":"1280px","base":"8px","lg":"48px"},"fontFamily":{"display-lg":["Archivo Narrow"],"headline-lg":["Archivo Narrow"],"display-sm":["Archivo Narrow"],"headline-lg-mobile":["Archivo Narrow"],"label-md":["Inter"],"caption":["Inter"],"headline-md":["Archivo Narrow"],"body-md":["Inter"],"body-lg":["Inter"]},"fontSize":{"display-lg":["64px",{"lineHeight":"1.1","letterSpacing":"-0.04em","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"600"}],"display-sm":["48px",{"lineHeight":"1.1","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-lg-mobile":["28px",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["14px",{"lineHeight":"1.2","letterSpacing":"0.02em","fontWeight":"600"}],"caption":["12px",{"lineHeight":"1.4","letterSpacing":"0","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"1.3","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"1.5","letterSpacing":"0","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"1.6","letterSpacing":"0","fontWeight":"400"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-background"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant"><div class="h-20 w-full px-gutter flex items-center justify-between max-w-container-max mx-auto"><div class="flex items-center gap-sm"><img alt="Lotwise automotive inventory management logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLtIM3qxM7UOH2e-Ka32Pe4w3Bgi_ILCR4VZLxj7VfPtcFxOEMYjys8W6SksdM89ipWgqxM5mlIzdB3bJnWuW9DTD0lz-Yc_wxYUpN6J3zhZlIXicnYZAGQCaG_5lIpsm0r-oOcGR467_TkDXkLGTy6V7A2FPF8WM48Oo9867p6E1CS5tWN6QSHAY9Ov0uQzWn1XnY67IB2AEJHaQX0rrkHpbV4yuKbENjrIuib9sr8QzWOc_m4IqXivJQ92"/><span class="font-headline-md text-headline-md text-on-surface tracking-tight">Lotwise</span></div><nav class="hidden md:flex items-center gap-lg" data-active-classes="text-primary font-semibold"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="inventory" href="#">Inventory</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="showroom" href="#">Showroom</a><a aria-current="page" class="transition-colors text-primary font-semibold" data-path="admin-panel" href="#">Admin Panel</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-md"><button class="flex items-center justify-center p-xs text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">search</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Header Stats Section -->
+<section class="px-gutter py-lg">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row items-end justify-between gap-md mb-lg">
+<div class="flex flex-col gap-xs">
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase">Overview</span>
+<h1 class="font-display-sm text-display-sm text-on-surface">Fleet Command</h1>
+</div>
+<div class="flex items-center gap-sm bg-surface-container-low p-2 rounded-xl shadow-sm">
+<button class="px-md py-2 rounded-lg bg-surface-container-highest text-on-surface font-label-md transition-all hover:shadow-md">Export Report</button>
+<button class="px-md py-2 rounded-lg bg-primary text-on-primary font-label-md transition-all hover:shadow-lg hover:bg-primary/90">Refresh Data</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-md flex flex-col gap-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[64px]">directions_car</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Total Inventory</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-sm text-display-sm text-on-surface" id="count-inventory">1,248</span>
+<span class="font-label-md text-label-md text-tertiary">+12%</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full mt-2">
+<div class="h-full bg-primary rounded-full transition-all duration-1000" style="width: 75%"></div>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-md flex flex-col gap-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[64px]">payments</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Fleet Value</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-sm text-display-sm text-on-surface">$42.8M</span>
+<span class="font-label-md text-label-md text-primary">High</span>
+</div>
+<div class="flex gap-1 mt-2">
+<div class="h-4 w-1 bg-primary/20 rounded-full"></div>
+<div class="h-6 w-1 bg-primary/40 rounded-full"></div>
+<div class="h-8 w-1 bg-primary/60 rounded-full"></div>
+<div class="h-5 w-1 bg-primary rounded-full"></div>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-md flex flex-col gap-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[64px]">speed</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Avg. Turnaround</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-sm text-display-sm text-on-surface">14</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Days</span>
+</div>
+<div class="flex items-center gap-xs mt-2">
+<span class="material-symbols-outlined text-tertiary text-sm">trending_up</span>
+<span class="text-caption text-on-surface-variant">3 days faster than Q3</span>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-md flex flex-col gap-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[64px]">engineering</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">In Service</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-sm text-display-sm text-on-surface">32</span>
+<span class="font-label-md text-label-md text-error">Critical</span>
+</div>
+<div class="flex -space-x-2 mt-2">
+<div class="w-6 h-6 rounded-full border-2 border-surface-container-lowest bg-surface-variant"></div>
+<div class="w-6 h-6 rounded-full border-2 border-surface-container-lowest bg-primary-fixed"></div>
+<div class="w-6 h-6 rounded-full border-2 border-surface-container-lowest bg-secondary-fixed"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Inventory Grid -->
+<section class="px-gutter pb-xl">
+<div class="max-w-container-max mx-auto">
+<!-- Filter Bar -->
+<div class="bg-surface-container-high rounded-t-2xl p-md flex flex-wrap items-center justify-between gap-md">
+<div class="flex items-center gap-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-12 pr-md py-3 bg-surface-container-lowest border-none rounded-xl w-80 focus:ring-2 focus:ring-primary/20 outline-none transition-all font-body-md" placeholder="Search VIN, Model, or Dealer..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-on-surface-variant">Status:</span>
+<select class="bg-transparent font-label-md text-on-surface border-none focus:ring-0 cursor-pointer">
+<option>All Assets</option>
+<option>Available</option>
+<option>In Transit</option>
+<option>Reserved</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-on-surface-variant">Showing 1-10 of 1,248</span>
+<div class="flex gap-xs">
+<button class="p-2 rounded-lg hover:bg-surface-container-highest transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-2 rounded-lg hover:bg-surface-container-highest transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- Table Container -->
+<div class="bg-surface-container-lowest rounded-b-2xl shadow-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container/30 border-b border-outline-variant">
+<th class="px-md py-4 font-headline-md text-label-md text-on-surface-variant uppercase tracking-wider">Vehicle</th>
+<th class="px-md py-4 font-headline-md text-label-md text-on-surface-variant uppercase tracking-wider">VIN / SKU</th>
+<th class="px-md py-4 font-headline-md text-label-md text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-md py-4 font-headline-md text-label-md text-on-surface-variant uppercase tracking-wider">Market Value</th>
+<th class="px-md py-4 font-headline-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<!-- Vehicle Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-md py-4">
+<div class="flex items-center gap-md">
+<div class="w-16 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up studio shot of a modern electric silver sedan parked on a reflective surface, high-end automotive photography style with dramatic blue side lighting and sharp metallic details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVnvg1fCG1rDmyOT9K_ph4_7qOc-CENYipAPEpMtiUb77VA-1dmDj8IO59ugwzv08KvNU6GPZTS8ZWtJroN_-MP8YYC2qCW23MONRS1ipnuZZ-SJ7JytVW7zZmQQFRHinawN_4_i4TA-EGa_qt98kPVe-KL8ltjqU0QJi0IxblSZO7TnBa9WtVNk0k6bjL9pR8bkIw6W6rkXMKssxT1le3rFYJEdEDksHJqyytfU7u7Z3hj-0u1VVLzw"/>
+</div>
+<div>
+<div class="font-headline-md text-on-surface leading-none">2024 LTX-V Primus</div>
+<div class="text-caption text-on-surface-variant mt-1">Starlight Silver • EV</div>
+</div>
+</div>
+</td>
+<td class="px-md py-4 font-mono text-body-md text-on-surface-variant">1HGCM8263...9221</td>
+<td class="px-md py-4">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-md text-[12px]">Available</span>
+</td>
+<td class="px-md py-4 font-label-md text-on-surface">$82,450</td>
+<td class="px-md py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 rounded-full hover:bg-primary/10 text-primary transition-colors" title="Edit"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 rounded-full hover:bg-tertiary/10 text-tertiary transition-colors" title="Restock"><span class="material-symbols-outlined">refresh</span></button>
+<button class="p-2 rounded-full hover:bg-error/10 text-error transition-colors" title="Delete"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Vehicle Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-md py-4">
+<div class="flex items-center gap-md">
+<div class="w-16 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High-performance dark charcoal SUV driving through a clean urban environment at twilight. The city lights reflect off the polished paint. Cinematic automotive lighting, shallow depth of field, premium tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuou9dcLlwAtjOIhxLIMM2aDOGjRvGooOo_kZfVCScxCZi3F-zv-k2HeIp4rNdst35bAQSx3TPQGq3_EclJV0JbvqVZFYcW91kHhvBFxBZhKzjaRSzOOGTKIWWImB4ZhSXBrKSrA289Wlzj9VMAR4NWFluR-6-TCejT2odLYRX4tz8eWzjiWGeTY_s4m27vULU4jOf4S_4Kt9FFJH0ZQS4M1SRYz2cnh-PEqHwcUjrnlHkCdhdNdwhdQ"/>
+</div>
+<div>
+<div class="font-headline-md text-on-surface leading-none">2023 Horizon GT</div>
+<div class="text-caption text-on-surface-variant mt-1">Obsidian Black • Hybrid</div>
+</div>
+</div>
+</td>
+<td class="px-md py-4 font-mono text-body-md text-on-surface-variant">3FA6P0G91...4820</td>
+<td class="px-md py-4">
+<span class="px-3 py-1 rounded-full bg-tertiary/10 text-tertiary font-label-md text-[12px]">Reserved</span>
+</td>
+<td class="px-md py-4 font-label-md text-on-surface">$64,200</td>
+<td class="px-md py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 rounded-full hover:bg-primary/10 text-primary transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 rounded-full hover:bg-tertiary/10 text-tertiary transition-colors"><span class="material-symbols-outlined">refresh</span></button>
+<button class="p-2 rounded-full hover:bg-error/10 text-error transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Vehicle Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-md py-4">
+<div class="flex items-center gap-md">
+<div class="w-16 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Side profile of a bright white sports car in a minimalist warehouse. Soft overhead studio lighting, sharp shadows, high contrast. Professional commercial car photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmNcsUPEFB9K9wvEycuKe4DwPNcFeape2FcEEBaAVXyUfXK8kJ7d1wKHFJQ63sbdCu4qd-DkWHYqRz8YpC_QKqavdR2-jA1Fxnwi7ZXMNjRz_yR0cvuDfWhJ-GC4ZRCIF-hUIwmtzqm1fEkqEUqwCB3P02W7KKlwgX0UjighcIRAvzzv3C4bRPFJmiGqNk0sTD2iWtk8GA0nQjm30Kfunpr2A_D0JnUBccIOlOyGCInKxEztrxwQr35w"/>
+</div>
+<div>
+<div class="font-headline-md text-on-surface leading-none">2024 LTX-S Nomad</div>
+<div class="text-caption text-on-surface-variant mt-1">Alpine White • Petrol</div>
+</div>
+</div>
+</td>
+<td class="px-md py-4 font-mono text-body-md text-on-surface-variant">4T1BE32K0...7732</td>
+<td class="px-md py-4">
+<span class="px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-md text-[12px]">In Transit</span>
+</td>
+<td class="px-md py-4 font-label-md text-on-surface">$55,900</td>
+<td class="px-md py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 rounded-full hover:bg-primary/10 text-primary transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 rounded-full hover:bg-tertiary/10 text-tertiary transition-colors"><span class="material-symbols-outlined">refresh</span></button>
+<button class="p-2 rounded-full hover:bg-error/10 text-error transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="p-md flex justify-center border-t border-outline-variant">
+<button class="font-label-md text-primary hover:underline transition-all">View All 1,248 Vehicles</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Action Button -->
+<button class="fixed bottom-10 right-10 w-16 h-16 rounded-full bg-primary text-on-primary shadow-2xl flex items-center justify-center group hover:scale-110 transition-all z-50">
+<span class="material-symbols-outlined text-[32px] group-hover:rotate-90 transition-transform">add</span>
+<div class="absolute -top-12 right-0 bg-inverse-surface text-inverse-on-surface px-4 py-2 rounded-lg text-label-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Add New Vehicle
+        </div>
+</button>
+<script>
+        // Micro-interactions for the Dashboard
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('#count-inventory');
+            counters.forEach(counter => {
+                const target = 1248;
+                let current = 1100;
+                const increment = Math.ceil((target - current) / 20);
+                
+                const updateCount = () => {
+                    if (current < target) {
+                        current += increment;
+                        if(current > target) current = target;
+                        counter.innerText = current.toLocaleString();
+                        setTimeout(updateCount, 40);
+                    }
+                };
+                updateCount();
+            });
+
+            // Subtle row interaction
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                row.addEventListener('click', () => {
+                   // row.classList.toggle('bg-primary-container/10');
+                });
+            });
+        });
+    </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant py-lg"><div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-md"><div class="font-label-md text-label-md text-on-surface-variant">© 2024 Lotwise. Built for performance.</div><nav class="flex gap-md"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="privacy" href="#">Privacy</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="terms" href="#">Terms</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="press" href="#">Press</a></nav></div></footer></body></html>

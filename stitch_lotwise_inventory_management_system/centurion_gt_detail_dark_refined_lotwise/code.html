@@ -1,0 +1,378 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>
+        @layer base {
+            html, body { margin: 0; padding: 0; }
+            body { overscroll-behavior: none; }
+            main > :first-child { margin-top: 0 !important; }
+            main > :last-child { margin-bottom: 0 !important; }
+        }
+        ::-webkit-scrollbar { display: none; }
+        
+        /* HUD-inspired glows and glassmorphism */
+        .glass-panel {
+            background: rgba(30, 31, 35, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .hero-glow {
+            filter: drop-shadow(0 0 20px rgba(0, 163, 255, 0.15));
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(152, 203, 255, 0.3);
+        }
+    </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#3f4852",
+                        "on-error": "#690005",
+                        "surface-container-high": "#292a2e",
+                        "on-surface-variant": "#bec7d4",
+                        "on-primary-fixed-variant": "#004a77",
+                        "surface-variant": "#343539",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#343539",
+                        "on-primary-container": "#00375a",
+                        "primary": "#98cbff",
+                        "on-tertiary-fixed": "#1b1b20",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1a1b1f",
+                        "tertiary": "#c8c5cc",
+                        "on-secondary-fixed-variant": "#47464b",
+                        "on-primary-fixed": "#001d33",
+                        "secondary-fixed-dim": "#c8c5cb",
+                        "secondary-container": "#47464b",
+                        "primary-fixed": "#cfe5ff",
+                        "inverse-primary": "#00629d",
+                        "outline": "#88919d",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#1b1b1f",
+                        "primary-container": "#00a3ff",
+                        "tertiary-fixed": "#e4e1e8",
+                        "surface-container-lowest": "#0d0e12",
+                        "surface": "#121317",
+                        "on-tertiary-fixed-variant": "#47464c",
+                        "surface-container": "#1e1f23",
+                        "primary-fixed-dim": "#98cbff",
+                        "on-secondary": "#303034",
+                        "inverse-on-surface": "#2f3034",
+                        "on-background": "#e3e2e7",
+                        "inverse-surface": "#e3e2e7",
+                        "on-surface": "#e3e2e7",
+                        "surface-bright": "#38393d",
+                        "on-tertiary-container": "#333339",
+                        "on-secondary-container": "#b7b4ba",
+                        "secondary-fixed": "#e5e1e7",
+                        "surface-tint": "#98cbff",
+                        "background": "#121317",
+                        "secondary": "#c8c5cb",
+                        "tertiary-fixed-dim": "#c8c5cc",
+                        "surface-dim": "#121317",
+                        "tertiary-container": "#9d9ba2",
+                        "on-tertiary": "#303035",
+                        "on-primary": "#003354"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "max-width": "1440px",
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-md": ["Archivo Narrow"],
+                        "headline-lg": ["Archivo Narrow"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Archivo Narrow"],
+                        "headline-md": ["Archivo Narrow"],
+                        "data-mono": ["Archivo Narrow"],
+                        "headline-sm": ["Archivo Narrow"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "data-mono": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-background font-body-md text-on-background selection:bg-primary/30">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/5">
+<div class="h-20 w-full px-gutter flex items-center justify-between max-w-max-width mx-auto">
+<div class="flex items-center gap-2">
+<img alt="Lotwise logo" class="h-6 w-auto object-contain brightness-110" src="https://lh3.googleusercontent.com/aida/AP1WRLtIM3qxM7UOH2e-Ka32Pe4w3Bgi_ILCR4VZLxj7VfPtcFxOEMYjys8W6SksdM89ipWgqxM5mlIzdB3bJnWuW9DTD0lz-Yc_wxYUpN6J3zhZlIXicnYZAGQCaG_5lIpsm0r-oOcGR467_TkDXkLGTy6V7A2FPF8WM48Oo9867p6E1CS5tWN6QSHAY9Ov0uQzWn1XnY67IB2AEJHaQX0rrkHpbV4yuKbENjrIuib9sr8QzWOc_m4IqXivJQ92"/>
+<span class="font-headline-sm text-on-surface uppercase tracking-tighter">Lotwise</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors uppercase" href="#">Inventory</a>
+<a class="font-label-md text-primary font-bold uppercase" href="#">Showroom</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors uppercase" href="#">Admin</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors uppercase" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">search</span></button>
+<div class="w-9 h-9 rounded-full bg-surface-container-highest border border-white/10 flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">person</span></div>
+</div>
+</div>
+</header>
+<main class="w-full pt-20 bg-surface min-h-screen">
+<div class="flex flex-col w-full">
+<!-- Hero Section: Centurion GT Detail -->
+<section class="relative w-full px-gutter py-16 overflow-hidden">
+<!-- Background Atmospheric Elements -->
+<div class="absolute top-0 right-0 -mr-64 -mt-64 w-[800px] h-[800px] rounded-full bg-primary/5 blur-[120px] -z-10"></div>
+<div class="absolute bottom-0 left-0 -ml-32 -mb-32 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[100px] -z-10"></div>
+<div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Visual Showcase -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div class="relative group aspect-[16/9] w-full rounded-xl overflow-hidden shadow-2xl bg-surface-container-low border border-white/5 hero-glow">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvcTWl1VEmvt9rRCBIJxMNZToYlgPycMzoid7eigCtgvfkDvcexdhIV6OWHXXH2w4HZ68h0jjC2SNgQDhFxI-DfcAyBkx5ek6s6n2X__dAI9MtPHn53wffPpGA2Yj_6RQkUHCA949297AgLnGPzxZFKHaEodZ1Lge-QlaK8WdYb10ciMAm1KsjxMx7_QJksd3gT_xlqnoyaUPEvRBmMhFRKi0TufuELNxRChfCb7ccouZ1ST4t0QlV-w"/>
+<div class="absolute top-6 left-6 glass-panel px-4 py-1.5 rounded-full flex items-center gap-2 border border-white/10">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(152,203,255,0.8)]"></span>
+<span class="font-label-md text-[11px] text-on-surface uppercase tracking-[0.25em]">Live Allocation</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none"></div>
+</div>
+<!-- Navigation dots -->
+<div class="flex items-center gap-3">
+<button class="w-16 h-0.5 bg-primary rounded-full transition-all"></button>
+<button class="w-4 h-0.5 bg-white/20 rounded-full hover:bg-white/40 transition-all"></button>
+<button class="w-4 h-0.5 bg-white/20 rounded-full hover:bg-white/40 transition-all"></button>
+<button class="w-4 h-0.5 bg-white/20 rounded-full hover:bg-white/40 transition-all"></button>
+</div>
+</div>
+<!-- Right Column: HUD Data & Specs -->
+<div class="lg:col-span-5 flex flex-col">
+<div class="sticky top-28 space-y-8">
+<div class="space-y-2">
+<span class="font-label-md text-primary uppercase tracking-[0.4em] text-[12px] opacity-80">Precision Performance // v01.4</span>
+<h1 class="font-display-lg text-display-lg text-on-surface text-glow uppercase leading-none">Centurion GT</h1>
+<div class="flex items-center gap-4">
+<p class="font-headline-md text-on-surface-variant">$244,900</p>
+<span class="px-2 py-0.5 border border-primary/20 text-primary text-[10px] font-bold tracking-[0.1em] rounded-sm">SPEC_B</span>
+</div>
+</div>
+<!-- HUD Grid -->
+<div class="grid grid-cols-1 gap-6 py-8 border-y border-white/5">
+<div class="flex items-end justify-between group">
+<div class="flex flex-col">
+<span class="font-label-md text-[11px] text-outline uppercase tracking-widest mb-1">0—60 Time</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-[48px] leading-none text-on-surface tracking-tighter">1.92</span>
+<span class="font-label-md text-outline uppercase">SEC</span>
+</div>
+</div>
+<div class="h-[2px] w-1/3 bg-surface-container-highest relative overflow-hidden">
+<div class="absolute inset-0 bg-primary w-4/5"></div>
+</div>
+</div>
+<div class="flex items-end justify-between group">
+<div class="flex flex-col">
+<span class="font-label-md text-[11px] text-outline uppercase tracking-widest mb-1">Peak Velocity</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-[48px] leading-none text-on-surface tracking-tighter">218</span>
+<span class="font-label-md text-outline uppercase">MPH</span>
+</div>
+</div>
+<div class="h-[2px] w-1/3 bg-surface-container-highest relative overflow-hidden">
+<div class="absolute inset-0 bg-primary w-[92%]"></div>
+</div>
+</div>
+<div class="flex items-end justify-between group">
+<div class="flex flex-col">
+<span class="font-label-md text-[11px] text-outline uppercase tracking-widest mb-1">Drivetrain Range</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-[48px] leading-none text-on-surface tracking-tighter">520</span>
+<span class="font-label-md text-outline uppercase">MI</span>
+</div>
+</div>
+<div class="h-[2px] w-1/3 bg-surface-container-highest relative overflow-hidden">
+<div class="absolute inset-0 bg-primary w-[75%]"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full h-14 rounded-sm bg-primary text-on-primary font-label-md uppercase tracking-[0.2em] font-bold hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(152,203,255,0.2)]">
+                                    Initiate Order
+                                    <span class="material-symbols-outlined text-[18px]">arrow_forward_ios</span>
+</button>
+<button class="w-full h-14 rounded-sm bg-transparent border border-white/10 text-on-surface font-label-md uppercase tracking-[0.2em] hover:bg-white/5 transition-all">
+                                    Virtual Configurator
+                                </button>
+</div>
+<div class="pt-4 flex items-center justify-between">
+<div class="flex -space-x-1">
+<div class="w-7 h-7 rounded-full border border-background bg-surface-container-high flex items-center justify-center text-[9px] font-bold text-outline">01</div>
+<div class="w-7 h-7 rounded-full border border-background bg-surface-container-high flex items-center justify-center text-[9px] font-bold text-outline">02</div>
+<div class="w-7 h-7 rounded-full border border-background bg-surface-container-high flex items-center justify-center text-[9px] font-bold text-outline">03</div>
+</div>
+<span class="font-label-md text-[11px] text-primary/60 uppercase tracking-widest">Global Stock: 02 Available</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Detail Grid -->
+<section class="w-full px-gutter py-24 bg-surface-container-lowest border-y border-white/5">
+<div class="max-w-max-width mx-auto">
+<div class="flex flex-col md:flex-row items-baseline gap-6 mb-12">
+<h2 class="font-display-lg text-headline-lg text-on-surface uppercase tracking-tight">Engineering Specs</h2>
+<div class="h-px flex-1 bg-white/5"></div>
+<span class="font-label-md text-outline uppercase tracking-[0.3em] text-[12px]">Documentation // Ref_240</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-6">
+<!-- Interior Showcase -->
+<div class="md:col-span-4 lg:col-span-8 relative group h-[480px] rounded-xl overflow-hidden border border-white/5">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_vQKhYYXNHlu3z6dBCmyWR_MPpSMdXig2Nd1r3CG6ASOQd83OhksNwzh69BxIBi6_cuj7HF0MaKd9VmbUN-Mf9TPS2r4mBS4Bwqp0jgfICCHIGoYu7969xruIitpgCI3I37TUVVefWBe5mLvMOsBqXYZZj-tuEX1iZYF3p4754sduMQOBAc8D-SFQIFHZKwoKLfPlH4e8UKNRQ0ESZNiJRgty7L0FrL4fwHNjzVGOZUcEnzmWzn66fQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+<div class="absolute bottom-10 left-10 max-w-md">
+<h3 class="font-headline-md text-on-surface uppercase tracking-tight mb-2">Synthetic Luxury</h3>
+<p class="text-on-surface-variant font-body-md opacity-80">Next-gen composite textiles paired with reclaimed aerospace aluminum hardware.</p>
+</div>
+</div>
+<!-- Technical Cards -->
+<div class="md:col-span-4 lg:col-span-4 flex flex-col gap-6">
+<div class="flex-1 glass-panel p-8 rounded-xl border border-white/10 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary text-[32px] mb-4 opacity-80">dynamic_form</span>
+<h3 class="font-headline-sm text-on-surface uppercase tracking-tight mb-3">Fluid Dynamics</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Integrated active aero channels and underside ground-effect tunnels for maximum stability at velocity.</p>
+</div>
+<div class="pt-8">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-md text-[11px] text-outline uppercase tracking-widest">Efficiency Rating</span>
+<span class="font-data-mono text-primary">0.18 cd</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[98%]" id="aero-progress"></div>
+</div>
+</div>
+</div>
+<div class="h-48 glass-panel p-8 rounded-xl border border-white/10 flex flex-col justify-center bg-primary/5">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-primary">sensors</span>
+<span class="font-label-md text-on-surface uppercase tracking-[0.2em] text-[12px]">System Status</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col">
+<span class="text-[10px] text-outline uppercase tracking-widest">LIDAR 01</span>
+<span class="text-primary font-bold text-[12px]">ACTIVE</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-outline uppercase tracking-widest">CPU LOAD</span>
+<span class="text-primary font-bold text-[12px]">14%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- HUD Full Width Bar -->
+<div class="lg:col-span-12 glass-panel p-8 rounded-xl border border-white/10 bg-gradient-to-r from-surface-container-low to-primary/10 overflow-hidden relative">
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[200px] leading-none -mr-12">architecture</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
+<div class="flex flex-col border-l border-white/10 pl-4">
+<span class="font-label-md text-[10px] text-outline uppercase tracking-[0.3em] mb-1">Architecture</span>
+<span class="font-headline-sm text-on-surface uppercase tracking-tight">800V Tri-Motor</span>
+</div>
+<div class="flex flex-col border-l border-white/10 pl-4">
+<span class="font-label-md text-[10px] text-outline uppercase tracking-[0.3em] mb-1">Thermal Mgmt</span>
+<span class="font-headline-sm text-on-surface uppercase tracking-tight">Liquid-Argon</span>
+</div>
+<div class="flex flex-col border-l border-white/10 pl-4">
+<span class="font-label-md text-[10px] text-outline uppercase tracking-[0.3em] mb-1">Wheel Config</span>
+<span class="font-headline-sm text-on-surface uppercase tracking-tight">21" Forged</span>
+</div>
+<div class="flex flex-col border-l border-white/10 pl-4">
+<span class="font-label-md text-[10px] text-outline uppercase tracking-[0.3em] mb-1">Rapid Charge</span>
+<span class="font-headline-sm text-on-surface uppercase tracking-tight">15m @ 350kW</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Counter Section -->
+<section class="w-full px-gutter py-32 flex flex-col items-center text-center">
+<div class="max-w-3xl space-y-8">
+<h2 class="font-display-lg text-display-lg text-on-surface uppercase tracking-tight leading-none text-glow">The Standard.</h2>
+<p class="font-body-lg text-on-surface-variant leading-relaxed px-12">Each Centurion GT chassis is digitally twin-tested across 4.5 million virtual miles before the carbon fiber is cured.</p>
+<div class="flex flex-wrap justify-center gap-24 pt-12">
+<div class="flex flex-col items-center">
+<span class="font-display-lg text-display-lg text-primary text-glow leading-none mb-2" id="counter-1">0</span>
+<span class="font-label-md text-outline uppercase tracking-[0.4em] text-[12px]">Patents Reserved</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-display-lg text-display-lg text-primary text-glow leading-none mb-2" id="counter-2">0</span>
+<span class="font-label-md text-outline uppercase tracking-[0.4em] text-[12px]">BHP Total Output</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<footer class="w-full bg-background border-t border-white/5 py-12">
+<div class="max-w-max-width mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="font-label-md text-[12px] text-on-surface-variant uppercase tracking-widest opacity-60">© 2024 Lotwise. Engineered for the Extreme.</div>
+<nav class="flex gap-12">
+<a class="font-label-md text-[12px] text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" href="#">Privacy</a>
+<a class="font-label-md text-[12px] text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" href="#">Technical</a>
+<a class="font-label-md text-[12px] text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" href="#">Press</a>
+</nav>
+</div>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateCounter = (id, end, duration) => {
+                const obj = document.getElementById(id);
+                if (!obj) return;
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    obj.innerText = Math.floor(progress * end);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.id === 'counter-1') animateCounter('counter-1', 128, 2000);
+                        if (entry.target.id === 'counter-2') animateCounter('counter-2', 1250, 2500);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            ['counter-1', 'counter-2'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) observer.observe(el);
+            });
+        });
+    </script>
+</body></html>

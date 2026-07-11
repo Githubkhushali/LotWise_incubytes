@@ -1,0 +1,228 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{"colors":{"inverse-on-surface":"#eaf1ff","inverse-surface":"#213145","on-tertiary-container":"#522900","on-primary-fixed-variant":"#004a77","on-secondary-container":"#656464","inverse-primary":"#98cbff","on-tertiary":"#ffffff","on-secondary":"#ffffff","tertiary-fixed":"#ffdcc3","tertiary":"#904d00","on-primary":"#ffffff","surface-variant":"#d3e4fe","on-secondary-fixed":"#1c1b1b","surface-container":"#e5eeff","secondary":"#5f5e5e","primary-fixed":"#cfe5ff","secondary-fixed":"#e5e2e1","on-error":"#ffffff","on-tertiary-fixed":"#2f1500","surface-container-low":"#eff4ff","primary-container":"#00a3ff","error-container":"#ffdad6","outline":"#6f7883","on-background":"#0b1c30","error":"#ba1a1a","tertiary-fixed-dim":"#ffb77d","surface-container-highest":"#d3e4fe","on-tertiary-fixed-variant":"#6e3900","primary":"#00629d","surface-container-high":"#dce9ff","outline-variant":"#bec7d4","on-error-container":"#93000a","background":"#f8f9ff","surface-tint":"#00629d","surface":"#f8f9ff","secondary-container":"#e5e2e1","tertiary-container":"#eb8104","surface-dim":"#cbdbf5","on-surface-variant":"#3f4852","primary-fixed-dim":"#98cbff","on-primary-fixed":"#001d33","secondary-fixed-dim":"#c8c6c5","on-primary-container":"#00375a","surface-container-lowest":"#ffffff","on-surface":"#0b1c30","on-secondary-fixed-variant":"#474646","surface-bright":"#f8f9ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"xs":"4px","md":"24px","sm":"12px","xl":"80px","gutter":"24px","container-max":"1280px","base":"8px","lg":"48px"},"fontFamily":{"display-lg":["Archivo Narrow"],"headline-lg":["Archivo Narrow"],"display-sm":["Archivo Narrow"],"headline-lg-mobile":["Archivo Narrow"],"label-md":["Inter"],"caption":["Inter"],"headline-md":["Archivo Narrow"],"body-md":["Inter"],"body-lg":["Inter"]},"fontSize":{"display-lg":["64px",{"lineHeight":"1.1","letterSpacing":"-0.04em","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"600"}],"display-sm":["48px",{"lineHeight":"1.1","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-lg-mobile":["28px",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["14px",{"lineHeight":"1.2","letterSpacing":"0.02em","fontWeight":"600"}],"caption":["12px",{"lineHeight":"1.4","letterSpacing":"0","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"1.3","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"1.5","letterSpacing":"0","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"1.6","letterSpacing":"0","fontWeight":"400"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-background"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant"><div class="h-20 w-full px-gutter flex items-center justify-between max-w-container-max mx-auto"><div class="flex items-center gap-sm"><img alt="Lotwise automotive inventory management logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLtIM3qxM7UOH2e-Ka32Pe4w3Bgi_ILCR4VZLxj7VfPtcFxOEMYjys8W6SksdM89ipWgqxM5mlIzdB3bJnWuW9DTD0lz-Yc_wxYUpN6J3zhZlIXicnYZAGQCaG_5lIpsm0r-oOcGR467_TkDXkLGTy6V7A2FPF8WM48Oo9867p6E1CS5tWN6QSHAY9Ov0uQzWn1XnY67IB2AEJHaQX0rrkHpbV4yuKbENjrIuib9sr8QzWOc_m4IqXivJQ92"/><span class="font-headline-md text-headline-md text-on-surface tracking-tight">Lotwise</span></div><nav class="hidden md:flex items-center gap-lg" data-active-classes="text-primary font-semibold"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="inventory" href="#">Inventory</a><a aria-current="page" class="transition-colors text-primary font-semibold" data-path="showroom" href="#">Showroom</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="admin-panel" href="#">Admin Panel</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-md"><button class="flex items-center justify-center p-xs text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">search</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Hero Section with Overlap Layout -->
+<section class="relative w-full px-gutter pt-lg pb-xl overflow-hidden">
+<!-- Background Decorative Element -->
+<div class="absolute top-0 right-0 -mr-32 -mt-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl -z-10"></div>
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-xl items-start">
+<!-- Left Column: Visual Showcase -->
+<div class="lg:col-span-8 flex flex-col gap-md">
+<!-- Main Image Card -->
+<div class="relative group aspect-[16/9] w-full rounded-xl overflow-hidden shadow-xl bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic 3/4 front view of a sleek, electric luxury grand tourer in metallic silver. The car is parked in a minimalist, high-ceilinged modern architectural space with floor-to-ceiling windows and polished concrete floors. Soft morning light creates sharp, precise reflections on the car's aerodynamic body. The aesthetic is ultra-clean, high-performance, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvcTWl1VEmvt9rRCBIJxMNZToYlgPycMzoid7eigCtgvfkDvcexdhIV6OWHXXH2w4HZ68h0jjC2SNgQDhFxI-DfcAyBkx5ek6s6n2X__dAI9MtPHn53wffPpGA2Yj_6RQkUHCA949297AgLnGPzxZFKHaEodZ1Lge-QlaK8WdYb10ciMAm1KsjxMx7_QJksd3gT_xlqnoyaUPEvRBmMhFRKi0TufuELNxRChfCb7ccouZ1ST4t0QlV-w"/>
+<!-- Overlay Badge -->
+<div class="absolute top-md left-md bg-surface/90 backdrop-blur-md px-sm py-xs rounded-full flex items-center gap-xs shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">Available Now</span>
+</div>
+</div>
+<!-- Navigation Dot Strip -->
+<div class="flex items-center justify-center gap-sm mt-md">
+<button aria-label="View 1" class="w-12 h-1 bg-primary rounded-full transition-all hover:h-2"></button>
+<button aria-label="View 2" class="w-3 h-1 bg-outline-variant rounded-full transition-all hover:bg-primary/50 hover:w-6"></button>
+<button aria-label="View 3" class="w-3 h-1 bg-outline-variant rounded-full transition-all hover:bg-primary/50 hover:w-6"></button>
+<button aria-label="View 4" class="w-3 h-1 bg-outline-variant rounded-full transition-all hover:bg-primary/50 hover:w-6"></button>
+<button aria-label="View 5" class="w-3 h-1 bg-outline-variant rounded-full transition-all hover:bg-primary/50 hover:w-6"></button>
+</div>
+</div>
+<!-- Right Column: Specs & Actions -->
+<div class="lg:col-span-4 flex flex-col">
+<div class="sticky top-24 space-y-lg">
+<!-- Title & Price -->
+<div class="space-y-xs">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em]">Model Series V.2</span>
+<h1 class="font-display-sm text-display-sm text-on-surface">Stellar GT-X</h1>
+<p class="font-headline-md text-headline-md text-on-surface-variant">$184,500 <span class="font-label-md text-label-md align-top">MSRP</span></p>
+</div>
+<!-- Tech Specs Grid -->
+<div class="grid grid-cols-1 gap-md py-lg border-y border-outline-variant/30">
+<div class="flex items-end justify-between group">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Acceleration</span>
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tighter">2.1s <span class="text-body-md font-body-md text-outline">0-60</span></span>
+</div>
+<div class="w-24 h-px bg-outline-variant group-hover:bg-primary transition-colors mb-4"></div>
+</div>
+<div class="flex items-end justify-between group">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Top Speed</span>
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tighter">210 <span class="text-body-md font-body-md text-outline">MPH</span></span>
+</div>
+<div class="w-24 h-px bg-outline-variant group-hover:bg-primary transition-colors mb-4"></div>
+</div>
+<div class="flex items-end justify-between group">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Range</span>
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tighter">482 <span class="text-body-md font-body-md text-outline">MI</span></span>
+</div>
+<div class="w-24 h-px bg-outline-variant group-hover:bg-primary transition-colors mb-4"></div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="flex flex-col gap-sm">
+<button class="w-full h-[56px] rounded-full bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all active:scale-[0.98] flex items-center justify-center gap-sm">
+                            Secure Allocation
+                            <span class="material-symbols-outlined text-[20px]">bolt</span>
+</button>
+<button class="w-full h-[56px] rounded-full bg-surface-container text-on-surface font-label-md text-label-md uppercase tracking-widest hover:bg-surface-container-high transition-colors">
+                            Schedule Private Viewing
+                        </button>
+</div>
+<!-- Subtle Meta Info -->
+<div class="pt-md flex items-center gap-md">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container flex items-center justify-center text-[10px] font-bold">JD</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container flex items-center justify-center text-[10px] font-bold">MK</div>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">4 allocations remaining this quarter.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Features Bento Grid -->
+<section class="w-full px-gutter py-xl bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto">
+<div class="flex items-baseline justify-between mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Technical Excellence</h2>
+<div class="h-px flex-1 mx-lg bg-outline-variant/30"></div>
+<span class="font-label-md text-label-md text-outline uppercase tracking-widest">Specifications v4.0</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Interior Card -->
+<div class="md:col-span-2 relative group h-[400px] rounded-xl overflow-hidden shadow-md">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="A close-up vertical shot of the driver-centric cockpit of a luxury electric car. Minimalist dashboard featuring a single large curved glass display. Premium sustainable white leather seats with intricate geometric perforation. Brushed aluminum accents and ambient lighting in a soft cobalt blue. High-end editorial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_vQKhYYXNHlu3z6dBCmyWR_MPpSMdXig2Nd1r3CG6ASOQd83OhksNwzh69BxIBi6_cuj7HF0MaKd9VmbUN-Mf9TPS2r4mBS4Bwqp0jgfICCHIGoYu7969xruIitpgCI3I37TUVVefWBe5mLvMOsBqXYZZj-tuEX1iZYF3p4754sduMQOBAc8D-SFQIFHZKwoKLfPlH4e8UKNRQ0ESZNiJRgty7L0FrL4fwHNjzVGOZUcEnzmWzn66fQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-lg left-lg text-on-primary">
+<h3 class="font-headline-md text-headline-md">Obsessive Craftsmanship</h3>
+<p class="font-body-md text-body-md opacity-80">Vegan leather and aircraft-grade composites.</p>
+</div>
+</div>
+<!-- Dynamic Chassis Card -->
+<div class="bg-surface p-lg rounded-xl shadow-md border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary text-[32px] mb-md">settings_input_component</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Active Aero</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Carbon fiber wing elements adjust millisecond-by-millisecond for peak downforce.</p>
+</div>
+<div class="pt-lg">
+<div class="w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-0 transition-all duration-[2000ms] ease-out" id="aero-progress"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="font-caption text-caption text-outline">Efficiency</span>
+<span class="font-caption text-caption text-on-surface font-semibold">98.4%</span>
+</div>
+</div>
+</div>
+<!-- Map / Logistics Card -->
+<div class="bg-inverse-surface p-lg rounded-xl shadow-xl flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-inverse-on-surface uppercase tracking-widest">Global Delivery</span>
+<span class="material-symbols-outlined text-inverse-primary">public</span>
+</div>
+<div class="w-full h-32 bg-cover bg-center rounded-lg grayscale opacity-50 contrast-125" data-location="Munich, Germany" style=""></div>
+<p class="font-body-md text-body-md text-inverse-on-surface/70">Assembled at the Advanced Carbon Lab in Munich. Ready for air-freight shipping.</p>
+</div>
+<!-- Specs Comparison Grid -->
+<div class="md:col-span-2 bg-primary text-on-primary p-lg rounded-xl shadow-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-lg opacity-10">
+<span class="material-symbols-outlined text-[120px]">precision_manufacturing</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-lg relative z-10">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md opacity-60 uppercase">Drivetrain</span>
+<span class="font-headline-md text-headline-md">Tri-Motor</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md opacity-60 uppercase">Wheelbase</span>
+<span class="font-headline-md text-headline-md">2,900mm</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md opacity-60 uppercase">Cd</span>
+<span class="font-headline-md text-headline-md">0.19</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md opacity-60 uppercase">Charge</span>
+<span class="font-headline-md text-headline-md">350kW</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Counter Section -->
+<section class="w-full px-gutter py-xl flex flex-col items-center text-center">
+<div class="max-w-3xl">
+<h2 class="font-display-sm text-display-sm text-on-surface mb-md">Precision Engineered.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">Every Stellar GT-X undergoes 1,200 individual quality checks at our assembly center before it is cleared for delivery.</p>
+<div class="flex flex-wrap justify-center gap-xl">
+<div class="flex flex-col items-center">
+<span class="font-display-lg text-display-lg text-primary" id="counter-1">0</span>
+<span class="font-label-md text-label-md text-outline uppercase tracking-widest">Patents Pending</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-display-lg text-display-lg text-primary" id="counter-2">0</span>
+<span class="font-label-md text-label-md text-outline uppercase tracking-widest">HP Peak</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+    // Micro-interactions and animations
+    document.addEventListener('DOMContentLoaded', () => {
+        // Simple Counter Animation
+        const animateCounter = (id, end, duration) => {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerText = Math.floor(progress * end);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        };
+
+        // Trigger animations when in view
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'counter-1') animateCounter('counter-1', 42, 2000);
+                    if (entry.target.id === 'counter-2') animateCounter('counter-2', 1050, 2500);
+                    if (entry.target.id === 'aero-progress') {
+                        entry.target.style.width = '98%';
+                    }
+                }
+            });
+        }, observerOptions);
+
+        const targets = [
+            document.getElementById('counter-1'),
+            document.getElementById('counter-2'),
+            document.getElementById('aero-progress')
+        ];
+
+        targets.forEach(t => t && observer.observe(t));
+
+        // Smooth dot navigation interaction
+        const dots = document.querySelectorAll('button[aria-label^="View"]');
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                dots.forEach(d => {
+                    d.classList.replace('w-12', 'w-3');
+                    d.classList.replace('bg-primary', 'bg-outline-variant');
+                });
+                dot.classList.replace('w-3', 'w-12');
+                dot.classList.replace('bg-outline-variant', 'bg-primary');
+            });
+        });
+    });
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant py-lg"><div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-md"><div class="font-label-md text-label-md text-on-surface-variant">© 2024 Lotwise. Built for performance.</div><nav class="flex gap-md"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="privacy" href="#">Privacy</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="terms" href="#">Terms</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="press" href="#">Press</a></nav></div></footer></body></html>

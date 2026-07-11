@@ -30,4 +30,23 @@ export const vehicleApi = {
     const response = await apiClient.post<Vehicle>(`/vehicles/${id}/purchase`);
     return response.data;
   },
+
+  createVehicle: async (data: Omit<Vehicle, 'id'>): Promise<Vehicle> => {
+    const response = await apiClient.post<Vehicle>('/vehicles', data);
+    return response.data;
+  },
+
+  updateVehicle: async (id: string, data: Partial<Omit<Vehicle, 'id'>>): Promise<Vehicle> => {
+    const response = await apiClient.put<Vehicle>(`/vehicles/${id}`, data);
+    return response.data;
+  },
+
+  deleteVehicle: async (id: string): Promise<void> => {
+    await apiClient.delete(`/vehicles/${id}`);
+  },
+
+  restockVehicle: async (id: string, data: { quantity: number }): Promise<Vehicle> => {
+    const response = await apiClient.post<Vehicle>(`/vehicles/${id}/restock`, data);
+    return response.data;
+  },
 };

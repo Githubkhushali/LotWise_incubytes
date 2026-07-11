@@ -1,0 +1,257 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-variant":"#353435","on-secondary-fixed-variant":"#43474b","on-primary":"#2f3133","on-secondary-fixed":"#181c20","on-tertiary-fixed":"#201b17","primary-fixed-dim":"#c6c6c9","on-primary-fixed":"#1a1c1e","on-tertiary":"#352f2b","tertiary-fixed-dim":"#cfc5be","tertiary-container":"#201b17","surface":"#141313","surface-dim":"#141313","on-tertiary-fixed-variant":"#4c4641","secondary-fixed":"#e0e3e8","on-secondary":"#2d3135","inverse-surface":"#e5e2e1","on-primary-container":"#838486","error-container":"#93000a","error":"#ffb4ab","surface-bright":"#3a3939","surface-tint":"#c6c6c9","on-surface-variant":"#c5c6ca","on-error":"#690005","surface-container":"#201f1f","on-tertiary-container":"#8b837d","secondary-container":"#484c50","secondary-fixed-dim":"#c3c7cc","tertiary-fixed":"#ebe0da","on-primary-fixed-variant":"#454749","primary-container":"#1a1c1e","primary-fixed":"#e2e2e5","surface-container-lowest":"#0e0e0e","on-secondary-container":"#b9bcc1","inverse-primary":"#5d5e61","inverse-on-surface":"#313030","on-error-container":"#ffdad6","tertiary":"#cfc5be","outline-variant":"#44474a","surface-container-highest":"#353435","surface-container-low":"#1c1b1b","background":"#141313","on-surface":"#e5e2e1","on-background":"#e5e2e1","secondary":"#c3c7cc","outline":"#8f9194","surface-container-high":"#2a2a2a","primary":"#c6c6c9"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter":"16px","container-margin":"24px","stack-md":"16px","unit":"4px","stack-sm":"8px","stack-lg":"32px"},"fontFamily":{"headline-xl":["Inter"],"body-lg":["Inter"],"headline-md":["Inter"],"label-mono":["JetBrains Mono"],"headline-lg":["Inter"],"headline-lg-mobile":["Inter"],"body-md":["Inter"]},"fontSize":{"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","fontWeight":"600"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-container-margin flex items-center justify-between"><div class="flex items-center gap-stack-md"><img alt="Lotwise Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRj1eCZzTaIZ1nBioBO-yrjeggrEi2tERDv76JMMZeIY_4_1js9Dl75Sh8y_MhGXgrV355W3ZapV9c0c0ac9oJKSaQ56Mfts02i7Q7idDZf7kV7LWYLPaL7PDCG6Bqe23p3L5I4wlavhiQSyY5j03ThtokIC_pAMuYEXsXej_PKDe6Px7Fd1GVXmnTGFK-utcxU0qZU7_wedX7SPEREc794vouoGIux72dvTgCgLjWnet0s5rZUPmPdg"/><span class="font-headline-md text-headline-md text-on-surface tracking-tight">Lotwise</span><div class="ml-stack-md px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-mono text-label-mono uppercase tracking-widest">Admin</div></div><nav class="hidden md:flex items-center gap-stack-lg" data-active-classes="text-primary font-semibold"><a aria-current="page" class="transition-colors text-primary font-semibold" data-path="dashboard" href="#">Inventory</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="analytics" href="#">Analytics</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="settings" href="#">Settings</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="admin-panel" href="#">Admin Panel</a></nav><div class="flex items-center gap-stack-md"><button class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors">Log out</button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen px-container-margin py-stack-lg"><div class="flex flex-col w-full gap-stack-lg">
+<!-- Dynamic Header Section -->
+<section class="relative w-full flex flex-col md:flex-row md:items-end justify-between gap-stack-lg overflow-hidden">
+<div class="flex flex-col gap-unit">
+<div class="flex items-center gap-stack-sm mb-unit">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-mono text-label-mono uppercase tracking-widest text-on-surface-variant">Live Inventory Feed</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl tracking-tighter max-w-2xl">
+        Precision Fleet <span class="text-primary-fixed-dim">Management</span>
+</h1>
+</div>
+<!-- Search & Quick Filters -->
+<div class="flex flex-col gap-stack-md w-full md:w-auto">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full md:w-[400px] bg-surface-container-high border-none rounded-lg py-4 pl-12 pr-4 text-on-surface placeholder:text-on-surface-variant focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="Search by VIN, Make, or Model..." type="text"/>
+</div>
+<div class="flex flex-wrap gap-stack-sm">
+<button class="px-4 py-1.5 rounded-full bg-primary text-on-primary font-label-mono text-label-mono uppercase tracking-wider hover:brightness-110 transition-all">All Stock</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono uppercase tracking-wider hover:bg-surface-variant transition-all">SUV</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono uppercase tracking-wider hover:bg-surface-variant transition-all">Sedan</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono uppercase tracking-wider hover:bg-surface-variant transition-all">Performance</button>
+<div class="h-6 w-px bg-outline-variant mx-2 hidden md:block"></div>
+<button class="flex items-center gap-unit px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono uppercase tracking-wider hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+          Filters
+        </button>
+</div>
+</div>
+</section>
+<!-- Inventory Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Card 1: Premium SUV -->
+<div class="group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="relative h-72 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A high-end, obsidian black luxury SUV parked in a minimalist concrete architectural garage with dramatic top-down lighting. The vehicle features sharp geometric lines, tinted windows, and glowing LED headlights. High-contrast, cinematic atmosphere with deep shadows and metallic reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMEn4DJ_-7GXs1w9A5ZR5JrR7lI6shxLpD1iFFhuB8yki8FWEM46SEZatmDcQLa3uiWEWoaDPHXRn7m72_MHOLBkoEY0tBBtp3oNt7p7YLG8elutQH5TR9yDFTca5nzEt5Pbwp30AMcofDIcs1eu1z5hleiKVxWKzgh4Md2hNHI3yJNiTQ4pa4BjGhEdPcLPbHeaIR5u8mwVt31Lc0_OtuklHEqeSmuMqLLWg2G6vR86cU6KfuENArPQ"/>
+<div class="absolute top-4 left-4">
+<span class="bg-surface/80 backdrop-blur-md text-on-surface px-3 py-1 rounded-full font-label-mono text-label-mono uppercase tracking-widest">SUV</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-surface-container to-transparent"></div>
+</div>
+<div class="p-stack-lg flex flex-col gap-stack-md flex-grow">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<h3 class="font-headline-lg text-headline-lg group-hover:text-primary transition-colors">Vanguard GS-8</h3>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Full-Size Luxury</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-headline-md text-primary">$89,400</p>
+<p class="font-label-mono text-[10px] text-on-surface-variant uppercase">MSRP EXCL. TAX</p>
+</div>
+</div>
+<div class="flex items-center gap-stack-md pt-stack-md border-t border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase">Stock Status</span>
+<span class="text-body-md font-semibold text-on-surface">12 Units</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase">Drive</span>
+<span class="text-body-md font-semibold text-on-surface">AWD Electric</span>
+</div>
+</div>
+<button class="mt-auto w-full py-4 bg-primary text-on-primary font-headline-md rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">
+          Purchase Vehicle
+        </button>
+</div>
+</div>
+<!-- Card 2: Sports Car -->
+<div class="group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="relative h-72 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A low-profile electric sports car in a vibrant electric blue finish, speeding through a neon-lit urban tunnel at night. Motion blur on the background emphasizes speed. Sharp highlights on the aerodynamic carbon fiber body. Photorealistic, ultra-modern, high energy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlMMhVjT7YO0hl5mKd4bYI4rVEWaDM5q8dvYGJYAr18nMrMc2Z_T7EcrJ4Dq2BgQ2jypji9fgO32Rs2ulmDvGk_agbgMEk7LAebvGLZS6NfaZP0Vwd4P2Emu_raKfR-NrfSiOvUCWpCVkd3SEyNv5j_bgJvMNPXvpHqva371L0U5PgKu5aTTBl96dYF8gls8HxC256dIu_c7xIElMtVEAua78H5VDlGRnQyM2pei4XiR3JOFsRM-WqTg"/>
+<div class="absolute top-4 left-4">
+<span class="bg-surface/80 backdrop-blur-md text-on-surface px-3 py-1 rounded-full font-label-mono text-label-mono uppercase tracking-widest">Performance</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-surface-container to-transparent"></div>
+</div>
+<div class="p-stack-lg flex flex-col gap-stack-md flex-grow">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<h3 class="font-headline-lg text-headline-lg group-hover:text-primary transition-colors">Apex E-Sprint</h3>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Electric Performance</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-headline-md text-primary">$124,000</p>
+<p class="font-label-mono text-[10px] text-on-surface-variant uppercase">MSRP EXCL. TAX</p>
+</div>
+</div>
+<div class="flex items-center gap-stack-md pt-stack-md border-t border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase">Stock Status</span>
+<span class="text-body-md font-semibold text-on-surface">3 Units Left</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase">0-60 MPH</span>
+<span class="text-body-md font-semibold text-on-surface">2.4s</span>
+</div>
+</div>
+<button class="mt-auto w-full py-4 bg-primary text-on-primary font-headline-md rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">
+          Purchase Vehicle
+        </button>
+</div>
+</div>
+<!-- Card 3: Out of Stock Sedan -->
+<div class="group relative flex flex-col bg-surface-container/50 rounded-xl overflow-hidden grayscale-[0.8] opacity-80">
+<div class="relative h-72 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sophisticated executive sedan in metallic silver parked in front of a modern glass skyscraper during blue hour. Soft reflections of the city lights on the polished hood. Elegant, calm, professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIvoCOagOOWeAGarasF7GjPR38WSVN9XJ4tTcULuSRoyWVurgPBbN5YYYhfX9-wiSFopk7-uGZs218TvlNykwsE2APeY7L_7zaCbq0tvzT0vK3ejp35GZ1OQ2tdn579u4s__ujcV29SM1b6FJUTlBkL9HfV8xI56M_fMXPs5hP7Pkhss1VXP5E9SRiH2DRspSBm7yg6akSYiN1a_bw0XEFrKgP5mNtw31KpWhDNSq_Dn0Hw6k6pt1sGw"/>
+<div class="absolute top-4 left-4">
+<span class="bg-surface/80 backdrop-blur-md text-on-surface px-3 py-1 rounded-full font-label-mono text-label-mono uppercase tracking-widest">Sedan</span>
+</div>
+<div class="absolute inset-0 bg-surface-container/40 flex items-center justify-center backdrop-blur-[2px]">
+<span class="px-6 py-2 bg-error-container text-on-error-container font-label-mono text-headline-md uppercase tracking-widest -rotate-12 border-2 border-error">Sold Out</span>
+</div>
+</div>
+<div class="p-stack-lg flex flex-col gap-stack-md flex-grow">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<h3 class="font-headline-lg text-headline-lg">Luminal SE</h3>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Executive Class</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-headline-md text-on-surface-variant">$56,000</p>
+<p class="font-label-mono text-[10px] text-on-surface-variant uppercase">WAITLIST PRICE</p>
+</div>
+</div>
+<div class="flex items-center gap-stack-md pt-stack-md border-t border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase">Stock Status</span>
+<span class="text-body-md font-semibold text-error">0 Units</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase">Eta</span>
+<span class="text-body-md font-semibold text-on-surface">Q4 2024</span>
+</div>
+</div>
+<button class="mt-auto w-full py-4 bg-surface-variant text-on-surface-variant font-headline-md rounded-lg cursor-not-allowed" disabled="">
+          Out of Stock
+        </button>
+</div>
+</div>
+<!-- Card 4: Minimalist Bento Style Performance -->
+<div class="group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 xl:col-span-2">
+<div class="flex flex-col lg:flex-row h-full">
+<div class="relative w-full lg:w-1/2 h-72 lg:h-auto overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A track-ready grand tourer in matte charcoal gray, seen from a low angle profile. The car is on a professional racing circuit with red and white curbing. Sunset lighting creating long, dramatic shadows across the track. Sharp focus on the alloy wheels and yellow brake calipers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbWq2IEJNg6Ou4tOVXGpe5ZDe72-MiviXFkQJitCfYns1LMWfneAhSeEdg7ry96rF4Nmc-cfUBy2nR4V7O7Fr51mPffdDIgJcEAQJ4x_fr1vRYAEIyvtcrdR9mB5DaMDerqz32LUUA4JkSgJRMV_ILczxvpAsGVXxhsxV_wrAxEFqVdamZaZ932Zzut9_iZ8rCTycUCAfTk3g4FFp5ehgcWySV_89O4E0HdCD-BPZ741xzDyb8Cia21g"/>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-surface-container hidden lg:block"></div>
+</div>
+<div class="p-stack-lg flex flex-col justify-center gap-stack-lg w-full lg:w-1/2">
+<div>
+<div class="flex items-center gap-stack-sm mb-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">Dealer's Choice</span>
+</div>
+<h3 class="font-headline-xl text-headline-xl mb-1">Centurion GT</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">The pinnacle of long-distance performance, merging grand touring comfort with raw track power.</p>
+</div>
+<div class="grid grid-cols-2 gap-stack-md">
+<div class="bg-surface-container-low p-4 rounded-lg">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase block mb-1">Stock</span>
+<span class="font-headline-md text-headline-md">2 Units</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase block mb-1">Category</span>
+<span class="font-headline-md text-headline-md">Coupe</span>
+</div>
+</div>
+<div class="flex items-center justify-between gap-stack-lg">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase">Pricing Starts At</span>
+<span class="font-headline-xl text-headline-xl text-primary">$185,500</span>
+</div>
+<button class="px-8 py-4 bg-primary text-on-primary font-headline-md rounded-lg hover:brightness-110 active:scale-[0.98] transition-all whitespace-nowrap">
+              Reserve Now
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 5: Compact Electric -->
+<div class="group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="relative h-72 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A sleek, white compact electric hatchback in a clean, brightly lit modern studio. Minimalist background. Focus on the smooth, pebble-like surfaces and hidden door handles. Soft, even lighting with subtle shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9id4MwvNFnhetmhQljryRaHpo7iXJxCbRwvLfM5yhvvKHkTeo6ZNAAP4RKkVpaSwZK179YASczKr0ffP-PzarohsDsLzme2d4lh_ExsJ4VA-aU6NBy6BUQe9TEdqefvauHbzfqJjd540EJAzuD6PrD8-751pb_9nuugD9Xorx5G57ZWQyq1N9t4-06xApsXAesb7S-AOQqJU0DcZalssNlsoTXLYKUTcfFhpNcqOZhSFdpKHim7jftw"/>
+<div class="absolute top-4 left-4">
+<span class="bg-surface/80 backdrop-blur-md text-on-surface px-3 py-1 rounded-full font-label-mono text-label-mono uppercase tracking-widest">Electric</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-surface-container to-transparent"></div>
+</div>
+<div class="p-stack-lg flex flex-col gap-stack-md flex-grow">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<h3 class="font-headline-lg text-headline-lg group-hover:text-primary transition-colors">Atom Neo</h3>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Urban Mobility</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-headline-md text-primary">$32,900</p>
+<p class="font-label-mono text-[10px] text-on-surface-variant uppercase">MSRP</p>
+</div>
+</div>
+<div class="flex items-center gap-stack-md pt-stack-md border-t border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase">Stock Status</span>
+<span class="text-body-md font-semibold text-on-surface">45 Units</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase">Range</span>
+<span class="text-body-md font-semibold text-on-surface">310 mi</span>
+</div>
+</div>
+<button class="mt-auto w-full py-4 bg-primary text-on-primary font-headline-md rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">
+          Purchase Vehicle
+        </button>
+</div>
+</div>
+</section>
+<!-- Data Visualization Overlay (Abstract Decoration) -->
+<div class="fixed bottom-8 right-8 z-10 pointer-events-none">
+<div class="bg-surface-container-highest/60 backdrop-blur-xl p-stack-md rounded-xl border border-outline-variant/20 shadow-2xl flex items-center gap-stack-md">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase">Market Volatility</span>
+<div class="flex items-end gap-1 h-8">
+<div class="w-1 bg-primary h-1/2 rounded-full"></div>
+<div class="w-1 bg-primary h-3/4 rounded-full"></div>
+<div class="w-1 bg-primary h-1/3 rounded-full"></div>
+<div class="w-1 bg-primary h-2/3 rounded-full"></div>
+<div class="w-1 bg-primary h-full rounded-full animate-pulse"></div>
+</div>
+</div>
+<div class="h-10 w-px bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase">Active Bids</span>
+<span class="font-headline-md text-headline-md text-on-surface">1,248</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for button hover tracking
+  document.querySelectorAll('button:not([disabled])').forEach(button => {
+    button.addEventListener('mouseenter', () => {
+      button.style.transform = 'translateY(-2px)';
+    });
+    button.addEventListener('mouseleave', () => {
+      button.style.transform = 'translateY(0px)';
+    });
+  });
+
+  // Animated search focus effect
+  const searchInput = document.querySelector('input[type="text"]');
+  searchInput.addEventListener('focus', () => {
+    searchInput.parentElement.classList.add('scale-[1.02]');
+    searchInput.parentElement.style.transition = 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+  });
+  searchInput.addEventListener('blur', () => {
+    searchInput.parentElement.classList.remove('scale-[1.02]');
+  });
+</script></main></body></html>

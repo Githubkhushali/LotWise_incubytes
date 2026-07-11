@@ -1,0 +1,135 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary-container":"#002b80","on-secondary":"#283500","on-secondary-container":"#556d00","error-container":"#93000a","surface-container-lowest":"#000c2d","on-primary-fixed":"#00174d","tertiary":"#c6c6c7","on-error":"#690005","primary-fixed":"#dbe1ff","on-primary-fixed-variant":"#214195","on-surface-variant":"#c4c6d3","surface-bright":"#22376a","surface-container":"#021c4f","tertiary-fixed-dim":"#c6c6c7","on-primary":"#00297a","surface-tint":"#b5c4ff","error":"#ffb4ab","tertiary-container":"#313333","on-background":"#dae2ff","secondary":"#ffffff","on-secondary-fixed":"#161e00","on-tertiary":"#2f3131","outline":"#8e909d","on-tertiary-fixed":"#1a1c1c","surface-container-highest":"#1d3265","surface-container-high":"#10275a","on-primary-container":"#7c97f0","primary":"#b5c4ff","on-tertiary-container":"#9a9b9b","on-tertiary-fixed-variant":"#454747","surface-container-low":"#001848","surface":"#001037","on-error-container":"#ffdad6","secondary-fixed-dim":"#abd600","outline-variant":"#444652","inverse-primary":"#3d59ae","on-secondary-fixed-variant":"#3c4d00","secondary-fixed":"#c3f400","tertiary-fixed":"#e2e2e2","background":"#001037","surface-variant":"#1d3265","secondary-container":"#c3f400","surface-dim":"#001037","on-surface":"#dae2ff","inverse-surface":"#dae2ff","inverse-on-surface":"#182e60","primary-fixed-dim":"#b5c4ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"xl":"64px","gutter":"20px","lg":"40px","base":"4px","margin-desktop":"48px","md":"24px","xs":"8px","sm":"16px","margin-mobile":"16px"},"fontFamily":{"headline-lg":["Archivo Narrow"],"display-lg":["Archivo Narrow"],"body-md":["Archivo Narrow"],"label-caps":["Archivo Narrow"],"body-lg":["Archivo Narrow"],"headline-sm":["Archivo Narrow"],"display-lg-mobile":["Archivo Narrow"],"stats-xl":["Archivo Narrow"]},"fontSize":{"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"700"}],"display-lg":["72px",{"lineHeight":"72px","letterSpacing":"-0.04em","fontWeight":"700"}],"body-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"label-caps":["12px",{"lineHeight":"16px","letterSpacing":"0.1em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"0em","fontWeight":"600"}],"display-lg-mobile":["48px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"stats-xl":["40px",{"lineHeight":"40px","fontWeight":"700"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface min-h-screen flex items-center justify-center p-margin-mobile"><main class="w-full max-w-md"><div class="flex flex-col w-full min-h-[819px] justify-center items-center relative overflow-hidden">
+<!-- Ambient Racing Line Background -->
+<div class="absolute inset-0 z-0 pointer-events-none">
+<svg class="w-full h-full opacity-20" viewbox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="line-grad" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="transparent"></stop>
+<stop offset="50%" stop-color="#abd600"></stop>
+<stop offset="100%" stop-color="transparent"></stop>
+</lineargradient>
+</defs>
+<path d="M-100,200 Q400,150 1100,300" fill="none" stroke="url(#line-grad)" stroke-width="2">
+<animate attributename="d" dur="10s" repeatcount="indefinite" values="M-100,200 Q400,150 1100,300; M-100,300 Q600,450 1100,200; M-100,200 Q400,150 1100,300"></animate>
+</path>
+<path d="M-100,500 Q500,450 1100,550" fill="none" opacity="0.5" stroke="url(#line-grad)" stroke-width="1">
+<animate attributename="d" dur="15s" repeatcount="indefinite" values="M-100,500 Q500,450 1100,550; M-100,450 Q300,550 1100,500; M-100,500 Q500,450 1100,550"></animate>
+</path>
+</svg>
+</div>
+<!-- Terminal Header Metadata -->
+<div class="absolute top-0 left-0 p-md flex flex-col gap-xs opacity-40 select-none">
+<div class="flex items-center gap-sm">
+<span class="w-2 h-2 bg-secondary-fixed rounded-full animate-pulse"></span>
+<span class="font-label-caps text-on-surface uppercase tracking-widest">System: Secure_Uplink_v4.2</span>
+</div>
+<div class="font-label-caps text-on-surface text-[10px] mono">LAT: 52.5200° N | LON: 13.4050° E</div>
+</div>
+<!-- Main Login Card -->
+<div class="relative z-10 w-full max-w-md">
+<div class="bg-surface-container/60 backdrop-blur-xl p-lg rounded-lg shadow-2xl border-l-2 border-secondary-fixed relative overflow-hidden group">
+<!-- Decorative Corner Accents -->
+<div class="absolute top-0 right-0 w-12 h-12 border-t border-r border-on-surface-variant/20"></div>
+<div class="absolute bottom-0 left-0 w-12 h-12 border-b border-l border-on-surface-variant/20"></div>
+<!-- Header -->
+<div class="mb-lg">
+<div class="flex items-baseline justify-between mb-xs">
+<h1 class="font-display-lg-mobile text-secondary uppercase tracking-tighter">Lotwise</h1>
+<span class="font-label-caps text-secondary-fixed text-[10px] border border-secondary-fixed/30 px-2 py-0.5">AUTH_REQUIRED</span>
+</div>
+<p class="font-body-md text-on-surface-variant opacity-80">Access the private racing inventory terminal.</p>
+</div>
+<!-- Form Switcher -->
+<div class="flex gap-md mb-lg border-b border-outline-variant/30">
+<button class="pb-sm font-label-caps text-secondary border-b-2 border-secondary-fixed transition-all" id="tab-login">Login</button>
+<button class="pb-sm font-label-caps text-on-surface-variant hover:text-secondary transition-all" id="tab-register">Register</button>
+</div>
+<!-- Inputs -->
+<form class="flex flex-col gap-md" id="auth-form">
+<div class="group/input">
+<label class="font-label-caps text-on-surface-variant uppercase mb-xs block text-[10px]">Registry ID / Email</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest/50 border-b border-outline-variant py-sm px-xs font-body-md text-secondary placeholder:text-on-surface-variant/30 focus:outline-none focus:border-secondary-fixed transition-colors" placeholder="driver@lotwise.spec" type="text"/>
+<span class="material-symbols-outlined absolute right-xs top-1/2 -translate-y-1/2 text-on-surface-variant text-sm opacity-40">alternate_email</span>
+</div>
+</div>
+<div class="group/input">
+<label class="font-label-caps text-on-surface-variant uppercase mb-xs block text-[10px]">Access Key</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest/50 border-b border-outline-variant py-sm px-xs font-body-md text-secondary placeholder:text-on-surface-variant/30 focus:outline-none focus:border-secondary-fixed transition-colors" placeholder="••••••••" type="password"/>
+<span class="material-symbols-outlined absolute right-xs top-1/2 -translate-y-1/2 text-on-surface-variant text-sm opacity-40">lock</span>
+</div>
+</div>
+<!-- Security Metric -->
+<div class="flex items-center gap-sm mt-xs">
+<div class="flex-1 h-1 bg-surface-container-high rounded-full overflow-hidden flex gap-1">
+<div class="h-full w-1/3 bg-secondary-fixed"></div>
+<div class="h-full w-1/3 bg-secondary-fixed"></div>
+<div class="h-full w-1/3 bg-secondary-fixed/20"></div>
+</div>
+<span class="font-label-caps text-[10px] text-secondary-fixed">Encryption: AES-256</span>
+</div>
+<!-- CTA -->
+<button class="mt-lg w-full bg-secondary-fixed text-on-secondary font-headline-sm uppercase py-md flex items-center justify-center gap-sm hover:bg-white transition-all shadow-[0_0_20px_rgba(195,244,0,0.3)] active:scale-95 group/btn" type="submit">
+<span>Enter Showroom</span>
+<span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Actions -->
+<div class="mt-xl flex justify-between items-center">
+<a class="font-label-caps text-[10px] text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">Forgot Credentials?</a>
+<div class="flex gap-sm">
+<div class="w-8 h-[1px] bg-outline-variant self-center"></div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">V.2.0.84</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Accent Labels -->
+<div class="absolute bottom-md right-md [writing-mode:vertical-rl] flex items-center gap-md opacity-20 select-none">
+<span class="font-label-caps text-on-surface uppercase tracking-widest text-[10px]">Technical Excellence // Precision Engineering</span>
+<div class="h-12 w-[1px] bg-on-surface"></div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = [document.getElementById('tab-login'), document.getElementById('tab-register')];
+      const form = document.getElementById('auth-form');
+      const cta = form.querySelector('button span');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          tabs.forEach(t => {
+            t.classList.remove('text-secondary', 'border-b-2', 'border-secondary-fixed');
+            t.classList.add('text-on-surface-variant');
+          });
+          e.target.classList.add('text-secondary', 'border-b-2', 'border-secondary-fixed');
+          e.target.classList.remove('text-on-surface-variant');
+          
+          if(e.target.id === 'tab-register') {
+            cta.innerText = 'Create Account';
+          } else {
+            cta.innerText = 'Enter Showroom';
+          }
+        });
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button');
+        btn.classList.add('opacity-50', 'pointer-events-none');
+        btn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> VALIDATING...';
+        
+        setTimeout(() => {
+          btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> GRANTED';
+          btn.classList.replace('bg-secondary-fixed', 'bg-white');
+          setTimeout(() => {
+             // Mock transition
+             document.querySelector('.relative.z-10').style.transform = 'scale(1.05)';
+             document.querySelector('.relative.z-10').style.opacity = '0';
+          }, 500);
+        }, 1500);
+      });
+    });
+  </script>
+</div></main></body></html>

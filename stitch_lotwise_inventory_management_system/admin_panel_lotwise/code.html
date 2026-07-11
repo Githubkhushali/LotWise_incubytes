@@ -1,0 +1,257 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-variant":"#353435","on-secondary-fixed-variant":"#43474b","on-primary":"#2f3133","on-secondary-fixed":"#181c20","on-tertiary-fixed":"#201b17","primary-fixed-dim":"#c6c6c9","on-primary-fixed":"#1a1c1e","on-tertiary":"#352f2b","tertiary-fixed-dim":"#cfc5be","tertiary-container":"#201b17","surface":"#141313","surface-dim":"#141313","on-tertiary-fixed-variant":"#4c4641","secondary-fixed":"#e0e3e8","on-secondary":"#2d3135","inverse-surface":"#e5e2e1","on-primary-container":"#838486","error-container":"#93000a","error":"#ffb4ab","surface-bright":"#3a3939","surface-tint":"#c6c6c9","on-surface-variant":"#c5c6ca","on-error":"#690005","surface-container":"#201f1f","on-tertiary-container":"#8b837d","secondary-container":"#484c50","secondary-fixed-dim":"#c3c7cc","tertiary-fixed":"#ebe0da","on-primary-fixed-variant":"#454749","primary-container":"#1a1c1e","primary-fixed":"#e2e2e5","surface-container-lowest":"#0e0e0e","on-secondary-container":"#b9bcc1","inverse-primary":"#5d5e61","inverse-on-surface":"#313030","on-error-container":"#ffdad6","tertiary":"#cfc5be","outline-variant":"#44474a","surface-container-highest":"#353435","surface-container-low":"#1c1b1b","background":"#141313","on-surface":"#e5e2e1","on-background":"#e5e2e1","secondary":"#c3c7cc","outline":"#8f9194","surface-container-high":"#2a2a2a","primary":"#c6c6c9"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter":"16px","container-margin":"24px","stack-md":"16px","unit":"4px","stack-sm":"8px","stack-lg":"32px"},"fontFamily":{"headline-xl":["Inter"],"body-lg":["Inter"],"headline-md":["Inter"],"label-mono":["JetBrains Mono"],"headline-lg":["Inter"],"headline-lg-mobile":["Inter"],"body-md":["Inter"]},"fontSize":{"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","fontWeight":"600"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-container-margin flex items-center justify-between"><div class="flex items-center gap-stack-md"><img alt="Lotwise Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRj1eCZzTaIZ1nBioBO-yrjeggrEi2tERDv76JMMZeIY_4_1js9Dl75Sh8y_MhGXgrV355W3ZapV9c0c0ac9oJKSaQ56Mfts02i7Q7idDZf7kV7LWYLPaL7PDCG6Bqe23p3L5I4wlavhiQSyY5j03ThtokIC_pAMuYEXsXej_PKDe6Px7Fd1GVXmnTGFK-utcxU0qZU7_wedX7SPEREc794vouoGIux72dvTgCgLjWnet0s5rZUPmPdg"/><span class="font-headline-md text-headline-md text-on-surface tracking-tight">Lotwise</span><div class="ml-stack-md px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-mono text-label-mono uppercase tracking-widest">Admin</div></div><nav class="hidden md:flex items-center gap-stack-lg" data-active-classes="text-primary font-semibold"><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#">Inventory</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="analytics" href="#">Analytics</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="settings" href="#">Settings</a><a aria-current="page" class="transition-colors text-primary font-semibold" data-path="admin-panel" href="#">Admin Panel</a></nav><div class="flex items-center gap-stack-md"><button class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors">Log out</button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen px-container-margin py-stack-lg"><div class="flex flex-col w-full gap-stack-lg">
+<!-- Header & Global Actions Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-stack-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-stack-sm mb-unit">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-[0.2em]">System Live</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tighter">Inventory Control</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+        High-performance fleet management. Monitor, adjust, and optimize vehicle availability across all regional hubs.
+      </p>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="hidden lg:flex flex-col items-end mr-stack-md border-r border-outline-variant pr-stack-md">
+<span class="font-label-mono text-label-mono text-on-surface-variant">TOTAL VALUE</span>
+<span class="font-headline-md text-headline-md text-primary">$4,829,000</span>
+</div>
+<button class="group relative flex items-center gap-stack-sm bg-primary text-on-primary px-stack-lg py-3 rounded-full transition-all hover:pr-10 overflow-hidden">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span class="font-headline-md text-body-lg font-bold">Add Vehicle</span>
+<span class="material-symbols-outlined absolute right-4 opacity-0 group-hover:opacity-100 transition-all text-[20px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Filters and Stats Bar -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-3 bg-surface-container-low p-stack-md flex flex-wrap items-center gap-stack-md">
+<div class="flex-1 min-w-[240px] relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container h-11 pl-10 pr-4 text-body-md focus:outline-none focus:ring-1 ring-primary transition-all" placeholder="Search VIN, Model, or Dealer Tag..." type="text"/>
+</div>
+<div class="flex items-center gap-unit bg-surface-container h-11 px-3">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">filter_list</span>
+<select class="bg-transparent text-body-md focus:outline-none cursor-pointer pr-4">
+<option>All Status</option>
+<option>Available</option>
+<option>In Transit</option>
+<option>Reserved</option>
+</select>
+</div>
+<div class="flex items-center gap-unit bg-surface-container h-11 px-3">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">calendar_today</span>
+<span class="font-body-md">Last 30 Days</span>
+</div>
+</div>
+<div class="bg-surface-variant p-stack-md flex flex-col justify-center">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Active Listings</span>
+<div class="flex items-baseline gap-stack-sm">
+<span class="font-headline-lg text-headline-lg text-on-surface">142</span>
+<span class="font-label-mono text-label-mono text-primary">+12%</span>
+</div>
+</div>
+</div>
+<!-- Inventory Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Inventory Column -->
+<div class="lg:col-span-12 space-y-gutter">
+<!-- Table Header (Desktop Only) -->
+<div class="hidden md:grid grid-cols-12 gap-gutter px-stack-md py-2 border-b border-outline-variant">
+<div class="col-span-5 font-label-mono text-label-mono text-on-surface-variant uppercase">Vehicle Details</div>
+<div class="col-span-2 font-label-mono text-label-mono text-on-surface-variant uppercase">Status</div>
+<div class="col-span-2 font-label-mono text-label-mono text-on-surface-variant uppercase">Pricing</div>
+<div class="col-span-3 font-label-mono text-label-mono text-on-surface-variant uppercase text-right">Admin Actions</div>
+</div>
+<!-- Inventory Item 1 -->
+<div class="group relative bg-surface-container hover:bg-surface-container-high transition-all duration-300">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter p-stack-md items-center">
+<!-- Details -->
+<div class="col-span-5 flex items-center gap-stack-md">
+<div class="w-24 h-16 bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Side profile of a sleek, charcoal grey electric sedan parked in a minimalist concrete showroom. High-contrast lighting highlights the sharp aerodynamic lines and metallic finish. Professional automotive photography style with deep shadows and brilliant highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSdSVeh2qT4_BIhBX91oby5S8GxTLJPp67IlJpJupPS8E8NtLf6zIuzPTv67Rr6Q-Q_Qs_kAtqkL--pPSpYJ37a3krhSRx3JT-xAML1D2MiG1J_RU1FrCdLfxK5ZiSCx-0ZVSs3jd5tkdKerb2pKFfM4HGPXw95G42Ym_mHLTPV4jS-CObCkWtptJZLlCf9ZlHt1H1RqCGpO6foWGDZ_IBVt-vmg9n7DIHI9tev2IfMJkj-1bBJiGrwQ"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">2024 Zephyr EV Sport</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">VIN: 1HGCM826... · SILVER</span>
+</div>
+</div>
+<!-- Status -->
+<div class="col-span-2">
+<span class="inline-flex items-center gap-unit px-2 py-0.5 rounded bg-primary/10 text-primary font-label-mono text-label-mono uppercase">
+              Available
+            </span>
+</div>
+<!-- Pricing -->
+<div class="col-span-2">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">$68,500</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">MSRP: $72,000</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="col-span-3 flex justify-end items-center gap-stack-sm">
+<button class="p-2 hover:bg-surface-variant rounded-full transition-colors text-on-surface-variant hover:text-on-surface" title="Restock">
+<span class="material-symbols-outlined text-[20px]">package_2</span>
+</button>
+<button class="p-2 hover:bg-surface-variant rounded-full transition-colors text-on-surface-variant hover:text-on-surface" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-error/10 rounded-full transition-colors text-on-surface-variant hover:text-error" onclick="toggleDeleteConfirm('v1')" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Subtle Delete Confirmation Overlay -->
+<div class="hidden absolute inset-0 bg-surface-container-highest/95 backdrop-blur-sm flex items-center justify-between px-stack-lg z-10 animate-in fade-in slide-in-from-right-4 duration-300" id="confirm-v1">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-error">warning</span>
+<p class="font-body-md text-on-surface">Permanently remove <span class="font-bold">Zephyr EV Sport</span> from inventory?</p>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface" onclick="toggleDeleteConfirm('v1')">Cancel</button>
+<button class="bg-error text-on-error px-4 py-2 font-label-mono text-label-mono uppercase font-bold hover:brightness-110">Confirm Delete</button>
+</div>
+</div>
+</div>
+<!-- Inventory Item 2 -->
+<div class="group relative bg-surface-container hover:bg-surface-container-high transition-all duration-300">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter p-stack-md items-center">
+<div class="col-span-5 flex items-center gap-stack-md">
+<div class="w-24 h-16 bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A rugged, matte-black luxury SUV driving through a shallow desert stream at sunset. Water droplets are captured in sharp detail. Warm golden hour light reflecting off the chrome details and water spray. Dramatic, high-end commercial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNNdvznEKTEzF_XzmrqDZdMNQp6M-SFhjRPMrwukbW0PHilkWJtJ98QnL-qaXCTk6cB9lM4eNHwKMdixQtHKj-LQteo02SRfs2CD-w3NaYz7cp4bEdYkYCiBERgXmb7CUddnissFC5ojTI0NLsZLtGlB-Dk5CDAytmA4Gwa7mnNCoHyAVPN8XBrIrY8boRtkP8Heq5pjHX8V3k_kVVNDD_zTB-6-KV6kLwoLtq4mtp9YnhbYcLXJAQzw"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">2023 Titan Terrain X</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">VIN: 5J6YH2H... · MATTE BLACK</span>
+</div>
+</div>
+<div class="col-span-2">
+<span class="inline-flex items-center gap-unit px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-mono text-label-mono uppercase">
+              In Transit
+            </span>
+</div>
+<div class="col-span-2">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">$84,200</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">MSRP: $84,200</span>
+</div>
+</div>
+<div class="col-span-3 flex justify-end items-center gap-stack-sm">
+<button class="p-2 hover:bg-surface-variant rounded-full transition-colors text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]">package_2</span>
+</button>
+<button class="p-2 hover:bg-surface-variant rounded-full transition-colors text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-error/10 rounded-full transition-colors text-on-surface-variant hover:text-error" onclick="toggleDeleteConfirm('v2')">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="hidden absolute inset-0 bg-surface-container-highest/95 backdrop-blur-sm flex items-center justify-between px-stack-lg z-10" id="confirm-v2">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-error">warning</span>
+<p class="font-body-md text-on-surface">Delete <span class="font-bold">Titan Terrain X</span>?</p>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface" onclick="toggleDeleteConfirm('v2')">Cancel</button>
+<button class="bg-error text-on-error px-4 py-2 font-label-mono text-label-mono uppercase font-bold">Confirm Delete</button>
+</div>
+</div>
+</div>
+<!-- Inventory Item 3 -->
+<div class="group relative bg-surface-container hover:bg-surface-container-high transition-all duration-300">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter p-stack-md items-center">
+<div class="col-span-5 flex items-center gap-stack-md">
+<div class="w-24 h-16 bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Front 3/4 view of a vibrant red sports car with a carbon fiber wing, sitting on a dark asphalt track. Raindrops coat the surface, illuminated by bright stadium lights. Moody, high-performance atmosphere with shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKA878pqWb4aT9gD_bSAblHNdzN5Arb63X4L5mCiRCbR96t_nVWBVIBB8qHV_X0QMPeicpeDI4vQ5GoX3P7WyjS1TumHax3Q2GEeLBzph0voRZ2xCkp2wdNfSC0NvBD44YB5Xy6AFxamQDQgyu0oCnqBU2GfiDacubHQZ3388HE9w1NO-xVDELtXY2CkPjQ55Eg0pvShJWORKOTn_KK-XdQMeaBkGf5DtOdsjfD4cTnFKxgbHtIDA6AQ"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">2024 Apex GT-3</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">VIN: KL7AF4B... · VELOCITY RED</span>
+</div>
+</div>
+<div class="col-span-2">
+<span class="inline-flex items-center gap-unit px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-mono text-label-mono uppercase">
+              Sold
+            </span>
+</div>
+<div class="col-span-2">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">$112,000</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">MSRP: $108,500</span>
+</div>
+</div>
+<div class="col-span-3 flex justify-end items-center gap-stack-sm">
+<button class="p-2 hover:bg-surface-variant rounded-full transition-colors text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]">package_2</span>
+</button>
+<button class="p-2 hover:bg-surface-variant rounded-full transition-colors text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-error/10 rounded-full transition-colors text-on-surface-variant hover:text-error" onclick="toggleDeleteConfirm('v3')">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="hidden absolute inset-0 bg-surface-container-highest/95 backdrop-blur-sm flex items-center justify-between px-stack-lg z-10" id="confirm-v3">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-error">warning</span>
+<p class="font-body-md text-on-surface">Delete <span class="font-bold">Apex GT-3</span>?</p>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface" onclick="toggleDeleteConfirm('v3')">Cancel</button>
+<button class="bg-error text-on-error px-4 py-2 font-label-mono text-label-mono uppercase font-bold">Confirm Delete</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Footer Actions -->
+<div class="flex items-center justify-between py-stack-lg border-t border-outline-variant">
+<span class="font-body-md text-on-surface-variant">Showing 1-15 of 142 vehicles</span>
+<div class="flex items-center gap-stack-md">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex gap-unit">
+<button class="w-10 h-10 flex items-center justify-center font-label-mono text-label-mono bg-primary text-on-primary">1</button>
+<button class="w-10 h-10 flex items-center justify-center font-label-mono text-label-mono bg-surface-container text-on-surface hover:bg-surface-variant">2</button>
+<button class="w-10 h-10 flex items-center justify-center font-label-mono text-label-mono bg-surface-container text-on-surface hover:bg-surface-variant">3</button>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  function toggleDeleteConfirm(id) {
+    const el = document.getElementById('confirm-' + id);
+    if (el.classList.contains('hidden')) {
+      el.classList.remove('hidden');
+      el.classList.add('flex');
+    } else {
+      el.classList.add('hidden');
+      el.classList.remove('flex');
+    }
+  }
+
+  // Animation for counters
+  document.querySelectorAll('.font-headline-lg').forEach(counter => {
+    const value = parseInt(counter.innerText);
+    let current = 0;
+    const step = value / 50;
+    const interval = setInterval(() => {
+      current += step;
+      if (current >= value) {
+        counter.innerText = value;
+        clearInterval(interval);
+      } else {
+        counter.innerText = Math.floor(current);
+      }
+    }, 20);
+  });
+</script></main></body></html>

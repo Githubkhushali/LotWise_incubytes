@@ -1,0 +1,145 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-variant":"#353435","on-secondary-fixed-variant":"#43474b","on-primary":"#2f3133","on-secondary-fixed":"#181c20","on-tertiary-fixed":"#201b17","primary-fixed-dim":"#c6c6c9","on-primary-fixed":"#1a1c1e","on-tertiary":"#352f2b","tertiary-fixed-dim":"#cfc5be","tertiary-container":"#201b17","surface":"#141313","surface-dim":"#141313","on-tertiary-fixed-variant":"#4c4641","secondary-fixed":"#e0e3e8","on-secondary":"#2d3135","inverse-surface":"#e5e2e1","on-primary-container":"#838486","error-container":"#93000a","error":"#ffb4ab","surface-bright":"#3a3939","surface-tint":"#c6c6c9","on-surface-variant":"#c5c6ca","on-error":"#690005","surface-container":"#201f1f","on-tertiary-container":"#8b837d","secondary-container":"#484c50","secondary-fixed-dim":"#c3c7cc","tertiary-fixed":"#ebe0da","on-primary-fixed-variant":"#454749","primary-container":"#1a1c1e","primary-fixed":"#e2e2e5","surface-container-lowest":"#0e0e0e","on-secondary-container":"#b9bcc1","inverse-primary":"#5d5e61","inverse-on-surface":"#313030","on-error-container":"#ffdad6","tertiary":"#cfc5be","outline-variant":"#44474a","surface-container-highest":"#353435","surface-container-low":"#1c1b1b","background":"#141313","on-surface":"#e5e2e1","on-background":"#e5e2e1","secondary":"#c3c7cc","outline":"#8f9194","surface-container-high":"#2a2a2a","primary":"#c6c6c9"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter":"16px","container-margin":"24px","stack-md":"16px","unit":"4px","stack-sm":"8px","stack-lg":"32px"},"fontFamily":{"headline-xl":["Inter"],"body-lg":["Inter"],"headline-md":["Inter"],"label-mono":["JetBrains Mono"],"headline-lg":["Inter"],"headline-lg-mobile":["Inter"],"body-md":["Inter"]},"fontSize":{"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","fontWeight":"600"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-container-margin flex items-center justify-between"><div class="flex items-center gap-stack-md"><img alt="Lotwise Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRj1eCZzTaIZ1nBioBO-yrjeggrEi2tERDv76JMMZeIY_4_1js9Dl75Sh8y_MhGXgrV355W3ZapV9c0c0ac9oJKSaQ56Mfts02i7Q7idDZf7kV7LWYLPaL7PDCG6Bqe23p3L5I4wlavhiQSyY5j03ThtokIC_pAMuYEXsXej_PKDe6Px7Fd1GVXmnTGFK-utcxU0qZU7_wedX7SPEREc794vouoGIux72dvTgCgLjWnet0s5rZUPmPdg"/><span class="font-headline-md text-headline-md text-on-surface tracking-tight">Lotwise</span><div class="ml-stack-md px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-mono text-label-mono uppercase tracking-widest">Admin</div></div><nav class="hidden md:flex items-center gap-stack-lg" data-active-classes="text-primary font-semibold"><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#">Inventory</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="analytics" href="#">Analytics</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="settings" href="#">Settings</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="admin-panel" href="#">Admin Panel</a></nav><div class="flex items-center gap-stack-md"><button class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors">Log out</button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen px-container-margin py-stack-lg"><div class="flex flex-col w-full">
+<!-- Content Background Layer (Behind the Modal Simulation) -->
+<div class="relative w-full opacity-40 pointer-events-none select-none">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="h-48 bg-surface-container rounded-xl"></div>
+<div class="h-48 bg-surface-container rounded-xl"></div>
+<div class="h-48 bg-surface-container rounded-xl"></div>
+<div class="h-96 md:col-span-2 bg-surface-container rounded-xl"></div>
+<div class="h-96 bg-surface-container rounded-xl"></div>
+</div>
+</div>
+<!-- Slide-over Panel Overlay -->
+<div class="fixed inset-0 z-50 flex justify-end overflow-hidden">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-surface-container-lowest/60 backdrop-blur-sm transition-opacity" id="panel-backdrop"></div>
+<!-- Panel Content -->
+<div class="relative w-full max-w-xl bg-surface-container-low shadow-xl flex flex-col transform transition-transform duration-500 ease-in-out translate-x-0">
+<!-- Decorative Header Graphic -->
+<div class="relative h-48 w-full overflow-hidden shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A high-contrast cinematic shot of a luxury electric vehicle's front grille and headlight detail. The lighting is cold and architectural, featuring deep shadows and sharp metallic reflections against a dark, minimalist showroom background. The color palette is dominated by deep blacks, charcoal grays, and a piercing electric blue light accent." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDW3QiovDGicNfVpyvZiod4gGkQIItVCaBE4NPh5AmTyzuB2Iva2mET2GRT-swyGP4ut4Y7-mm6T_lQq2hOtzV7CJW0KnUuRbeYDohdHHNKCXxs-DrbFaYMHhP0q7eGmlvq5ZuQCHdFN1FiSNzCruwc_0zDgPDhBO3lyQe0Hx4RrfOqfnz-bL038BDkxNWpdR660up8nmCork325Z5aPFymyUJ9uAxL_AKpYd5sDqy-ZM08hM4KFne4RA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/20 to-transparent"></div>
+<button class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-surface/40 backdrop-blur-md text-on-surface hover:bg-surface/80 transition-all">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="absolute bottom-6 left-8">
+<span class="font-label-mono text-label-mono text-primary uppercase tracking-[0.2em] mb-2 block">Inventory Management</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Add New Vehicle</h1>
+</div>
+</div>
+<!-- Form Body -->
+<div class="flex-1 overflow-y-auto px-8 py-10 space-y-stack-lg custom-scrollbar">
+<!-- Grid Layout for Inputs -->
+<div class="grid grid-cols-2 gap-x-gutter gap-y-stack-lg">
+<!-- Make -->
+<div class="col-span-1 flex flex-col gap-unit">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase ml-1">Make</label>
+<div class="relative group">
+<input class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-on-surface-variant/30" placeholder="e.g. Porsche" type="text"/>
+<div class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary group-focus-within:w-full transition-all duration-300"></div>
+</div>
+</div>
+<!-- Model -->
+<div class="col-span-1 flex flex-col gap-unit">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase ml-1">Model</label>
+<div class="relative group">
+<input class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-on-surface-variant/30" placeholder="e.g. Taycan Turbo S" type="text"/>
+<div class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary group-focus-within:w-full transition-all duration-300"></div>
+</div>
+</div>
+<!-- Category -->
+<div class="col-span-2 flex flex-col gap-unit">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase ml-1">Category</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+<option value="sedan">Luxury Sedan</option>
+<option value="suv">Sport Utility Vehicle</option>
+<option value="coupe">Grand Tourer / Coupe</option>
+<option value="ev">Full Electric</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Price -->
+<div class="col-span-1 flex flex-col gap-unit">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase ml-1">MSRP ($)</label>
+<div class="relative group">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">$</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg pl-8 pr-4 py-3 text-on-surface focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Quantity Stepper with Validation Error -->
+<div class="col-span-1 flex flex-col gap-unit">
+<label class="font-label-mono text-label-mono text-error uppercase ml-1">Quantity</label>
+<div class="flex items-center bg-surface-container-highest rounded-lg overflow-hidden ring-1 ring-error/50">
+<button class="w-12 h-12 flex items-center justify-center hover:bg-surface-variant text-on-surface transition-colors" onclick="this.nextElementSibling.stepDown()">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<input class="flex-1 bg-transparent border-none text-center font-headline-md text-headline-md text-on-surface focus:ring-0 outline-none [appearance:textfield] [&amp;::-webkit-outer-spin-button]:appearance-none [&amp;::-webkit-inner-spin-button]:appearance-none" type="number" value="-1"/>
+<button class="w-12 h-12 flex items-center justify-center hover:bg-surface-variant text-on-surface transition-colors" onclick="this.previousElementSibling.stepUp()">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<p class="text-[11px] font-label-mono text-error mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">error</span>
+              Quantity must be a positive number
+            </p>
+</div>
+</div>
+<!-- Metadata Section -->
+<div class="pt-8 mt-4 border-t border-outline-variant/30">
+<div class="flex items-start gap-4 p-4 rounded-xl bg-primary/5">
+<span class="material-symbols-outlined text-primary">info</span>
+<div>
+<p class="font-headline-md text-body-md text-on-surface font-semibold mb-1">Stock Processing</p>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Adding this vehicle will automatically trigger a VIN validation and sync with the global sales database. Estimated processing time: 2-3 minutes.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="p-8 bg-surface-container border-t border-outline-variant/20 flex flex-col gap-stack-md">
+<div class="flex items-center gap-stack-md">
+<button class="flex-1 h-12 bg-primary text-on-primary font-headline-md text-body-md rounded-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span>Save Vehicle</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="flex-1 h-12 bg-surface-variant text-on-surface-variant font-headline-md text-body-md rounded-lg hover:bg-secondary-container transition-colors">
+            Cancel
+          </button>
+</div>
+<p class="text-center font-label-mono text-[10px] text-on-surface-variant/40 uppercase tracking-widest">System Ref: Lotwise-INV-001</p>
+</div>
+</div>
+</div>
+<style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+      display: block;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(198, 198, 201, 0.1);
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(198, 198, 201, 0.3);
+    }
+  </style>
+<script>
+    // Simple micro-interaction for backdrop exit
+    const backdrop = document.getElementById('panel-backdrop');
+    backdrop.addEventListener('click', () => {
+      const panel = backdrop.nextElementSibling;
+      panel.style.transform = 'translateX(100%)';
+      backdrop.style.opacity = '0';
+      setTimeout(() => {
+        // In a real app, you'd trigger a state change or remove from DOM
+        console.log('Panel closed');
+      }, 500);
+    });
+  </script>
+</div></main></body></html>

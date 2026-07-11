@@ -1,0 +1,223 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{"colors":{"inverse-on-surface":"#eaf1ff","inverse-surface":"#213145","on-tertiary-container":"#522900","on-primary-fixed-variant":"#004a77","on-secondary-container":"#656464","inverse-primary":"#98cbff","on-tertiary":"#ffffff","on-secondary":"#ffffff","tertiary-fixed":"#ffdcc3","tertiary":"#904d00","on-primary":"#ffffff","surface-variant":"#d3e4fe","on-secondary-fixed":"#1c1b1b","surface-container":"#e5eeff","secondary":"#5f5e5e","primary-fixed":"#cfe5ff","secondary-fixed":"#e5e2e1","on-error":"#ffffff","on-tertiary-fixed":"#2f1500","surface-container-low":"#eff4ff","primary-container":"#00a3ff","error-container":"#ffdad6","outline":"#6f7883","on-background":"#0b1c30","error":"#ba1a1a","tertiary-fixed-dim":"#ffb77d","surface-container-highest":"#d3e4fe","on-tertiary-fixed-variant":"#6e3900","primary":"#00629d","surface-container-high":"#dce9ff","outline-variant":"#bec7d4","on-error-container":"#93000a","background":"#f8f9ff","surface-tint":"#00629d","surface":"#f8f9ff","secondary-container":"#e5e2e1","tertiary-container":"#eb8104","surface-dim":"#cbdbf5","on-surface-variant":"#3f4852","primary-fixed-dim":"#98cbff","on-primary-fixed":"#001d33","secondary-fixed-dim":"#c8c6c5","on-primary-container":"#00375a","surface-container-lowest":"#ffffff","on-surface":"#0b1c30","on-secondary-fixed-variant":"#474646","surface-bright":"#f8f9ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"xs":"4px","md":"24px","sm":"12px","xl":"80px","gutter":"24px","container-max":"1280px","base":"8px","lg":"48px"},"fontFamily":{"display-lg":["Archivo Narrow"],"headline-lg":["Archivo Narrow"],"display-sm":["Archivo Narrow"],"headline-lg-mobile":["Archivo Narrow"],"label-md":["Inter"],"caption":["Inter"],"headline-md":["Archivo Narrow"],"body-md":["Inter"],"body-lg":["Inter"]},"fontSize":{"display-lg":["64px",{"lineHeight":"1.1","letterSpacing":"-0.04em","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"600"}],"display-sm":["48px",{"lineHeight":"1.1","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-lg-mobile":["28px",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["14px",{"lineHeight":"1.2","letterSpacing":"0.02em","fontWeight":"600"}],"caption":["12px",{"lineHeight":"1.4","letterSpacing":"0","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"1.3","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"1.5","letterSpacing":"0","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"1.6","letterSpacing":"0","fontWeight":"400"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-background"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant"><div class="h-20 w-full px-gutter flex items-center justify-between max-w-container-max mx-auto"><div class="flex items-center gap-sm"><img alt="Lotwise automotive inventory management logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLtIM3qxM7UOH2e-Ka32Pe4w3Bgi_ILCR4VZLxj7VfPtcFxOEMYjys8W6SksdM89ipWgqxM5mlIzdB3bJnWuW9DTD0lz-Yc_wxYUpN6J3zhZlIXicnYZAGQCaG_5lIpsm0r-oOcGR467_TkDXkLGTy6V7A2FPF8WM48Oo9867p6E1CS5tWN6QSHAY9Ov0uQzWn1XnY67IB2AEJHaQX0rrkHpbV4yuKbENjrIuib9sr8QzWOc_m4IqXivJQ92"/><span class="font-headline-md text-headline-md text-on-surface tracking-tight">Lotwise</span></div><nav class="hidden md:flex items-center gap-lg" data-active-classes="text-primary font-semibold"><a aria-current="page" class="transition-colors text-primary font-semibold" data-path="inventory" href="#">Inventory</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="showroom" href="#">Showroom</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="admin-panel" href="#">Admin Panel</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-md"><button class="flex items-center justify-center p-xs text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">search</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Hero Section -->
+<section class="relative w-full h-[819px] flex flex-col justify-end overflow-hidden">
+<!-- Background Image with Scrim -->
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full transform scale-105 transition-transform duration-[10000ms] ease-linear hover:scale-100" data-alt="A cinematic 3/4 angle shot of a sleek, aerodynamic electric supercar in a high-tech minimalist garage. The car is finished in a deep metallic charcoal with electric blue LED accents along the chassis. The lighting is dramatic, with cool rim lights and warm ambient floor glows, creating a sense of immense speed and technical precision. Professional automotive photography, 8k resolution, hyper-realistic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDj7UrBV2hCwqYHuiAGDpBgaGP8mdooRDGQhfoaqOPIcUixQeNE1dtPUQDNM6OdzU3tdkTGDhfg8O7P3JF7DhwgUyrWO0HdWTB1mthvwYp3nurqJXTz3zs68lKVH47k1R_6QNUg9esjL3171hH9CvYxSF7zYdu0LXFxc_0ty9B1sq9JBlX9zN7fsCSiXJ72ggBgXMRyNzK_pQ0lmP0E2Co0ZdmoqU5aPXJwCQrXyH2E8hllefuucTM3JA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-on-background/40 to-transparent"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 max-w-container-max mx-auto px-gutter w-full pb-32">
+<div class="flex flex-col gap-sm max-w-2xl">
+<div class="flex items-center gap-xs text-primary">
+<span class="w-12 h-[2px] bg-primary"></span>
+<span class="font-label-md text-label-md uppercase tracking-widest">Performance redefined</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-white drop-shadow-2xl">
+                    THE FUTURE OF<br/>ENGINEERING
+                </h1>
+<p class="font-body-lg text-body-lg text-white/80 max-w-md">
+                    Experience the pinnacle of electric propulsion. Precision crafted for those who demand absolute control.
+                </p>
+</div>
+</div>
+<!-- Vertical Decorative Text -->
+<div class="absolute right-gutter bottom-32 hidden lg:block">
+<span class="font-label-md text-label-md text-white/30 [writing-mode:vertical-rl] uppercase tracking-[0.5em] select-none">
+                Lotwise // Performance Series 2024
+            </span>
+</div>
+</section>
+<!-- Floating Search Bar -->
+<div class="relative z-30 -mt-10 px-gutter max-w-container-max mx-auto w-full">
+<div class="bg-surface-container-lowest shadow-xl rounded-xl p-4 flex flex-col md:flex-row items-center gap-md border border-outline-variant/30 backdrop-blur-xl">
+<div class="flex-1 w-full relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-low rounded-lg font-body-md text-on-surface outline-none focus:ring-2 focus:ring-primary/20 transition-all border border-transparent focus:border-primary" placeholder="Search by model, year, or trim..." type="text"/>
+</div>
+<div class="flex items-center gap-sm w-full md:w-auto">
+<button class="flex-1 md:flex-none h-14 px-8 rounded-lg bg-surface-container-high font-label-md text-on-surface-variant hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+                    Filters
+                </button>
+<button class="flex-1 md:flex-none h-14 px-10 rounded-full bg-primary text-on-primary font-label-md hover:shadow-lg hover:shadow-primary/30 transition-all flex items-center justify-center gap-2">
+                    Explore Inventory
+                </button>
+</div>
+</div>
+</div>
+<!-- Inventory Grid -->
+<section class="max-w-container-max mx-auto px-gutter py-xl w-full">
+<div class="flex flex-col gap-lg">
+<div class="flex items-end justify-between">
+<div class="flex flex-col gap-xs">
+<span class="font-label-md text-label-md text-primary uppercase">Trending Now</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Available Showroom</h2>
+</div>
+<div class="flex gap-sm">
+<button class="p-base rounded-full bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors" id="prevBtn">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="p-base rounded-full bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors" id="nextBtn">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Staggered Grid Container -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-xl">
+<!-- Card 1 (Standard) -->
+<div class="group relative flex flex-col bg-surface-container-lowest rounded-xl shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden">
+<div class="relative h-64 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Side profile of a Vanguard GS-8 electric supercar in alpine white. The car sits low to the ground with massive carbon ceramic brakes visible behind intricate black alloy wheels. The background is a stark, clean architectural space with soft natural light." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD3Deiyusm56oOH2lPdi8TJxRn_eGbFuPvxUwH2CMxFMgtjDseZnca-iFaNWrF3j4TQiiIDGe8RZUJtSrtXelgOV-EuYH1eMzWNN6cSg3wkXQiBGhnkyLv1P2qLfLsVbxqyfMb67_Yhw0rob8nuftxpbaAmwoCzsOGItAlsxewoBkl4s7GXo2bSBw1IM4B7iL4qsT-L_tOFqPt9botWpgyUjJkOT95pskPh9AdBfQxPBHWph56jkneFNw')"></div>
+<div class="absolute top-4 left-4">
+<span class="px-sm py-1 bg-primary/90 backdrop-blur-md text-on-primary font-label-md text-caption rounded-full">New Arrival</span>
+</div>
+</div>
+<div class="p-md flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Vanguard GS-8</h3>
+<p class="font-body-md text-on-surface-variant">Dual Motor AWD • Performance Pack</p>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="font-caption text-caption text-on-secondary-container">12 Units</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-display-sm text-[28px] text-primary leading-none">$89,400</span>
+<button class="relative overflow-hidden group/btn px-6 py-3 rounded-full bg-on-background text-white font-label-md transition-all hover:pr-10">
+<span class="relative z-10">Reserve Now</span>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover/btn:opacity-100 transition-all text-[20px]">arrow_forward</span>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 (Slight Offset Down) -->
+<div class="group relative flex flex-col bg-surface-container-lowest rounded-xl shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden lg:mt-12">
+<div class="relative h-64 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Front view of a midnight blue electric SUV with sharp LED light bars. The car is parked on a wet urban street at dusk with city lights reflecting on the polished hood. High-performance aesthetic, technical precision." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA1TpZpTKmOFxI8R5HryI66LVP68fk6rCebG9zd4XEElS63gMcsxvlZJqFvXTrp09fJKT4SgDwCWrOgM0V87DeGTHBQcwQlcyqqC2Yu6kSlSxXAmXrNYOnVpxhnoTn6JRfEQxFIVE0bXVBSqD_RPpfqXyxxDc4-jCfIccQtzjkeoLoHWKo22zNSI2v5okDAGWhKXWP4c4aHQIwr2OAOyzvAVWduL3dYwCKMf_C0LR2BduiOlyf9ZG2ROw')"></div>
+<div class="absolute top-4 left-4">
+<span class="px-sm py-1 bg-tertiary-container text-on-tertiary-container font-label-md text-caption rounded-full">Limited Edition</span>
+</div>
+</div>
+<div class="p-md flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Vanguard GS-8</h3>
+<p class="font-body-md text-on-surface-variant">Signature Series • Satin Finish</p>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="font-caption text-caption text-on-secondary-container">3 Units</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-display-sm text-[28px] text-primary leading-none">$104,200</span>
+<button class="relative overflow-hidden group/btn px-6 py-3 rounded-full bg-on-background text-white font-label-md transition-all hover:pr-10">
+<span class="relative z-10">Reserve Now</span>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover/btn:opacity-100 transition-all text-[20px]">arrow_forward</span>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 (Standard) -->
+<div class="group relative flex flex-col bg-surface-container-lowest rounded-xl shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden">
+<div class="relative h-64 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Rear view of a silver electric sports sedan showing the integrated rear spoiler and light bar. The car is on a mountain pass during golden hour. Soft warm light hitting the curves of the vehicle. Editorial automotive style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDaVIrmxJD7_qrDVRZLmOdy6EPct0OajreWgkYUAAF071f_zvNxSTr1gdoxC6t6uz6o2C3lOQhylADcZ2ZhukoqyUtVP9TlIYiM1RYmEEUDYeutQJ-iS_WN73ldijvgh0NIOyleQq3AirNaj_u1yzeDAjin6gcPYo_u5A6oEq7mWXpqhjgJkdNgoHxRJIGPNqP6JgqB2H_R8dIPnhrQHRxdIyCjRYEytEiN4zHqAt2vvQdhN6R4rtczA')"></div>
+</div>
+<div class="p-md flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Vanguard GS-8</h3>
+<p class="font-body-md text-on-surface-variant">Long Range RWD • Tech Pack</p>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+<span class="font-caption text-caption text-on-secondary-container">Last One</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-display-sm text-[28px] text-primary leading-none">$76,900</span>
+<button class="relative overflow-hidden group/btn px-6 py-3 rounded-full bg-on-background text-white font-label-md transition-all hover:pr-10">
+<span class="relative z-10">Reserve Now</span>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover/btn:opacity-100 transition-all text-[20px]">arrow_forward</span>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 (Standard) -->
+<div class="group relative flex flex-col bg-surface-container-lowest rounded-xl shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden -mt-12 lg:mt-0">
+<div class="relative h-64 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Interior dash view of a luxury electric vehicle. Minimalist dashboard with a massive curved glass display. Premium leather and real wood trim. Cinematic detail, daylight." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAPPslbT4d8s64-rY102iYv0Zmrd4qNlxoOIcK6pKz603metqMBgBKXlvLO-IbsT16XlvZx4VYr7AyrNVy8z736eVXYfaNOd0by_0LKQSuD55nWfTTCp6O4Ael_oAxNVv3s_BPCiHUHPCyj9EDWkQXi9CGkulazupgLbPu3rR4b8235rolg6IcWcfCxZNfYuW_RUPmC-Nh3ntyvUhuWR5PDAfQ8gPmj8F-IaBiRRVhiUkxmUzKvU0a0mA')"></div>
+</div>
+<div class="p-md flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Vanguard GS-8</h3>
+<p class="font-body-md text-on-surface-variant">Executive Interior • Sky Roof</p>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="font-caption text-caption text-on-secondary-container">8 Units</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-display-sm text-[28px] text-primary leading-none">$92,000</span>
+<button class="relative overflow-hidden group/btn px-6 py-3 rounded-full bg-on-background text-white font-label-md transition-all hover:pr-10">
+<span class="relative z-10">Reserve Now</span>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover/btn:opacity-100 transition-all text-[20px]">arrow_forward</span>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
+</button>
+</div>
+</div>
+</div>
+<!-- More slots could follow... -->
+</div>
+</div>
+</section>
+<!-- Decorative Bottom Divider -->
+<div class="w-full py-xl bg-surface-container-low flex items-center justify-center overflow-hidden">
+<div class="flex gap-xl animate-[scroll_30s_linear_infinite] whitespace-nowrap opacity-10">
+<span class="font-display-lg text-display-lg text-on-surface italic">VANGUARD SERIES</span>
+<span class="font-display-lg text-display-lg text-on-surface italic">ELECTRIC PERFORMANCE</span>
+<span class="font-display-lg text-display-lg text-on-surface italic">PRECISION ENGINEERING</span>
+<span class="font-display-lg text-display-lg text-on-surface italic">VANGUARD SERIES</span>
+<span class="font-display-lg text-display-lg text-on-surface italic">ELECTRIC PERFORMANCE</span>
+</div>
+</div>
+<script>
+        // Micro-interaction for staggered reveal
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.group');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            // Smooth parallax on hero
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const heroBg = document.querySelector('[data-alt*="aerodynamic electric supercar"]');
+                if (heroBg) {
+                    heroBg.style.transform = `translateY(${scrolled * 0.4}px) scale(${1.05 + scrolled * 0.0001})`;
+                }
+            });
+        });
+    </script>
+<style>
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant py-lg"><div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-md"><div class="font-label-md text-label-md text-on-surface-variant">© 2024 Lotwise. Built for performance.</div><nav class="flex gap-md"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="privacy" href="#">Privacy</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="terms" href="#">Terms</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="press" href="#">Press</a></nav></div></footer></body></html>
