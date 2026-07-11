@@ -116,6 +116,17 @@ export const Dashboard: React.FC = () => {
                   placeholder="Search by Make..."
                 />
               </div>
+              <div className="flex flex-wrap gap-stack-sm">
+                <button onClick={() => fetchVehicles()} className="px-4 py-1.5 rounded-full bg-primary text-on-primary font-label-mono text-label-mono uppercase tracking-wider hover:brightness-110 transition-all">All Stock</button>
+                <button onClick={() => fetchVehicles({ category: 'suv' })} className="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono uppercase tracking-wider hover:bg-surface-variant transition-all">SUV</button>
+                <button onClick={() => fetchVehicles({ category: 'sedan' })} className="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono uppercase tracking-wider hover:bg-surface-variant transition-all">Sedan</button>
+                <button onClick={() => fetchVehicles({ category: 'performance' })} className="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono uppercase tracking-wider hover:bg-surface-variant transition-all">Performance</button>
+                <div className="h-6 w-px bg-outline-variant mx-2 hidden md:block"></div>
+                <button className="flex items-center gap-unit px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono uppercase tracking-wider hover:bg-surface-variant transition-all">
+                  <span className="material-symbols-outlined text-[16px]">tune</span>
+                  Filters
+                </button>
+              </div>
             </div>
           </section>
 

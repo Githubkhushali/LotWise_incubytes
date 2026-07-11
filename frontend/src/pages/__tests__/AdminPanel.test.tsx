@@ -54,7 +54,7 @@ describe('AdminPanel Component', () => {
     vi.mocked(vehicleApi.getVehicles).mockResolvedValueOnce(mockVehicles);
     renderWithContext(true);
 
-    expect(screen.getByText('Admin Panel - Inventory Management')).toBeInTheDocument();
+    expect(screen.getByText('Inventory Control')).toBeInTheDocument();
     
     await waitFor(() => {
       expect(screen.getByText('Tesla Model S')).toBeInTheDocument();
@@ -68,15 +68,19 @@ describe('AdminPanel Component', () => {
 
     renderWithContext(true);
 
+    // Click "Add Vehicle" to open modal
+    const openModalBtn = screen.getByText('Add Vehicle');
+    fireEvent.click(openModalBtn);
+
     const makeInput = screen.getByLabelText('Make');
     const modelInput = screen.getByLabelText('Model');
+    // Using placeholder to find price, or role
     const priceInput = screen.getByLabelText('Price');
     const qtyInput = screen.getByLabelText('Quantity');
-    const submitBtn = screen.getByRole('button', { name: 'Add' });
+    const submitBtn = screen.getByText('Add');
 
     await userEvent.type(makeInput, 'BMW');
     await userEvent.type(modelInput, 'M3');
-    // For numeric inputs, we clear then type to ensure it overrides the '0'
     await userEvent.clear(priceInput);
     await userEvent.type(priceInput, '75000');
     await userEvent.clear(qtyInput);
@@ -111,8 +115,13 @@ describe('AdminPanel Component', () => {
       expect(screen.getByText('Tesla Model S')).toBeInTheDocument();
     });
 
-    const deleteBtn = screen.getByRole('button', { name: 'Delete' });
+    // Find the delete button (has title="Delete")
+    const deleteBtn = screen.getByTitle('Delete');
     fireEvent.click(deleteBtn);
+
+    // Find the confirm delete button in the overlay
+    const confirmDeleteBtn = screen.getByText('Confirm Delete');
+    fireEvent.click(confirmDeleteBtn);
 
     await waitFor(() => {
       expect(vehicleApi.deleteVehicle).toHaveBeenCalledWith('1');

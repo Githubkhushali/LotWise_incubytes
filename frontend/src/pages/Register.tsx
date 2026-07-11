@@ -33,136 +33,128 @@ const Register: React.FC = () => {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-surface">
-      <div className="flex flex-col w-full items-center justify-center min-h-[calc(100vh-64px)]">
-        {/* Ambient Background Element */}
-        <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-[25%] -left-[10%] w-[50%] h-[50%] bg-primary/5 blur-[120px] rounded-full animate-pulse"></div>
-          <div
-            className="absolute -bottom-[20%] -right-[10%] w-[40%] h-[40%] bg-primary/5 blur-[100px] rounded-full animate-pulse"
-            style={{ animationDelay: '2s' }}
-          ></div>
-        </div>
-
-        {/* Register Container */}
-        <div className="relative w-full max-w-[440px] px-gutter">
-          {/* Brand Identity Area */}
-          <div className="flex flex-col items-center mb-stack-lg space-y-unit">
-            <div className="w-16 h-16 bg-surface-container-highest flex items-center justify-center rounded-xl mb-stack-md shadow-xl">
-              <span
-                className="material-symbols-outlined text-[40px] text-primary"
-                style={{ fontVariationSettings: "'FILL' 1, 'wght' 200" }}
-              >
-                person_add
-              </span>
+    <main className="min-h-screen flex items-center justify-center bg-surface font-body-md text-on-surface antialiased">
+      <div className="flex flex-col w-full">
+        <div className="relative flex min-h-[calc(100vh-64px)] w-full overflow-hidden">
+          {/* Left Panel: Visual Storytelling & Branding */}
+          <div className="relative hidden lg:flex lg:w-7/12 flex-col justify-between p-stack-lg bg-surface-container-lowest overflow-hidden">
+            {/* Ambient Background Effect */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none">
+              <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-primary/20 blur-[120px] rounded-full animate-pulse"></div>
+              <div className="absolute bottom-[-5%] right-[-5%] w-[40%] h-[40%] bg-secondary/10 blur-[100px] rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
             </div>
-            <h1 className="font-headline-xl text-on-surface tracking-tight">Create Account</h1>
-            <p className="font-body-md text-on-surface-variant">Join the Lotwise ecosystem</p>
+            
+            <div className="relative z-10 flex flex-col gap-unit">
+              <div className="flex items-center gap-stack-sm mb-stack-lg">
+                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                  <span className="material-symbols-outlined text-on-primary text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>dataset</span>
+                </div>
+                <span className="font-headline-md text-on-surface tracking-tight uppercase">Lotwise</span>
+              </div>
+              <h1 className="font-headline-xl text-on-surface max-w-xl leading-none">
+                Scale your inventory <br />
+                <span className="text-primary/60 italic font-light">with precision.</span>
+              </h1>
+            </div>
+
+            <div className="relative z-10 grid grid-cols-2 gap-gutter max-w-2xl">
+              <div className="flex flex-col gap-unit">
+                <span className="font-label-mono text-primary uppercase text-[10px]">Real-time Sync</span>
+                <p className="font-body-md text-on-surface-variant">Instant data distribution across 40+ high-traffic automotive marketplaces.</p>
+              </div>
+              <div className="flex flex-col gap-unit">
+                <span className="font-label-mono text-primary uppercase text-[10px]">Smart Logistics</span>
+                <p className="font-body-md text-on-surface-variant">Automated price adjustments based on regional market demand signals.</p>
+              </div>
+            </div>
+
+            {/* Hero Visual */}
+            <div className="absolute right-0 bottom-0 w-3/4 h-2/3 -mr-24 -mb-12 pointer-events-none opacity-40 select-none">
+              <div className="w-full h-full rounded-tl-[64px] bg-surface-container-high shadow-2xl transform rotate-3 flex items-center justify-center overflow-hidden">
+                <img className="w-full h-full object-cover grayscale opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcN64qzJxul12g8eyr7Rj6yb2dGhWR5a6uIGzlXAA2P-3idsxXlybnUW8ZUKG4AO4lA2hu03lyyrRArFddAxOdkASgQQeNpdT6sdgtcJMgLivga-nhKP3zM1f00fTAiD9ZxuTAMTF7eX7pSP4Cki_GmhQsVDCobpkzqY3Dh23lYk9_k3FVsHkugzjigUA7ZrLhV-pW_T2NPZUXxzcJ508OCRPLVzRXoCe9h0w4KdAWK8t23XsXwGSMGw" alt="Hero Background" />
+              </div>
+            </div>
           </div>
 
-          {/* Main Card */}
-          <div className="bg-surface-container rounded-xl shadow-2xl p-stack-lg border border-outline-variant/10 transition-transform duration-100"
-               style={{ transformStyle: 'preserve-3d' }}>
-            
-            {apiError && (
-              <div className="mb-stack-md p-4 rounded-lg bg-error-container text-on-error-container font-body-md border border-error/20 flex items-start gap-3">
-                <span className="material-symbols-outlined text-error shrink-0">error</span>
-                <span>{apiError}</span>
+          {/* Right Panel: Registration Form */}
+          <div className="flex-1 flex flex-col justify-center items-center px-container-margin py-stack-lg bg-surface relative z-20">
+            <div className="w-full max-w-[400px] flex flex-col">
+              <div className="mb-stack-lg space-y-unit">
+                <span className="font-label-mono text-primary uppercase text-[12px] tracking-widest">Get Started</span>
+                <h2 className="font-headline-lg text-on-surface">Create your account</h2>
+                <p className="font-body-md text-on-surface-variant">Join the network of top-performing dealerships.</p>
               </div>
-            )}
 
-            <form className="space-y-stack-lg" onSubmit={handleSubmit(onSubmit)} noValidate>
-              {/* Input Group: Email */}
-              <div className="space-y-unit">
-                <label className="font-label-mono text-on-surface-variant uppercase tracking-widest ml-1" htmlFor="email">
-                  Work Email
-                </label>
-                <div className="relative group">
-                  <span className={`material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 transition-colors ${errors.email ? 'text-error' : 'text-on-surface-variant group-focus-within:text-primary'}`}>
-                    mail
-                  </span>
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="name@dealership.com"
-                    className={`w-full bg-surface-container-low border rounded-lg py-4 pl-12 pr-4 font-body-md text-on-surface focus:outline-none focus:ring-1 transition-all placeholder:text-on-surface-variant/40 ${
-                      errors.email
-                        ? 'border-error focus:border-error focus:ring-error/20'
-                        : 'border-outline-variant/30 focus:border-primary focus:ring-primary/20'
-                    }`}
-                    {...register('email')}
-                  />
+              {apiError && (
+                <div className="mb-stack-md p-4 rounded-lg bg-error-container text-on-error-container font-body-md border border-error/20 flex items-start gap-3">
+                  <span className="material-symbols-outlined text-error shrink-0">error</span>
+                  <span>{apiError}</span>
                 </div>
-                {errors.email && (
-                  <p className="font-label-mono text-error ml-1 mt-1">{errors.email.message}</p>
-                )}
-              </div>
+              )}
 
-              {/* Input Group: Password */}
-              <div className="space-y-unit">
-                <label className="font-label-mono text-on-surface-variant uppercase tracking-widest ml-1" htmlFor="password">
-                  Create Password
-                </label>
-                <div className="relative group">
-                  <span className={`material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 transition-colors ${errors.password ? 'text-error' : 'text-on-surface-variant group-focus-within:text-primary'}`}>
-                    lock
-                  </span>
-                  <input
-                    id="password"
-                    type="password"
-                    placeholder="••••••••"
-                    className={`w-full bg-surface-container-low border rounded-lg py-4 pl-12 pr-4 font-body-md text-on-surface focus:outline-none focus:ring-1 transition-all placeholder:text-on-surface-variant/40 ${
-                      errors.password
-                        ? 'border-error focus:border-error focus:ring-error/20'
-                        : 'border-outline-variant/30 focus:border-primary focus:ring-primary/20'
-                    }`}
-                    {...register('password')}
-                  />
+              <form className="flex flex-col gap-stack-md" onSubmit={handleSubmit(onSubmit)} noValidate>
+                {/* Email Input */}
+                <div className="flex flex-col gap-unit">
+                  <label className="font-label-mono text-on-surface-variant uppercase text-[11px] ml-1" htmlFor="email">Work Email</label>
+                  <div className="relative group">
+                    <span className={`material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[18px] transition-colors ${errors.email ? 'text-error' : 'text-on-surface-variant group-focus-within:text-primary'}`}>mail</span>
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="name@dealership.com"
+                      className={`w-full h-14 pl-12 pr-4 bg-surface-container-high text-on-surface rounded-lg outline-none focus:ring-1 transition-all font-body-md placeholder:text-on-surface-variant/40 ${errors.email ? 'ring-1 ring-error' : 'focus:ring-primary'}`}
+                      {...register('email')}
+                    />
+                  </div>
+                  {errors.email && <p className="font-label-mono text-[10px] text-error ml-1">{errors.email.message}</p>}
                 </div>
-                {errors.password && (
-                  <p className="font-label-mono text-error ml-1 mt-1">{errors.password.message}</p>
-                )}
+
+                {/* Password Input */}
+                <div className="flex flex-col gap-unit">
+                  <label className="font-label-mono text-on-surface-variant uppercase text-[11px] ml-1" htmlFor="password">Create Password</label>
+                  <div className="relative group">
+                    <span className={`material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[18px] transition-colors ${errors.password ? 'text-error' : 'text-on-surface-variant group-focus-within:text-primary'}`}>lock</span>
+                    <input
+                      id="password"
+                      type="password"
+                      placeholder="••••••••"
+                      className={`w-full h-14 pl-12 pr-12 bg-surface-container-high text-on-surface rounded-lg outline-none focus:ring-1 transition-all font-body-md placeholder:text-on-surface-variant/40 ${errors.password ? 'ring-1 ring-error' : 'focus:ring-primary'}`}
+                      {...register('password')}
+                    />
+                  </div>
+                  {errors.password && <p className="font-label-mono text-[10px] text-error ml-1">{errors.password.message}</p>}
+                </div>
+
+                <div className="flex items-start gap-stack-sm py-unit">
+                  <input id="terms" type="checkbox" className="mt-1 accent-primary" />
+                  <label htmlFor="terms" className="font-body-md text-on-surface-variant text-[13px]">
+                    I agree to the <a href="#" className="text-on-surface underline hover:text-primary">Terms of Service</a> and <a href="#" className="text-on-surface underline hover:text-primary">Privacy Policy</a>.
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full h-14 bg-primary text-on-primary font-headline-md rounded-lg flex items-center justify-center gap-stack-sm hover:opacity-90 active:scale-[0.98] transition-all mt-stack-sm shadow-xl shadow-primary/10 disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Processing...' : 'Register'}
+                  <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                </button>
+              </form>
+
+              {/* Divider */}
+              <div className="relative my-stack-lg flex items-center">
+                <div className="flex-grow h-[1px] bg-outline-variant/30"></div>
+                <span className="px-stack-md font-label-mono text-on-surface-variant text-[10px] uppercase">Trusted by Global Brands</span>
+                <div className="flex-grow h-[1px] bg-outline-variant/30"></div>
               </div>
 
-              {/* Primary Action */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="group relative w-full bg-primary text-on-primary font-headline-md py-4 rounded-lg overflow-hidden transition-all hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-primary/20 disabled:opacity-70 disabled:hover:scale-100 disabled:cursor-not-allowed"
-              >
-                {!isSubmitting && (
-                  <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                )}
-                
-                <span className="relative flex items-center justify-center gap-2">
-                  {isSubmitting ? (
-                    <>
-                      <svg className="animate-spin h-5 w-5 text-on-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Creating account...
-                    </>
-                  ) : (
-                    <>
-                      Register
-                      <span className="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">
-                        arrow_forward
-                      </span>
-                    </>
-                  )}
-                </span>
-              </button>
-            </form>
-
-            {/* Secondary Navigation */}
-            <div className="mt-stack-lg pt-stack-lg border-t border-outline-variant/10 text-center">
-              <p className="font-body-md text-on-surface-variant">
-                Already have an account?{' '}
-                <Link to="/login" className="text-primary font-semibold hover:underline transition-colors">
-                  Log in to Lotwise
-                </Link>
-              </p>
+              <div className="text-center">
+                <p className="font-body-md text-on-surface-variant">
+                  Already have an account?{' '}
+                  <Link to="/login" className="text-primary font-semibold hover:underline ml-1">Log in</Link>
+                </p>
+              </div>
             </div>
           </div>
         </div>
