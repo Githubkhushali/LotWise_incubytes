@@ -19,4 +19,20 @@ export class AuthController {
       next(err);
     }
   }
+
+  /**
+   * POST /api/auth/login
+   */
+  static async login(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const result = await AuthService.login(req.body);
+      res.status(200).json(result);
+    } catch (err) {
+      next(err);
+    }
+  }
 }
