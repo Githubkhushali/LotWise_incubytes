@@ -2,6 +2,9 @@
 
 A full-stack car dealership inventory management system built as a take-home technical assessment. The system allows authenticated users to browse and purchase vehicles, and gives admin users full control over inventory.
 
+**Live Deployment:** [http://54.226.63.77:5000](http://54.226.63.77:5000)
+*(Note: The application is deployed via AWS EC2. It might not have initial content, but data will be populated shortly).*
+
 ---
 
 ## Stack
