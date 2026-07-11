@@ -73,16 +73,15 @@ export const Dashboard: React.FC = () => {
     fetchVehicles();
   };
 
-  const images = [
-    "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1616423640778-28d1b53229bd?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1503376264072-a083377755be?q=80&w=800&auto=format&fit=crop"
-  ];
-
-  const getImg = (index: number) => images[index % images.length];
+  const getPlaceholderImage = (category: string) => {
+    switch (category.toLowerCase()) {
+      case 'suv': return 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&q=80&w=800';
+      case 'sedan': return 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=800';
+      case 'performance':
+      case 'coupe': return 'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&q=80&w=800';
+      default: return 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&q=80&w=800';
+    }
+  };
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-rose-500/30">
@@ -142,13 +141,17 @@ export const Dashboard: React.FC = () => {
                       className="bg-slate-950 border border-slate-800 rounded-lg text-white text-sm font-medium placeholder:text-slate-600 px-4 py-3 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors"
                       placeholder="MODEL"
                     />
-                    <input
-                      type="text"
+                    <select
                       value={searchCategory}
                       onChange={(e) => setSearchCategory(e.target.value)}
-                      className="bg-slate-950 border border-slate-800 rounded-lg text-white text-sm font-medium placeholder:text-slate-600 px-4 py-3 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors"
-                      placeholder="CATEGORY"
-                    />
+                      className="bg-slate-950 border border-slate-800 rounded-lg text-white text-sm font-medium px-4 py-3 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors appearance-none"
+                    >
+                      <option value="">ALL CATEGORIES</option>
+                      <option value="sedan">Sedan</option>
+                      <option value="suv">SUV</option>
+                      <option value="coupe">Coupe</option>
+                      <option value="performance">Performance</option>
+                    </select>
                     <input
                       type="number"
                       value={searchPriceMin}
@@ -216,13 +219,13 @@ export const Dashboard: React.FC = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {vehicles.map((v, idx) => {
+              {vehicles.map((v) => {
                 const isOutOfStock = v.quantity <= 0;
                 return (
                   <div key={v.id} className="group bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-rose-500/50 transition-colors flex flex-col">
                     <div className="h-64 relative overflow-hidden bg-slate-950">
                       <img 
-                        src={getImg(idx)} 
+                        src={getPlaceholderImage(v.category)} 
                         className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ${isOutOfStock ? 'opacity-40 grayscale-[50%]' : 'opacity-90 group-hover:opacity-100'}`} 
                         alt={v.make} 
                       />

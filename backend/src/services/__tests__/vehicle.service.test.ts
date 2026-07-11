@@ -92,6 +92,26 @@ describe('VehicleService.getVehicles()', () => {
   });
 });
 
+describe('VehicleService.createVehicle()', () => {
+  beforeEach(() => jest.clearAllMocks());
+
+  it('creates and returns the new vehicle', async () => {
+    const newVehicleData = {
+      make: 'Ford',
+      model: 'Mustang',
+      category: 'Coupe',
+      price: 45000,
+      quantity: 2,
+    };
+    mockVehicle.create.mockResolvedValue({ id: 'v-2', ...newVehicleData } as any);
+
+    const result = await VehicleService.createVehicle(newVehicleData);
+    expect(result.id).toBe('v-2');
+    expect(result.make).toBe('Ford');
+    expect(mockVehicle.create).toHaveBeenCalledWith({ data: newVehicleData });
+  });
+});
+
 describe('VehicleService.getVehicleById()', () => {
   beforeEach(() => jest.clearAllMocks());
 
