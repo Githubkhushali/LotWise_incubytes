@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import authRoutes from './routes/auth.routes';
+import { errorHandler } from './middleware/errorHandler';
 
 const app = express();
 
@@ -19,5 +21,12 @@ app.use(express.json());
 app.get('/health', (_req, res) => {
   res.status(200).json({ status: 'ok' });
 });
+
+// API routes
+app.use('/api/auth', authRoutes);
+
+// Centralized error handler — MUST be registered after all routes.
+// Express identifies it by the 4-parameter (err, req, res, next) signature.
+app.use(errorHandler);
 
 export default app;
